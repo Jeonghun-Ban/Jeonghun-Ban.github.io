@@ -1,0 +1,731 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeonghun-Ban – Study</title><link>http://Jeonghun-Ban.github.io/til/python/study/</link><description>Recent content in Study on Jeonghun-Ban</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://Jeonghun-Ban.github.io/til/python/study/index.xml" rel="self" type="application/rss+xml"/><item><title>Til: Introduction</title><link>http://Jeonghun-Ban.github.io/til/python/study/introduction/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/python/study/introduction/</guid><description>
+&lt;p>파이썬이 설치되어 있지 않다면 우선 &lt;a href="https://www.python.org/">이 링크&lt;/a>에 접속하여 설치한다.&lt;/p>
+&lt;blockquote>
+&lt;p>맥이나 리눅스의 경우 Python2는 기본적으로 설치되어 있고,
+우분투와 같은 경우에는 Python3 또한 설치되어 있다.&lt;/p>
+&lt;/blockquote>
+&lt;p>파이썬을 간단히 살펴보기 위해서 이 교안에서는 프롬프트를 사용할 것이다.
+shell(cmd나 bash)을 실행하여 &lt;code>python&lt;/code> 명령어로 파이썬 프롬프트를 실행할 수 있다.&lt;/p>
+&lt;blockquote>
+&lt;p>맥이나 리눅스는 &lt;code>python3&lt;/code> 명령어를 사용해야 한다.&lt;/p>
+&lt;/blockquote>
+&lt;p>윈도우의 경우 파이썬 shell, 맥의 경우 IDLE를 사용하여도 된다.&lt;/p>
+&lt;p>아래와 같이 실행이 되면, 파이썬을 사용할 준비가 된 것이다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#960050;background-color:#1e0010">$&lt;/span> python3
+Python &lt;span style="color:#ae81ff">3.8&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span> (v3&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#ae81ff">8.0&lt;/span>:fa919fdf25, Oct &lt;span style="color:#ae81ff">14&lt;/span> &lt;span style="color:#ae81ff">2019&lt;/span>, &lt;span style="color:#ae81ff">10&lt;/span>:&lt;span style="color:#ae81ff">23&lt;/span>:&lt;span style="color:#ae81ff">27&lt;/span>)
+[Clang &lt;span style="color:#ae81ff">6.0&lt;/span> (clang&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">600.0&lt;/span>&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#ae81ff">57&lt;/span>)] on darwin
+Type &lt;span style="color:#e6db74">&amp;#34;help&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;copyright&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;credits&amp;#34;&lt;/span> &lt;span style="color:#f92672">or&lt;/span> &lt;span style="color:#e6db74">&amp;#34;license&amp;#34;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> more information&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="기본문법">기본문법&lt;/h2>
+&lt;h3 id="들여쓰기">들여쓰기&lt;/h3>
+&lt;p>다른 프로그래밍 언어와 달리 파이썬에서 들여쓰기는 매우 중요하다. 들여쓰기를 잘못 사용하면 코드 문법상 오류가 날 수 있으므로 주의해야 한다!&lt;/p>
+&lt;h3 id="주석">주석&lt;/h3>
+&lt;p>파이썬에서는 &lt;code>#&lt;/code>을 사용해서 주석처리를 할 수 있다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Hello World&amp;#39;&lt;/span>) &lt;span style="color:#75715e">#문자열을 출력하는 함수&lt;/span>
+Hello World
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="세미콜론">세미콜론&lt;/h3>
+&lt;p>파이썬은 기본적으로 세미콜론을 입력하지 않는 언어이다. C언어나 자바가 문장의 구분을 세미콜론을 사용하는 반면 파이썬을 문장 구분을 들여쓰기와 같은 공백으로 인식하기 때문이다.&lt;/p>
+&lt;blockquote>
+&lt;p>세미콜론을 사용해도 에러가 나지는 않지만 굳이 사용할 필요가 없다.&lt;/p>
+&lt;/blockquote></description></item><item><title>Til: Data Type</title><link>http://Jeonghun-Ban.github.io/til/python/study/data-type/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/python/study/data-type/</guid><description>
+&lt;p>프로그래밍을 하는데 있어서 자료형은 매우 중요하다. 어떤 형태의 데이터를 활용할 것인가에 따라서 사용해야 하는 자료형이 달라지기 때문이다. 프로그래밍을 본격적으로 시작하기에 앞서 파이썬에 어떤 자료형이 존재하는지를 숙지하도록 하자.&lt;/p>
+&lt;h2 id="숫자형">숫자형&lt;/h2>
+&lt;h3 id="종류">종류&lt;/h3>
+&lt;h4 id="int">int&lt;/h4>
+&lt;p>정수형(integer)은 음의 정수, 양의 정수, 0을 표현할 수 있다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">124&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">63&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> type(a) &lt;span style="color:#75715e"># 데이터 자료형 반환&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>&lt;span style="color:#a6e22e">int&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>여기서 a는 데이터를 담는 변수이다.&lt;/p>
+&lt;/blockquote>
+&lt;!-- raw HTML omitted -->
+&lt;p>데이터를 저장할 수 있는 공간으로 다양한 자료형들의 값을 담기 위해서 사용한다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;python&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a
+&lt;span style="color:#e6db74">&amp;#39;python&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a
+&lt;span style="color:#ae81ff">3&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;h4 id="float">float&lt;/h4>
+&lt;p>실수형(Floating-point)은 소수점이 포함된 숫자를 말한다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2.35&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> type(a)
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>&lt;span style="color:#a6e22e">float&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="complex">Complex&lt;/h4>
+&lt;p>복소수(Complex) 자료형은 두가지 방법으로 사용 가능하다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> complex(&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>)
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a
+(&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">3j&lt;/span>)
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> type(a)
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>&lt;span style="color:#a6e22e">complex&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">4j&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> type(a)
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>&lt;span style="color:#a6e22e">complex&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="operations">operations&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Operation&lt;/th>
+&lt;th>Result&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>x + y&lt;/td>
+&lt;td>x와 y의 합&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x - y&lt;/td>
+&lt;td>x와 y의 차&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x * y&lt;/td>
+&lt;td>x와 y의 곱&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x / y&lt;/td>
+&lt;td>x와 y의 몫&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x // y&lt;/td>
+&lt;td>x와 y의 몫(소수점 포함)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x % y&lt;/td>
+&lt;td>x와 y의 나머지&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-x&lt;/td>
+&lt;td>x의 부정&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>+x&lt;/td>
+&lt;td>x&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>abs(x)&lt;/td>
+&lt;td>절대값 x&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>int(x)&lt;/td>
+&lt;td>x를 정수로 변환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>float(x)&lt;/td>
+&lt;td>x를 실수로 변환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>complex(re, im)&lt;/td>
+&lt;td>re: 실수부, im: 허수부(기본값 0)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>c.conjugate()&lt;/td>
+&lt;td>복소수 c의 켤레복소수&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>divmod(x, y)&lt;/td>
+&lt;td>몫과 나머지(a//b, a%b과 동일)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pow(x, y)&lt;/td>
+&lt;td>x의 y 제곱근&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x ** y&lt;/td>
+&lt;td>x의 y제곱&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="문자열-자료형">문자열 자료형&lt;/h2>
+&lt;p>문자열(String)은 문자의 집합으로 이루어진 것으로 작은 따옴표&lt;code>(' ')&lt;/code>나 큰 따옴표&lt;code>(&amp;quot; &amp;quot;)&lt;/code> 사이에 작성한다.&lt;/p>
+&lt;h3 id="표현-방식">표현 방식&lt;/h3>
+&lt;p>파이썬에서는 다른 언어와 다르게 문자열을 표현하는 방법으로 4가지를 제공한다.&lt;/p>
+&lt;ul>
+&lt;li>작은 따옴표(' &amp;lsquo;)&lt;/li>
+&lt;li>큰 따옴표(&amp;quot; &amp;ldquo;)&lt;/li>
+&lt;li>작은 따옴표 3개(&amp;rsquo;'' &amp;lsquo;'')&lt;/li>
+&lt;li>큰 따옴표 3개(&amp;rdquo;&amp;quot;&amp;quot; &amp;ldquo;&amp;quot;&amp;quot;)&lt;/li>
+&lt;/ul>
+&lt;h4 id="일반적인-따옴표">일반적인 따옴표&lt;/h4>
+&lt;p>이렇게 다양한 방법을 제공하는 이유는 문자열에 따옴표가 포함되는 경우 다음과 같은 문제가 발생할 수도 있기 떄문이다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;I&amp;#39;&lt;/span>m &lt;span style="color:#f92672">not&lt;/span> the only one&lt;span style="color:#e6db74">&amp;#39;&lt;/span>
+File &lt;span style="color:#e6db74">&amp;#34;&amp;lt;stdin&amp;gt;&amp;#34;&lt;/span>, line &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;I&amp;#39;&lt;/span>m &lt;span style="color:#f92672">not&lt;/span> the only one&lt;span style="color:#e6db74">&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">^&lt;/span>
+&lt;span style="color:#a6e22e">SyntaxError&lt;/span>: invalid syntax
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>위와 같은 경우에는 &lt;code>I&lt;/code>만이 작은 따옴표에 둘러싸여 있기 때문에 &lt;code>I&lt;/code> 이후에 작성한 문자들은 문자열로 인식되지 못하고 오류가 발생한다.&lt;/p>
+&lt;blockquote>
+&lt;p>해당 오류는 작은 따옴표가 아니라 큰 따옴표에서도 동일하게 발생할 수 있다.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="연속적인-따옴표">연속적인 따옴표&lt;/h4>
+&lt;p>작은 따옴표나 큰 따옴표를 세번 감싸는 방식을 사용하면 위와 같은 문제를 해결할 수 있다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&amp;#39;I&amp;#39;m not the only one&amp;#39;&amp;#39;&amp;#39;&lt;/span>
+&lt;span style="color:#e6db74">&amp;#34;I&amp;#39;m not the only one&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>이렇게 사용하게 되면 문자열에 따옴표가 얼마든지 포함되어도 에러가 발생하지 않는다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&amp;#39;I wish this would be over now
+&lt;/span>&lt;span style="color:#e6db74">But I know that I still need you here&amp;#39;&amp;#39;&amp;#39;&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;I wish this would be over now&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">But I know that I still need you here&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>그냥 따옴표와는 다르게 여러 줄로 개행된 문자열을 표현하는데 사용할 수도 있다.&lt;/p>
+&lt;blockquote>
+&lt;p>일반적인 따옴표로 여러 줄로 개행된 문자열을 표현하려면 이스케이프 문자를 사용해야 한다.&lt;/p>
+&lt;/blockquote>
+&lt;!-- raw HTML omitted -->
+&lt;p>백슬래시(&lt;code>\&lt;/code>)와 함께 문자를 조합하여 특수한 기능을 사용하는 것으로, 대표적인 이스케이프 문자는 다음과 같다.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">이스케이프 문자&lt;/th>
+&lt;th style="text-align:center">기능&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>\'&lt;/code>&lt;/td>
+&lt;td style="text-align:center">작은따옴표 출력&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>\&amp;quot;&lt;/code>&lt;/td>
+&lt;td style="text-align:center">큰따옴표 출력&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>\/&lt;/code>&lt;/td>
+&lt;td style="text-align:center">슬래시 출력&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>\\&lt;/code>&lt;/td>
+&lt;td style="text-align:center">역슬래시 출력&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;code>\n&lt;/code>&lt;/td>
+&lt;td style="text-align:center">개행&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;!-- raw HTML omitted -->
+&lt;h3 id="연산">연산&lt;/h3>
+&lt;h4 id="더하기">더하기&lt;/h4>
+&lt;p>&lt;code>'1'+'1'&lt;/code>은 &lt;code>'11'&lt;/code>이다?&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;1&amp;#39;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#e6db74">&amp;#39;1&amp;#39;&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;11&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>문자열 사이에서 더하기 연산자(+)는 문자열을 서로 연결해준다.&lt;/p>
+&lt;p>숫자 문자열 또한 예외없이 연결만 해주기만 하므로 &lt;code>'1'+'1'&lt;/code>은 &lt;code>'11'&lt;/code>이 된다.&lt;/p>
+&lt;h4 id="곱하기">곱하기&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;loop &amp;#39;&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;loop loop loop&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>문자열에서 곱셈 연산자(*)는 문자열을 반복해서 출력한다.&lt;/p>
+&lt;h3 id="인덱싱과-슬라이싱">인덱싱과 슬라이싱&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Python is simple&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#75715e"># a의 0번째 문자를 가져온다.&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;P&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">6&lt;/span>] &lt;span style="color:#75715e"># a의 뒤에서 6번째 문자를 가져온다.&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;s&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a[&lt;span style="color:#ae81ff">0&lt;/span>:&lt;span style="color:#ae81ff">6&lt;/span>] &lt;span style="color:#75715e"># a의 0번쨰부터 6번째 문자까지 가져온다.&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;Python&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a[&lt;span style="color:#ae81ff">10&lt;/span>:] &lt;span style="color:#75715e"># a의 10번째 이후 문자를 가져온다.&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;simple&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a[:] &lt;span style="color:#75715e"># a의 문자열 전체를 가져온다.&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;Python is simple&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>index란? 순서가 있는 자료형(문자열, 리스트, 튜플)에서의 요소를 가르키는 번호를 말하며 0번째부터 시작한다.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="관련함수">관련함수&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Python is simple&amp;#34;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> len(a) &lt;span style="color:#75715e"># 문자열 길이 반환&lt;/span>
+&lt;span style="color:#ae81ff">16&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a&lt;span style="color:#f92672">.&lt;/span>upper() &lt;span style="color:#75715e"># 대문자 변환&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;PYTHON IS SIMPLE&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a&lt;span style="color:#f92672">.&lt;/span>lower() &lt;span style="color:#75715e"># 소문자 변환&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;python is simple&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a&lt;span style="color:#f92672">.&lt;/span>replace(&lt;span style="color:#e6db74">&amp;#39;simple&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;complicated&amp;#39;&lt;/span>) &lt;span style="color:#75715e"># 문자열 치환&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;python is complicated&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a&lt;span style="color:#f92672">.&lt;/span>split() &lt;span style="color:#75715e"># 문자열 나누어 리스트 리턴&lt;/span>
+[&lt;span style="color:#e6db74">&amp;#39;python&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;is&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;complicated&amp;#39;&lt;/span>]
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="리스트-자료형">리스트 자료형&lt;/h2>
+&lt;p>여러 요소를 묶어서 하나의 변수로 활용하기 위해 사용한다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;cafe&amp;#39;&lt;/span>, [&lt;span style="color:#e6db74">&amp;#39;twosome&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;starbucks&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ediya&amp;#39;&lt;/span>]]
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>위 리스트는 3개의 요소(숫자형, 문자열, 리스트)를 담고 있다. 이처럼 리스트 자료형에는 어떤 형식의 데이터가 들어가도 상관 없다.&lt;/p>
+&lt;h3 id="리스트-인덱싱과-슬라이싱">리스트 인덱싱과 슬라이싱&lt;/h3>
+&lt;p>문자열과 마찬가지로 리스트에서도 인덱싱과 슬라이싱이 가능하다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a[&lt;span style="color:#ae81ff">0&lt;/span>]
+&lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#75715e"># 뒤에서 첫번째 요소&lt;/span>
+[&lt;span style="color:#e6db74">&amp;#39;twosome&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;starbucks&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ediya&amp;#39;&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][&lt;span style="color:#ae81ff">2&lt;/span>] &lt;span style="color:#75715e"># 리스트 a 내 리스트의 2번째 요소&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;starbucks&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a[:&lt;span style="color:#ae81ff">2&lt;/span>]
+[&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;cafe&amp;#39;&lt;/span>]
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="라스트-관련함수">라스트 관련함수&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe &lt;span style="color:#f92672">=&lt;/span> a[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe
+[&lt;span style="color:#e6db74">&amp;#39;twosome&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;starbucks&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ediya&amp;#39;&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> len(cafe) &lt;span style="color:#75715e"># 리스트 길이 반환&lt;/span>
+&lt;span style="color:#ae81ff">3&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe&lt;span style="color:#f92672">.&lt;/span>sort() &lt;span style="color:#75715e"># 내림차순 정렬&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe
+[&lt;span style="color:#e6db74">&amp;#39;ediya&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;starbucks&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;twosome&amp;#39;&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe&lt;span style="color:#f92672">.&lt;/span>reverse() &lt;span style="color:#75715e"># 오름차순 정렬&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe
+[&lt;span style="color:#e6db74">&amp;#39;twosome&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;starbucks&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ediya&amp;#39;&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe&lt;span style="color:#f92672">.&lt;/span>pop(&lt;span style="color:#ae81ff">0&lt;/span>) &lt;span style="color:#75715e"># 선택한 요소 출력 후 삭제&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;twosome&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe
+[&lt;span style="color:#e6db74">&amp;#39;starbucks&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ediya&amp;#39;&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe&lt;span style="color:#f92672">.&lt;/span>append(&lt;span style="color:#e6db74">&amp;#39;hollys&amp;#39;&lt;/span>) &lt;span style="color:#75715e"># 요소 추가&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe
+[&lt;span style="color:#e6db74">&amp;#39;starbucks&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ediya&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;hollys&amp;#39;&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe&lt;span style="color:#f92672">.&lt;/span>insert(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;twosomeplace&amp;#39;&lt;/span>) &lt;span style="color:#75715e"># 0번쨰 자리에 &amp;#39;twosome&amp;#39; 추가&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> cafe
+[&lt;span style="color:#e6db74">&amp;#39;twosome&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;starbucks&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ediya&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;hollys&amp;#39;&lt;/span>]
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="리스트-연산">리스트 연산&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> b &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;b&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;c&amp;#39;&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> c &lt;span style="color:#f92672">=&lt;/span> a &lt;span style="color:#f92672">+&lt;/span> b
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> c
+[&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span> , &lt;span style="color:#e6db74">&amp;#39;a&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;b&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;c&amp;#39;&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> a &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>
+[&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>]
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="튜플-자료형">튜플 자료형&lt;/h2>
+&lt;p>튜플은 리스트와 거의 비슷하지만 약간의 차이가 있다.&lt;/p>
+&lt;ol>
+&lt;li>리스트는 []로 감싸지만 튜플은 ()로 감싼다.&lt;/li>
+&lt;li>리스트와 달리 함수를 이용하여 요소들을 생성, 삭제, 수정하는 것들이 불가능하다.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> t &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;cafe&amp;#39;&lt;/span>, (&lt;span style="color:#e6db74">&amp;#39;twosome&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;starbucks&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ediya&amp;#39;&lt;/span>))
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> t
+(&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;cafe&amp;#39;&lt;/span>, (&lt;span style="color:#e6db74">&amp;#39;twosome&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;starbucks&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ediya&amp;#39;&lt;/span>))
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>리스트와 마찬가지로 인덱싱, 슬라이싱, 연산 등은 동일하게 가능하다.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="딕셔너리-자료형">딕셔너리 자료형&lt;/h2>
+&lt;p>리스트나 튜플이 인덱스를 이용해서 요소를 불러올 수 있는 것과 달리, 딕셔너리는 &lt;code>key&lt;/code>라는 문자열로 요소(value)를 불러올 수 있다.&lt;/p>
+&lt;pre>&lt;code>딕셔너리명 = {Key1:Value1, Key2:Value2, Key3:Value3, ...}
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>딕셔너리는 중괄호로 정의한다.&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> profile &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#e6db74">&amp;#39;name&amp;#39;&lt;/span>:&lt;span style="color:#e6db74">&amp;#39;python&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;feature&amp;#39;&lt;/span>:[&lt;span style="color:#e6db74">&amp;#39;simple&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;OOP&amp;#39;&lt;/span>], &lt;span style="color:#e6db74">&amp;#39;version&amp;#39;&lt;/span>:&lt;span style="color:#e6db74">&amp;#39;3.8.0&amp;#39;&lt;/span>}
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> profile[&lt;span style="color:#e6db74">&amp;#39;feature&amp;#39;&lt;/span>]
+[&lt;span style="color:#e6db74">&amp;#39;simple&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;OOP&amp;#39;&lt;/span>]
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="요소-변경추가삭제">요소 변경/추가/삭제&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> profile[&lt;span style="color:#e6db74">&amp;#39;version&amp;#39;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;3.8.1&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 요소 수정&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> profile[&lt;span style="color:#e6db74">&amp;#39;framework&amp;#39;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;django&amp;#39;&lt;/span> &lt;span style="color:#75715e"># 요소 추가&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> profile
+{&lt;span style="color:#e6db74">&amp;#39;name&amp;#39;&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;python&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;feature&amp;#39;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#39;simple&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;OOP&amp;#39;&lt;/span>], &lt;span style="color:#e6db74">&amp;#39;version&amp;#39;&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;3.8.1&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;framework&amp;#39;&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;django&amp;#39;&lt;/span>}
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">del&lt;/span> profile[&lt;span style="color:#e6db74">&amp;#39;framework&amp;#39;&lt;/span>] &lt;span style="color:#75715e"># 요소 삭제&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> profile
+{&lt;span style="color:#e6db74">&amp;#39;name&amp;#39;&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;python&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;feature&amp;#39;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#39;simple&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;OOP&amp;#39;&lt;/span>], &lt;span style="color:#e6db74">&amp;#39;version&amp;#39;&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;3.8.1&amp;#39;&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="딕셔너리-관련함수">딕셔너리 관련함수&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> profile&lt;span style="color:#f92672">.&lt;/span>keys() &lt;span style="color:#75715e"># 딕셔너리의 key 리스트 반환&lt;/span>
+dict_keys([&lt;span style="color:#e6db74">&amp;#39;name&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;feature&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;version&amp;#39;&lt;/span>])
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> profile&lt;span style="color:#f92672">.&lt;/span>items() &lt;span style="color:#75715e"># 딕셔너리의 key-value 리스트 반환&lt;/span>
+dict_items([(&lt;span style="color:#e6db74">&amp;#39;name&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;python&amp;#39;&lt;/span>), (&lt;span style="color:#e6db74">&amp;#39;feature&amp;#39;&lt;/span>, [&lt;span style="color:#e6db74">&amp;#39;simple&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;OOP&amp;#39;&lt;/span>]), (&lt;span style="color:#e6db74">&amp;#39;version&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;3.8.1&amp;#39;&lt;/span>)])
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="집합-자료형">집합 자료형&lt;/h2>
+&lt;p>집합에 관련된 작업을 쉽게 하기 위해서 만들어진 자료형이다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> s1 &lt;span style="color:#f92672">=&lt;/span> set([&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>])
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> s1
+{&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="특징">특징&lt;/h3>
+&lt;ul>
+&lt;li>중복을 허용하지 않는다.&lt;/li>
+&lt;li>순서가 없다&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> s2 &lt;span style="color:#f92672">=&lt;/span> set(&lt;span style="color:#e6db74">&amp;#39;hello&amp;#39;&lt;/span>)
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> s2
+{&lt;span style="color:#e6db74">&amp;#39;l&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;e&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;o&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;h&amp;#39;&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="집합-관련함수">집합 관련함수&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> s2&lt;span style="color:#f92672">.&lt;/span>add(&lt;span style="color:#ae81ff">4&lt;/span>) &lt;span style="color:#75715e"># 요소 추가&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> s2
+{&lt;span style="color:#e6db74">&amp;#39;e&amp;#39;&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;l&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;o&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;h&amp;#39;&lt;/span>}
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> s2&lt;span style="color:#f92672">.&lt;/span>update(&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>) &lt;span style="color:#75715e"># 여러 요소 추가&lt;/span>
+{&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;e&amp;#39;&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;l&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;o&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;h&amp;#39;&lt;/span>}
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> s2&lt;span style="color:#f92672">.&lt;/span>remove(&lt;span style="color:#ae81ff">2&lt;/span>)
+{&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;e&amp;#39;&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;l&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;o&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;h&amp;#39;&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>여러 요소를 추가할 때는 update함수에 리스트로 값을 대입한다.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="집합-연산">집합 연산&lt;/h3>
+&lt;p>집합 자료형은 교집합, 합집합, 차집합 등의 연산을 제공한다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> s1 &lt;span style="color:#f92672">&amp;amp;&lt;/span> s2 &lt;span style="color:#75715e"># s1과 s2의 교집합 &lt;/span>
+{&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>}
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> s1 &lt;span style="color:#f92672">|&lt;/span> s2 &lt;span style="color:#75715e"># s1과 s2의 합집합&lt;/span>
+{&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;e&amp;#39;&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;l&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;o&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;h&amp;#39;&lt;/span>}
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> s1 &lt;span style="color:#f92672">-&lt;/span> s2 &lt;span style="color:#75715e"># s1과 s2의 차집합&lt;/span>
+{&lt;span style="color:#ae81ff">2&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="논리형">논리형&lt;/h2>
+&lt;p>참(True) 혹은 거짓(False)를 나타내는 자료형이다.&lt;/p>
+&lt;blockquote>
+&lt;p>파이썬에서는 논리형을 첫 글자 대문자로 표기한다. (True 혹은 False)&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+True
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+False
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#f92672">and&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+False
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="관련-연산자">관련 연산자&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>관계연산자&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>x &amp;lt; y&lt;/td>
+&lt;td>x가 y보다 작다&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x &amp;gt; y&lt;/td>
+&lt;td>x가 y보다 크다&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x == y&lt;/td>
+&lt;td>x와 y가 같다&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x != y&lt;/td>
+&lt;td>x와 y가 같지 않다&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x &amp;lt;= y&lt;/td>
+&lt;td>x가 y보다 작거나 같다&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x &amp;gt;= y&lt;/td>
+&lt;td>x가 y보다 크거나 같다&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>논리연산자&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>x and y&lt;/td>
+&lt;td>x와 y 모두 참(&lt;code>True&lt;/code>)이다&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x or y&lt;/td>
+&lt;td>x와 y 중 하나가 참(&amp;lsquo;True&amp;rsquo;)이다&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>not x&lt;/td>
+&lt;td>x가 거짓이다&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>멤버연산자&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>x in y&lt;/td>
+&lt;td>x가 y에 포함되어 있다&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>x not in y&lt;/td>
+&lt;td>x가 y에 포함되어 있지 않다&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;blockquote>
+&lt;p>여기서 y는 리스트, 튜플, 문자열 중 하나이다.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="자료형의-참-거짓">자료형의 참 거짓&lt;/h3>
+&lt;p>자료형에는 이미 참, 거짓이 정해져 있는 경우도 있다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> bool([&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>])
+True
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> bool([])
+False
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> bool(&lt;span style="color:#ae81ff">0&lt;/span>)
+False
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> bool(&lt;span style="color:#ae81ff">3&lt;/span>)
+True
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>&amp;ldquo;&amp;quot;(빈 문자열), [ ](빈 리스트), ()(빈 튜플), {}(빈 딕셔너리), 0 (빈 숫자), None의 경우, 모두 거짓(False)이다.&lt;/p>
+&lt;/blockquote></description></item><item><title>Til: Control Statement</title><link>http://Jeonghun-Ban.github.io/til/python/study/control-statement/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/python/study/control-statement/</guid><description>
+&lt;h2 id="if문">if문&lt;/h2>
+&lt;p>특정 조건의 참/거짓에 따라 프로그램의 흐름을 분기시키기 위해 사용한다.&lt;/p>
+&lt;blockquote>
+&lt;p>if문은 조건문이라고도 한다.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="기본-구조">기본 구조&lt;/h3>
+&lt;pre>&lt;code>if 조건식:
+수행할 명령문
+...
+else:
+수행할 명령문
+...
+&lt;/code>&lt;/pre>&lt;p>if문의 조건식이 True면 그 아래에 정의한 명령문을 수행하고, False이면 else문 아래에 정의한 명령문을 수행한다.&lt;/p>
+&lt;p>조건식은 논리형으로 결과가 나오는 연산이므로, 이와 관련된 연산자들을 숙지해야만 한다. 만약 이 부분이 덜 숙지되어 있다면 &lt;a href="./data-type.md#%EA%B4%80%EB%A0%A8-%EC%97%B0%EC%82%B0%EC%9E%90">이전 교안&lt;/a>을 참고하도록 하자.&lt;/p>
+&lt;h3 id="주의사항">주의사항&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>들여쓰기&lt;/p>
+&lt;p>들여쓰기를 한 칸이라도 더하거나 덜하더라도 오류가 발생할 수 있으므로 어디서 들여쓰기 해야하는 지 꼭 숙지해야 한다.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>콜론&lt;/p>
+&lt;p>if 조건문 뒤에는 반드시 콜론(:)이 들어가야 한다.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="다중-조건">다중 조건&lt;/h3>
+&lt;p>if문과 else문을 사용하면 단지 두 가지의 경우만을 판단할 수 있는데, &amp;lsquo;elif&amp;rsquo;를 사용하면 그 이상의 경우도 판단할 수 있다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> backpack &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#e6db74">&amp;#39;notebook&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;charger&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;pencil&amp;#39;&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#e6db74">&amp;#39;charger&amp;#39;&lt;/span> &lt;span style="color:#f92672">in&lt;/span> backpack:
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;충전기로 충전해라&amp;#34;&lt;/span>)
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">elif&lt;/span> &lt;span style="color:#e6db74">&amp;#39;powerbank&amp;#39;&lt;/span> &lt;span style="color:#f92672">in&lt;/span> backpack:
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;보조배터리로 충전해라&amp;#34;&lt;/span>)
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">pass&lt;/span> &lt;span style="color:#75715e"># 아무것도 실행하지 않는다.&lt;/span>
+&lt;span style="color:#f92672">...&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">충전기로&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">충전해라&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>만약 핸드폰을 충전하려할 때, 가방에 어떤 물건이 들었는지에 따라서 출력되는 문장이 달라지는 프로그램은 다음과 같이 짤 수 있을 것이다.&lt;/p>
+&lt;h2 id="while문">while문&lt;/h2>
+&lt;p>조건이 참(True)일때 명령문을 반복하여 수행한다.&lt;/p>
+&lt;h3 id="기본-구조-1">기본 구조&lt;/h3>
+&lt;pre>&lt;code>while 조건식:
+수행할 명령문
+...
+&lt;/code>&lt;/pre>&lt;p>조건식은 if문과 동일한 방법으로 작성된다.&lt;/p>
+&lt;h3 id="사용-예시">사용 예시&lt;/h3>
+&lt;p>&amp;ldquo;열 번 찍어 안 넘어가는 나무 없다&amp;quot;는 속담을 파이썬 프로그램으로 만든다면 다음과 같을 것이다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> count &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">while&lt;/span> count &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>:
+&lt;span style="color:#f92672">...&lt;/span> count &lt;span style="color:#f92672">=&lt;/span> count &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e"># count에 1씩 더하기&lt;/span>
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;나무를 &lt;/span>&lt;span style="color:#e6db74">%d&lt;/span>&lt;span style="color:#e6db74">번 찍었습니다.&amp;#34;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> count)
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> count &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>:
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;나무가 넘어갔습니다.&amp;#34;&lt;/span>)
+&lt;span style="color:#f92672">...&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">7&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">9&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무가&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">넘어갔습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>위 코드는 count라는 변수를 0으로 초기화해두고, count가 10되기 직전까지 1씩 더하면서 나무를 몇번 찍었는지 출력하는 명령문을 반복하여 실행하게 한다.&lt;/p>
+&lt;h3 id="보조-제어문">보조 제어문&lt;/h3>
+&lt;p>파이썬에서 반복문에 사용할 수 있는 보조 제어문으로는 &lt;code>break&lt;/code>와 &lt;code>continue&lt;/code>가 존재한다. 사용하는 방법은 예시를 통해서 살펴보도록 하겠다.&lt;/p>
+&lt;h4 id="break문">break문&lt;/h4>
+&lt;p>반복문을 완전히 빠져나가는 제어문&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> count &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">while&lt;/span> True:
+&lt;span style="color:#f92672">...&lt;/span> count &lt;span style="color:#f92672">=&lt;/span> count &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e"># count에 1씩 더하기&lt;/span>
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;나무를 &lt;/span>&lt;span style="color:#e6db74">%d&lt;/span>&lt;span style="color:#e6db74">번 찍었습니다.&amp;#34;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> count)
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> count &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>:
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;나무가 넘어갔습니다.&amp;#34;&lt;/span>)
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">break&lt;/span> &lt;span style="color:#75715e"># 반복문 탈출&lt;/span>
+&lt;span style="color:#f92672">...&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">7&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">9&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무가&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">넘어갔습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>위 코드는 while문의 조건식이 항상 &lt;code>True&lt;/code>이므로 명령문이 무한정 반복하게 될 것이다. 이런 경우에 반복문을 빠져나오기 위해서는 &lt;code>break&lt;/code>문을 사용해야 한다.&lt;/p>
+&lt;p>&lt;code>if count == 10&lt;/code>라는 조건문을 한 번 보자. 이 조건이 만약 참이라면 그 아래에 있는 명령문이 실행되면서 &amp;ldquo;나무가 넘어갔습니다.&amp;ldquo;를 출력하고 &lt;code>break&lt;/code>문이 실행되면서 while문을 빠져나온다.&lt;/p>
+&lt;h4 id="continue문">continue문&lt;/h4>
+&lt;p>반복문의 조건식으로 돌아가는 제어문&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> count &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">while&lt;/span> True:
+&lt;span style="color:#f92672">...&lt;/span> count &lt;span style="color:#f92672">=&lt;/span> count &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> count &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>: &lt;span style="color:#75715e"># 홀수일 경우&lt;/span>
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">continue&lt;/span> &lt;span style="color:#75715e"># 아래 명령문 수행하지 않는다&lt;/span>
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;나무를 &lt;/span>&lt;span style="color:#e6db74">%d&lt;/span>&lt;span style="color:#e6db74">번 찍었습니다.&amp;#34;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> count)
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> count &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>:
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;나무가 넘어갔습니다.&amp;#34;&lt;/span>)
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">break&lt;/span>
+&lt;span style="color:#f92672">...&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무를&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">찍었습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#960050;background-color:#1e0010">나무가&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">넘어갔습니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>위 코드는 홀수의 경우에는 명령문을 계속 수행하지 않고 반복문의 조건식으로 돌아가게 한다. 그렇기 때문에 나무를 짝수번 찍은 것만 출력한다.&lt;/p>
+&lt;h2 id="for문">for문&lt;/h2>
+&lt;h3 id="기본구조">기본구조&lt;/h3>
+&lt;pre>&lt;code>for 변수 in 리스트(튜플, 문자열):
+실행할 명령문
+...
+&lt;/code>&lt;/pre>&lt;p>5명의 수험생이 시험을 보았을 때, 점수 60점을 넘기면 합격을 통보해주는 프로그램을 만들어보면 다음과 같다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> score &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">63&lt;/span>, &lt;span style="color:#ae81ff">32&lt;/span>, &lt;span style="color:#ae81ff">67&lt;/span>, &lt;span style="color:#ae81ff">54&lt;/span>, &lt;span style="color:#ae81ff">80&lt;/span>]
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> score:
+&lt;span style="color:#f92672">...&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> n &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> i&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">60&lt;/span>: &lt;span style="color:#66d9ef">continue&lt;/span>
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">%d&lt;/span>&lt;span style="color:#e6db74">번 수험생 합격입니다.&amp;#34;&lt;/span>&lt;span style="color:#f92672">%&lt;/span>n)
+&lt;span style="color:#f92672">...&lt;/span>
+&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">수험생&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">합격입니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#ae81ff">3&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">수험생&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">합격입니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;span style="color:#ae81ff">5&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">번&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">수험생&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">합격입니다&lt;/span>&lt;span style="color:#f92672">.&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>while문과 마찬가지로 continue문을 사용할 수 있다.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="range-함수">range 함수&lt;/h3>
+&lt;p>range 함수는 숫자 리스트를 만들어주는 함수로 for문과 함께 사용하는 경우가 많다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> number
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">11&lt;/span>):
+&lt;span style="color:#f92672">...&lt;/span> number &lt;span style="color:#f92672">=&lt;/span> number &lt;span style="color:#f92672">+&lt;/span> i
+&lt;span style="color:#f92672">...&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(number)
+&lt;span style="color:#ae81ff">55&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>range(1, 11)&lt;/code>은 숫자 1부터 10까지(1이상 11미만)의 수로 구성된 리스트를 생성한다. 따라서 변수 &lt;code>i&lt;/code>에는 1부터 10까지 차례로 하나씩 대입되고 이것을 number에 더하는 것으로 1~10의 합을 구할 수 있게 된다.&lt;/p>
+&lt;blockquote>
+&lt;p>range(10)은 range(0, 10)와 같다. 즉 0~9까지의 수로 구성된 리스트가 생성됨.&lt;/p>
+&lt;/blockquote></description></item><item><title>Til: Function</title><link>http://Jeonghun-Ban.github.io/til/python/study/function/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/python/study/function/</guid><description>
+&lt;p>함수(fuction)이란 재사용 가능한 프로그램 코드 블록으로, 자주 수행되는 작업을 매번 새로운 코드로 처리하지 않기 위해서 사용한다.&lt;/p>
+&lt;ul>
+&lt;li>내장 함수&lt;/li>
+&lt;li>사용자 정의 함수&lt;/li>
+&lt;li>외장 함수&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>함수는 크게 위와 같이 분류한다.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="내장-함수">내장 함수&lt;/h2>
+&lt;p>사전에 파이썬에 정의되어 있는 함수로 바로 호출하여 사용 가능하다. 객체의 자료형을 판단하는 &lt;code>type&lt;/code>이나 for문과 함께 사용하는 &lt;code>range&lt;/code>가 여기에 해당한다. 내장 함수를 무작정 외우기보다는 프로그래밍을 하면서 자연스럽게 익히도록 하자.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>내장 함수&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>abs&lt;/td>
+&lt;td>특정 숫자 입력 받았을 때 그 숫자의 절대 값을 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>all&lt;/td>
+&lt;td>내용이 참이면 참(true) 하나라도거짓이 있으면 거짓(false)을 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>chr&lt;/td>
+&lt;td>아스키 코드 값 입력 받아 이에 해당하는 문자 출력&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ord&lt;/td>
+&lt;td>문자를 입력 받아 해당 아스키 코드 값을 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>divmod&lt;/td>
+&lt;td>2개의 숫자를 입력 받아 2개 값을 나눈 몫과 나머지를 튜플 형태로 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>enumerate&lt;/td>
+&lt;td>자료형을 입력받아 인덱스 값을 포함하는 해당 객체를 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>eval&lt;/td>
+&lt;td>실행 가능한 문자열을 입력받아 문자열을 실행한 결괏값 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>id&lt;/td>
+&lt;td>객체를 입력받아 객체의 고유 주소 값(레퍼런스)을 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>isinstance&lt;/td>
+&lt;td>첫 번째 인수로 인스턴스, 두 번째 인수로 클래스 이름을 받는다. 입력받은 클래스의 인스턴스가 맞는지를 판단하여 boolean 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>len&lt;/td>
+&lt;td>입력값의 길이(요소의 개수)를 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>list&lt;/td>
+&lt;td>반복 가능한 자료형 s를 입력받아 리스트로 만들어 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>max&lt;/td>
+&lt;td>반복 가능한 자료형을 입력받아 그 최댓값을 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>min&lt;/td>
+&lt;td>반복 가능한 자료형을 입력받아 그 최소값을 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>oct&lt;/td>
+&lt;td>정수 형태의 숫자를 8진수 문자열로 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pow&lt;/td>
+&lt;td>pow(x, y)는 x의 y 제곱한 결괏값을 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>range&lt;/td>
+&lt;td>입력받은 숫자에 해당하는 범위 값을 반복 가능한 객체로 만들어 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>round&lt;/td>
+&lt;td>숫자를 입력받아 반올림&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>sorted&lt;/td>
+&lt;td>입력값을 정렬한 후 그 결과를 리스트로 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>sum&lt;/td>
+&lt;td>입력받은 리스트나 튜플의 모든 요소의 합을 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>tuple&lt;/td>
+&lt;td>반복 가능한 자료형을 입력받아 튜플 형태로 바꾸어 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>type&lt;/td>
+&lt;td>입력값의 자료형이 무엇인지 반환&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>zip&lt;/td>
+&lt;td>동일한 개수로 이루어진 자료형을 묶어 준다&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="사용자-정의-함수">사용자 정의 함수&lt;/h2>
+&lt;p>사용자 정의 함수는 매우 중요하다. 이것은 프로그래머가 자신의 프로그램에서 자주 사용되는 작업을 함수로 직접 정의하는 것으로 코드의 재사용성을 높이고 반복적인 작업을 줄일 수 있게 하기 때문이다.&lt;/p>
+&lt;h3 id="기본-구조">기본 구조&lt;/h3>
+&lt;pre>&lt;code>&amp;gt;&amp;gt;&amp;gt; def 함수명(인수):
+... 실행할 명령어
+... return 값
+&lt;/code>&lt;/pre>&lt;p>함수는 기본적으로 입력 값을 받아 처리하고 이에 대한 결과값을 돌려주는 형태로 이루어져 있다. (입력 -&amp;gt; 처리 -&amp;gt; 출력 )&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span>(a,b):
+&lt;span style="color:#f92672">...&lt;/span> c&lt;span style="color:#f92672">=&lt;/span>a&lt;span style="color:#f92672">+&lt;/span>b
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">return&lt;/span> c
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> add(&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>)
+&lt;span style="color:#ae81ff">3&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>위 코드는 두 수를 입력받아서 더한 값을 돌려주는 간단한 함수이다. 이와 같이 자주 사용하는 작업들은 함수로 정의해서 처리하는 것이 좋다.&lt;/p>
+&lt;h3 id="다른-형태">다른 형태&lt;/h3>
+&lt;p>하지만 모든 함수가 입력값이나 출력값이 꼭 있어야 하는 것은 아니다. 만약 입력하는 값이 없다면 인수부분을 비워두면 되고, 출력 값이 없다면 return을 적지 않으면 된다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span>(a,b):
+&lt;span style="color:#f92672">...&lt;/span> c&lt;span style="color:#f92672">=&lt;/span>a&lt;span style="color:#f92672">+&lt;/span>b
+&lt;span style="color:#f92672">...&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(c) &lt;span style="color:#75715e"># 값을 반환하지 않고 출력&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&amp;gt;&lt;/span> add(&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>)
+&lt;span style="color:#ae81ff">3&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>위에서 처리한 함수를 리턴값 없이 만든다면 다음과 같이 할 수 있을 것이다. 보기에는 동일하게 더한 값이 출력되지만 결정적인 차이가 존재한다.&lt;/p>
+&lt;p>값을 반환하는 경우에는 이 값을 변수에 담아서 활용하는 것이 가능하지만, 함수 내에서 결과를 출력하는 경우에는 이것이 불가능하다는 점이다.&lt;/p></description></item></channel></rss>

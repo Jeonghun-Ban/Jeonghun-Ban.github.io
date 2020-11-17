@@ -1,0 +1,1843 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeonghun-Ban – JavaScript</title><link>http://Jeonghun-Ban.github.io/til/javascript/</link><description>Recent content in JavaScript on Jeonghun-Ban</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://Jeonghun-Ban.github.io/til/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>Til: Introduction</title><link>http://Jeonghun-Ban.github.io/til/javascript/introduction/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/javascript/introduction/</guid><description>
+&lt;h2 id="개요">개요&lt;/h2>
+&lt;h4 id="javascript">JavaScript&lt;/h4>
+&lt;ul>
+&lt;li>1995년 넷스케이프 개발&lt;/li>
+&lt;li>Netscape Navigator 2.0 브라우저에 최초 탑재&lt;/li>
+&lt;li>웹 프로그래밍 개념 창시&lt;/li>
+&lt;/ul>
+&lt;h4 id="특징">특징&lt;/h4>
+&lt;ul>
+&lt;li>HTML 문서에 내장&lt;/li>
+&lt;li>조각 소스 코드&lt;/li>
+&lt;li>스크립트 언어&lt;/li>
+&lt;li>인터프리터 실행&lt;/li>
+&lt;li>컴파일 필요 없음&lt;/li>
+&lt;li>단순함&lt;/li>
+&lt;li>C언어 구조 차용&lt;/li>
+&lt;li>배우기 쉬움&lt;/li>
+&lt;/ul>
+&lt;h2 id="웹페이지에서의-역할">웹페이지에서의 역할&lt;/h2>
+&lt;ul>
+&lt;li>사용자의 입력 및 계산
+&lt;ul>
+&lt;li>마우스와 키보드 입력은 오직 자바스크립트로만 가능&lt;/li>
+&lt;li>계산 기능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>웹 페이지 내용 및 모양의 동적 제어
+&lt;ul>
+&lt;li>HTML 태그의 속성, 콘텐츠, CSS 프로퍼티 값 동적 변경&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>브라우저 제어
+&lt;ul>
+&lt;li>브라우저 윈도우 크기와 모양 제어&lt;/li>
+&lt;li>새 윈도우 열기 / 닫기&lt;/li>
+&lt;li>다른 웹 사이트 접속&lt;/li>
+&lt;li>브라우저 히스토리 제어&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>웹 서버와의 통신&lt;/li>
+&lt;li>웹 애플리케이션 작성
+&lt;ul>
+&lt;li>캔버스 그래픽, 로컬/세션 스토리지 저장, 위치정보서비스 등&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="자바스크립트-코드의-위치">자바스크립트 코드의 위치&lt;/h2>
+&lt;h3 id="html-태그의-이벤트-리스너-속성에-작성">HTML 태그의 이벤트 리스너 속성에 작성&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-html" data-lang="html"> &amp;lt;&lt;span style="color:#f92672">img&lt;/span> &lt;span style="color:#a6e22e">src&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;apple.png&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">alt&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;img&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">onclick&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;this.src=&amp;#39;banana.png&amp;#39;&amp;#34;&lt;/span>&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="script-태그에-작성">script 태그에 작성&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;head&amp;gt;&lt;/code>나 &lt;code>&amp;lt;body&amp;gt;&lt;/code> 태그 내 어디든 사용 가능&lt;/li>
+&lt;li>웹 페이지 내에 &lt;code>&amp;lt;script&amp;gt;&lt;/code> 태그 여러번 삽입 가능&lt;/li>
+&lt;/ul>
+&lt;h3 id="자바스크립트-파일에-작성">자바스크립트 파일에 작성&lt;/h3>
+&lt;ul>
+&lt;li>확장자 &lt;code>.js&lt;/code> 파일에 저장&lt;/li>
+&lt;li>여러 웹페이지에서 불러 사용&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HTML" data-lang="HTML"> &amp;lt;&lt;span style="color:#f92672">script&lt;/span> &lt;span style="color:#a6e22e">src&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">“파일이름.js”&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="url-부분에-작성">URL 부분에 작성&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HTML" data-lang="HTML">&amp;lt;&lt;span style="color:#f92672">a&lt;/span> &lt;span style="color:#a6e22e">href&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;javascript:alert(&amp;#39;클릭하셨어요?&amp;#39;)&amp;#34;&lt;/span>&amp;gt; 클릭해보세요&amp;lt;/&lt;span style="color:#f92672">a&lt;/span>&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="이벤트와-이벤트-리스너">이벤트와 이벤트-리스너&lt;/h2>
+&lt;h3 id="이벤트">이벤트&lt;/h3>
+&lt;ul>
+&lt;li>사용자의 입력 행위를 브라우저가 웹페이지에 전달하는 수단&lt;/li>
+&lt;li>사용자가 HTML태그에 출력된 영역에 키를 입력하거나 마우스 클릭하면 발생, 해당 HTML태그에 전달&lt;/li>
+&lt;li>&lt;code>click, change, mousemove&lt;/code> 등 여러 종류&lt;/li>
+&lt;/ul>
+&lt;h3 id="이벤트-리스너">이벤트 리스너&lt;/h3>
+&lt;ul>
+&lt;li>이벤트를 처리하는 자바스크립트 코드&lt;/li>
+&lt;li>&lt;code>onclick, onchange, onmousemove&lt;/code>와 같이 &lt;code>on&lt;/code>을 붙인 이름이 HTML태그의 이벤트 리스너 속성으로 사용, 이 속성에 자바스크립트 코드를 작성함&lt;/li>
+&lt;/ul>
+&lt;h2 id="html-콘텐츠-출력">HTML 콘텐츠 출력&lt;/h2>
+&lt;p>자바 스크립트로 HTML 콘텐츠를 웹 페이지에 직접 삽입&lt;/p>
+&lt;ul>
+&lt;li>document.write()&lt;/li>
+&lt;li>document.writeln() &amp;gt; writeln()은 텍스트에 ‘\n＇을 덧붙여 출력&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-HTML" data-lang="HTML">&amp;lt;&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
+document.&lt;span style="color:#a6e22e">write&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;&amp;lt;h3&amp;gt;Welcome!&amp;lt;/h3&amp;gt;&amp;#34;&lt;/span>);
+document.&lt;span style="color:#a6e22e">write&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;2 + 5 는&amp;lt;br&amp;gt;&amp;#34;&lt;/span>);
+document.&lt;span style="color:#a6e22e">write&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;&amp;lt;mark&amp;gt;7 입니다.&amp;lt;/mark&amp;gt;&amp;#34;&lt;/span>);
+&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="다이얼로그">다이얼로그&lt;/h2>
+&lt;h3 id="프롬프트">프롬프트&lt;/h3>
+&lt;p>사용자로부터 문자열을 입력 받아 리턴&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">prompt&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;메시지&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;디폴트입력값&amp;#34;&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="확인">확인&lt;/h3>
+&lt;p>메시지를 출력하고 확인/최소(OK/CANCEL) 버튼을 가진 다이얼로그 출력&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">confirm&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;메시지&amp;#34;&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>확인 버튼을 누르면 true, 취소 버튼이나 강제로 다이얼로그를 닫으면 false 리턴&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="경고">경고&lt;/h3>
+&lt;p>메시지 와 확인 버튼을 가진 다이얼로그 출력&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">alert&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;메시지&amp;#34;&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Til: Data Type</title><link>http://Jeonghun-Ban.github.io/til/javascript/data-type/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/javascript/data-type/</guid><description>
+&lt;h2 id="식별자">식별자&lt;/h2>
+&lt;p>자바스크립트 프로그램의 변수, 상수, 함수의 이름&lt;/p>
+&lt;h3 id="식별자를-만드는-규칙">식별자를 만드는 규칙&lt;/h3>
+&lt;h4 id="첫번째문자">첫번째문자&lt;/h4>
+&lt;ul>
+&lt;li>알파벳(A-Z, a-z), &lt;code>_&lt;/code>(언더스코어), &lt;code>$&lt;/code>만 사용 가능&lt;/li>
+&lt;/ul>
+&lt;h4 id="두번째문자-이상">두번째문자 이상&lt;/h4>
+&lt;ul>
+&lt;li>알파벳, &lt;code>_&lt;/code>(언더스코어), &lt;code>$&lt;/code>&lt;/li>
+&lt;li>대소문자는 구분되어 다루어짐&lt;/li>
+&lt;/ul>
+&lt;h4 id="예약어-사용불가">예약어 사용불가&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>false, for, if, null&lt;/code> 등&lt;/li>
+&lt;/ul>
+&lt;h2 id="데이터-타입">데이터 타입&lt;/h2>
+&lt;h3 id="숫자">숫자&lt;/h3>
+&lt;p>정수, 실수(예: 42, 3.14)&lt;/p>
+&lt;h3 id="논리형">논리형&lt;/h3>
+&lt;p>참, 거짓(예: true, false)&lt;/p>
+&lt;h3 id="문자열">문자열&lt;/h3>
+&lt;p>(예: ‘좋은세상’, &amp;ldquo;a&amp;rdquo;, &amp;ldquo;365&amp;rdquo;, &amp;ldquo;2+4&amp;rdquo;)&lt;/p>
+&lt;h3 id="객체-레퍼런스">객체 레퍼런스&lt;/h3>
+&lt;p>객체를 가리킴. C 언어의 포인터와 유사&lt;/p>
+&lt;h3 id="null">null&lt;/h3>
+&lt;p>값이 없음을 표시하는 특수 키워드. Null, NULL과는다름&lt;/p>
+&lt;blockquote>
+&lt;p>자바스크립트에는 문자 타입 없음. 문자열로 표기&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="변수">변수&lt;/h2>
+&lt;p>자바스크립트 코드가 실행중 데이터 저장공간&lt;/p>
+&lt;h3 id="선언">선언&lt;/h3>
+&lt;p>변수이름을 정하고, 저장공간 할당&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">score&lt;/span>;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="지역변수와-전역변수">지역변수와 전역변수&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">지역변수&lt;/th>
+&lt;th style="text-align:left">전역변수&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">함수 내에 var로 정의&lt;/td>
+&lt;td style="text-align:left">함수 밖에 선언되거나, 함수 내에 var 없이 선언된 변수&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">선언된 함수 내에서만 접근 가능&lt;/td>
+&lt;td style="text-align:left">프로그램 전역에서 사용 가능&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="this로-전역변수-접근">this로 전역변수 접근&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">x&lt;/span>; &lt;span style="color:#75715e">// 전역변수
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">f&lt;/span>() {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">x&lt;/span>; &lt;span style="color:#75715e">// 지역변수
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">x&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; &lt;span style="color:#75715e">// 지역변수 x에 1 저장
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">x&lt;/span>&lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span>; &lt;span style="color:#75715e">// 전역변수 x에 100 저장
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> }
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="상수">상수&lt;/h2>
+&lt;p>데이터값 그 자체&lt;/p>
+&lt;h3 id="문자열-상수">문자열 상수&lt;/h3>
+&lt;p>&lt;code>&amp;quot;&amp;quot;&lt;/code>와 &lt;code>''&lt;/code> 모두사용&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-html" data-lang="html">&amp;lt;&lt;span style="color:#f92672">p&lt;/span> &lt;span style="color:#a6e22e">onmouseover&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;document.body.style.color = &amp;#39;brown&amp;#39;&amp;#34;&lt;/span>&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>인용부호를 문자를 그대로 사용하고자 하는 경우 &lt;code>\&amp;quot;&lt;/code> 사용&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="식과-연산">식과 연산&lt;/h2>
+&lt;h3 id="연산자">연산자&lt;/h3>
+&lt;h4 id="산술-연산자">산술 연산자&lt;/h4>
+&lt;p>더하기(&lt;code>+&lt;/code>), 빼기(&lt;code>-&lt;/code>), 곱하기(&lt;code>*&lt;/code>), 나누기(&lt;code>/&lt;/code>), 나머지(&lt;code>%&lt;/code>)&lt;/p>
+&lt;h4 id="증감-연산자">증감 연산자&lt;/h4>
+&lt;p>&lt;code>++&lt;/code>나 &lt;code>--&lt;/code> 사용&lt;/p>
+&lt;ul>
+&lt;li>전위 연산자: 증감 연산을 실행하고 값 반환
+ex) &lt;code>b = ++a&lt;/code>&lt;/li>
+&lt;li>후위 연산자: 값을 우선 반환하고 증감 연산 실행
+ex) &lt;code>b = a++&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h4 id="대입-연산자">대입 연산자&lt;/h4>
+&lt;p>오른쪽 식의 결과를 왼쪽 변수에 대입&lt;/p>
+&lt;h4 id="비교-연산자">비교 연산자&lt;/h4>
+&lt;p>두 값 비교, &lt;code>true or false&lt;/code>의 결과를 내는 연산&lt;/p>
+&lt;h4 id="논리-연산자">논리 연산자&lt;/h4>
+&lt;p>AND(&lt;code>&amp;amp;&amp;amp;&lt;/code>), OR(&lt;code>||&lt;/code>), NOT(&lt;code>!&lt;/code>)&lt;/p>
+&lt;h4 id="조건-연산자">조건 연산자&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">condition&lt;/span> &lt;span style="color:#f92672">?&lt;/span> &lt;span style="color:#a6e22e">expT&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#a6e22e">expF&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>condition이 &lt;code>true&lt;/code>면 전체 결과는 expT의 계산 값, &lt;code>false&lt;/code>면 expF의 계산 값&lt;/p>
+&lt;h4 id="비트-논리-연산">비트 논리 연산&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">연산자&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">a &amp;amp; b&lt;/td>
+&lt;td style="text-align:left">두 비트 모두 1이면 1, 아니면 0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">a | b&lt;/td>
+&lt;td style="text-align:left">두 비트 모두 0이면 0, 아니면 1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">a ^ b&lt;/td>
+&lt;td style="text-align:left">두 비트가 다르면 1, 같으면 0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">~ a&lt;/td>
+&lt;td style="text-align:left">1을 0으로, 0을 1로 변환&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="비트-시프트-연산">비트 시프트 연산&lt;/h4>
+&lt;p>시프트: 저장 공간에서 비트 이동&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">연산자&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">a &amp;laquo; b&lt;/td>
+&lt;td style="text-align:left">a의 비트들을 왼쪽으로 b번 이동, 최하위 비트의 빈자리는 0으로 채움, 한 비트 시프트마다 곱하기 2의 효과 발생, a의 값은 변환 X&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">a &amp;raquo; b&lt;/td>
+&lt;td style="text-align:left">a의 비트들을 오른쪽으로 b번 이동, 최상위 비트의 빈자리는 시프트 전 최상위 비트로 채움, 한 비트 시프트마다 나누기 2의 효과 발생, a의 값은 변화 X&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">a &amp;raquo;&amp;gt; b&lt;/td>
+&lt;td style="text-align:left">a의 비트들을 오른쪽으로 b번 이동, 최상위 비트의 빈자리는 0으로 채움, a의 값은 변화 X&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="문자열-연산자">문자열 연산자&lt;/h4>
+&lt;ul>
+&lt;li>문자열 연결(&lt;code>+&lt;/code>)&lt;/li>
+&lt;li>비교 연산자(&lt;code>!=, ==, &amp;gt; , &amp;lt;, &amp;lt;=, &amp;gt;=&lt;/code>)는 문자열 비교에 사용&lt;/li>
+&lt;/ul>
+&lt;h3 id="조건문">조건문&lt;/h3>
+&lt;h4 id="if문">if문&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">grade&lt;/span>;
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">score&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">prompt&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;점수를 입력하세요&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">100&lt;/span>);
+&lt;span style="color:#a6e22e">score&lt;/span> &lt;span style="color:#f92672">=&lt;/span> parseInt(&lt;span style="color:#a6e22e">score&lt;/span>); &lt;span style="color:#75715e">// 문자열을 숫자로 바꿈
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#a6e22e">score&lt;/span> &lt;span style="color:#f92672">&amp;gt;=&lt;/span> &lt;span style="color:#ae81ff">90&lt;/span>) &lt;span style="color:#75715e">// score가 90 이상
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">grade&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;A&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#a6e22e">score&lt;/span> &lt;span style="color:#f92672">&amp;gt;=&lt;/span> &lt;span style="color:#ae81ff">80&lt;/span>) &lt;span style="color:#75715e">// 80 이상 90 미만
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">grade&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;B&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#a6e22e">score&lt;/span> &lt;span style="color:#f92672">&amp;gt;=&lt;/span> &lt;span style="color:#ae81ff">70&lt;/span>) &lt;span style="color:#75715e">// 70 이상 80 미만
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">grade&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;C&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#a6e22e">score&lt;/span> &lt;span style="color:#f92672">&amp;gt;=&lt;/span> &lt;span style="color:#ae81ff">60&lt;/span>) &lt;span style="color:#75715e">// 60 이상 70 미만
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">grade&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;D&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#75715e">// 60 미만
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">grade&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;F&amp;#34;&lt;/span>;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="switch문">switch문&lt;/h4>
+&lt;ul>
+&lt;li>값에 따라 서로 다른 코드를 실행&lt;/li>
+&lt;li>실행 문장을 중괄호로 둘러싸지 않는다&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">switch&lt;/span>(&lt;span style="color:#a6e22e">식&lt;/span>) {
+&lt;span style="color:#66d9ef">case&lt;/span> &lt;span style="color:#a6e22e">값1&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#75715e">// 식의 결과가 값1과 같을 때
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">실행&lt;/span> &lt;span style="color:#a6e22e">문장&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;span style="color:#66d9ef">break&lt;/span>;
+&lt;span style="color:#66d9ef">case&lt;/span> &lt;span style="color:#a6e22e">값2&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#75715e">// 식의 결과가 값2와 같을 때
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">실행&lt;/span> &lt;span style="color:#a6e22e">문장&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;span style="color:#66d9ef">break&lt;/span>;
+...
+&lt;span style="color:#66d9ef">case&lt;/span> &lt;span style="color:#a6e22e">값m&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;span style="color:#a6e22e">실행&lt;/span> &lt;span style="color:#a6e22e">문장&lt;/span> &lt;span style="color:#a6e22e">m&lt;/span>; &lt;span style="color:#75715e">// 식의 결과가 값과 같을 때
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">break&lt;/span>;
+&lt;span style="color:#66d9ef">default&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#75715e">// 어느 값과도 같지 않을 때
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">실행&lt;/span> &lt;span style="color:#a6e22e">문장&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>case문의 값&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>case문의 값으로는 상수만 가능&lt;/li>
+&lt;li>값에 변수나 식은 사용 불가&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>break 문의 역할&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>switch문 종료&lt;/li>
+&lt;/ul>
+&lt;h3 id="반복문">반복문&lt;/h3>
+&lt;h4 id="for문">for문&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#a6e22e">초기문&lt;/span>; &lt;span style="color:#a6e22e">조건식&lt;/span>; &lt;span style="color:#a6e22e">반복&lt;/span> &lt;span style="color:#a6e22e">후&lt;/span> &lt;span style="color:#a6e22e">작업&lt;/span>){
+&lt;span style="color:#75715e">// 실행 문장
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="while문">while문&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#a6e22e">조건식&lt;/span>) {
+&lt;span style="color:#75715e">// 실행 문장
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="do-while문">do-while문&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">do&lt;/span> {
+&lt;span style="color:#75715e">// 실행문장
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>} &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#a6e22e">조건식&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>break문&lt;/strong>
+가장 안쪽 반복문 하나만 벗어나도록 제어&lt;/p>
+&lt;p>&lt;strong>continue문&lt;/strong>
+반복 코드 실행 중단, 다음 반복으로 점프&lt;/p>
+&lt;h2 id="함수">함수&lt;/h2>
+&lt;ul>
+&lt;li>목적을 가지고 작성된 코드 블록&lt;/li>
+&lt;li>데이터 전달받아 처리한 후 결과를 돌려주는 코드 블록&lt;/li>
+&lt;/ul>
+&lt;h3 id="함수-정의와-호출">함수 정의와 호출&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">adder&lt;/span>(&lt;span style="color:#a6e22e">a&lt;/span>, &lt;span style="color:#a6e22e">b&lt;/span>) { &lt;span style="color:#75715e">// 함수 정의
+&lt;/span>&lt;span style="color:#75715e">// 실행코드
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">sum&lt;/span>;
+&lt;span style="color:#a6e22e">sum&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">a&lt;/span>&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#a6e22e">b&lt;/span>;
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">sum&lt;/span>;
+}
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">adder&lt;/span>(&lt;span style="color:#ae81ff">24567&lt;/span>, &lt;span style="color:#ae81ff">98374&lt;/span>); &lt;span style="color:#75715e">// 함수 호출
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="js에서-제공하는-전역-함수">JS에서 제공하는 전역 함수&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">전역함수명&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">eval(exp)&lt;/td>
+&lt;td style="text-align:left">exp의 자바스크립트 식을 계산하고 결과 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">parseInt(str)&lt;/td>
+&lt;td style="text-align:left">str 문자열을 10진 정수로 변환하여 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">isNaN(value)&lt;/td>
+&lt;td style="text-align:left">value가 숫자가 아니면 true 리턴&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Til: Object</title><link>http://Jeonghun-Ban.github.io/til/javascript/object/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/javascript/object/</guid><description>
+&lt;h2 id="구성">구성&lt;/h2>
+&lt;p>여러 개의 프로퍼티와 메소드로 구성&lt;/p>
+&lt;ul>
+&lt;li>프로퍼티: 객체의 고유한 속성(변수)&lt;/li>
+&lt;li>메소드: 함수&lt;/li>
+&lt;/ul>
+&lt;h2 id="종류">종류&lt;/h2>
+&lt;p>자바스크립트는 객체 기반 언어&lt;/p>
+&lt;blockquote>
+&lt;p>객체 지향 언어는 아님&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>코어 객체
+&lt;ul>
+&lt;li>자바스크립트 언어가 실행되는 어디서나 사용 가능한 기본 객체&lt;/li>
+&lt;li>기본 객체로 표준 객체&lt;/li>
+&lt;li>Array, Date, String, Math 타입 등&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HTML DOM 객체
+&lt;ul>
+&lt;li>HTML 문서에서 작성된 각 HTML 태그들을 객체화 한 것&lt;/li>
+&lt;li>HTML 문서의 내용과 모양을 제어하기 위한 목적&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>브라우저 객체
+&lt;ul>
+&lt;li>자바스크립트로 브라우저를 제어하기 위해 제공되는 객체&lt;/li>
+&lt;li>BOM을 따르는 객체&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="코어-객체">코어 객체&lt;/h2>
+&lt;p>Array, Date, String, Math 등&lt;/p>
+&lt;h3 id="생성">생성&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">today&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Date();
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">msg&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> String(&lt;span style="color:#e6db74">&amp;#34;Hello&amp;#34;&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>객체가 생성되면 객체 내부에 프로퍼티와 메소드들이 존재한다.&lt;/p>
+&lt;h3 id="접근">접근&lt;/h3>
+&lt;p>객체와 멤버 사이에 점(.) 연산자 이용&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">obj&lt;/span>.&lt;span style="color:#a6e22e">프로퍼티&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">값&lt;/span>; &lt;span style="color:#75715e">// 객체의 프로퍼티 값 변경
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">변수&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">obj&lt;/span>.&lt;span style="color:#a6e22e">프로퍼티&lt;/span>; &lt;span style="color:#75715e">// 객체 onh의 프로퍼티 값 가져오기
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">obj&lt;/span>.&lt;span style="color:#a6e22e">메소드&lt;/span>(&lt;span style="color:#a6e22e">매개변수&lt;/span>); &lt;span style="color:#75715e">// 객체 obj의 메소트 호출
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="종류-1">종류&lt;/h3>
+&lt;h4 id="date-객체">Date 객체&lt;/h4>
+&lt;ul>
+&lt;li>시간 정보를 담는 객체&lt;/li>
+&lt;li>현재 시간 정보
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">now&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Date(); &lt;span style="color:#75715e">// 현재 날짜와 시간(시, 분, 초)
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">date&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">now&lt;/span>.&lt;span style="color:#a6e22e">getDate&lt;/span>(); &lt;span style="color:#75715e">// 오늘 날짜. date = 15
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">hour&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">now&lt;/span>.&lt;span style="color:#a6e22e">getHours&lt;/span>(); &lt;span style="color:#75715e">// 지금 시간. hour = 20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>특정 시간 정보
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">startDay&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Date(&lt;span style="color:#ae81ff">2017&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>월 값은 &amp;lsquo;0&amp;rsquo;부터 시작&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="string-객체">String 객체&lt;/h4>
+&lt;p>문자열을 담기 위한 객체&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">hello&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> String(&lt;span style="color:#e6db74">&amp;#34;Hello&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">res&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">hello&lt;/span>.&lt;span style="color:#a6e22e">concat&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Javascript&amp;#34;&lt;/span>);
+&lt;span style="color:#75715e">// concat() 후 hello의 문자열 변화 없음
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>String 객체는 일단 생성되면 수정 불가능&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>특징&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>문자열 길이&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">hello&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> String(&lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>&lt;span style="color:#a6e22e">Hello&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">”&lt;/span>);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">every&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>&lt;span style="color:#a6e22e">Boy&lt;/span> &lt;span style="color:#a6e22e">and&lt;/span> &lt;span style="color:#a6e22e">Girl&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">”&lt;/span>;
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">m&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">hello&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>; &lt;span style="color:#75715e">// m은 5
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">every&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>; &lt;span style="color:#75715e">// n은 12
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Thank you&amp;#34;&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>; &lt;span style="color:#75715e">// n은 9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>String 객체의 length 프로퍼티 : 읽기 전용&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>문자열을 배열처럼 사용&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">hello&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> String(&lt;span style="color:#e6db74">&amp;#34;Hello&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">hello&lt;/span>[&lt;span style="color:#ae81ff">0&lt;/span>]; &lt;span style="color:#75715e">// c = &amp;#34;H&amp;#34;. 문자 H가 아니라 문자열 “H”
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>[] 연산자를 사용하여 각 문자 접근&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>String 메소드&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">메소드&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">charAt(index)&lt;/td>
+&lt;td style="text-align:left">인덱스 idx에 있는 문자를 문자열로 만들어 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">charCodeAt(index)&lt;/td>
+&lt;td style="text-align:left">인덱스 idx에 있는 문자의 16비트 유니코드 값 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">concat(s1, s2, &amp;hellip;, sN)&lt;/td>
+&lt;td style="text-align:left">현재 문자열 뒤에 문자열 s1,s2,&amp;hellip;sN을 순서대로 연결한 새로운 문자 열 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">indexOf(s[,idx])&lt;/td>
+&lt;td style="text-align:left">인덱스 idx 위치부터 문자열 s가 처음으로 나타나는 인텍스 리턴, idx가 생략되면 처음부터 검색. 발견할 수 없으면 -1 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">replace(strA,strB)&lt;/td>
+&lt;td style="text-align:left">문자열 strA를 찾아 strB로 수정한 새로운 문자열 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">slice(iidxA[,idxB])&lt;/td>
+&lt;td style="text-align:left">인덱스 idxA에서 idxB 앞까지 문자열을 복사하여 리턴, idxB가 생략되면 idxA에서 끝까지 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">split([separator[,limit]])&lt;/td>
+&lt;td style="text-align:left">Separator 문자열을 구분자로 하여 문자열을 분리하여 문자열 배열을 만들어 리턴. Limit는 리턴하는 배열의 크기를 제한하는 정수&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">substr(idxA[,len])&lt;/td>
+&lt;td style="text-align:left">인덱스 idxA에서부터 len 문자 개수만큼 새로운 문자열 리턴. Len이 생략되면 문자열 끝까지 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">substring(idxA,idxB)&lt;/td>
+&lt;td style="text-align:left">idxA에서 idxB 앞까지 두 인덱스 사이의 문자열 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">trim()&lt;/td>
+&lt;td style="text-align:left">문자열의 앞뒤 공백 문자(빈칸, 탭, 엔터키)를 제거한 새로운 문자열 리 턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">toLowerCase()&lt;/td>
+&lt;td style="text-align:left">소문자로 변환된 새로운 문자열 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">toUpperCase()&lt;/td>
+&lt;td style="text-align:left">대문자로 변환된 새로운 문자열 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">fromCharCode(char)&lt;/td>
+&lt;td style="text-align:left">char의 문자를 문자열로 만들어 리턴&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="math-객체">Math 객체&lt;/h4>
+&lt;ul>
+&lt;li>
+&lt;p>수학 계산을 위한 프로퍼티와 메소드 제공&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>new Math()로 객체 생성하지 않고 사용&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">sq&lt;/span> &lt;span style="color:#f92672">=&lt;/span> Math.&lt;span style="color:#a6e22e">sqrt&lt;/span>(&lt;span style="color:#ae81ff">4&lt;/span>); &lt;span style="color:#75715e">// 4의 제곱근을 구하면 2
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">area&lt;/span> &lt;span style="color:#f92672">=&lt;/span> Math.&lt;span style="color:#a6e22e">PI&lt;/span>&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>; &lt;span style="color:#75715e">// 반지름이 2인 원의 면적
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>난수 발생&lt;/p>
+&lt;ul>
+&lt;li>Math.random() : 0~1사이의 랜덤한 실수 리턴&lt;/li>
+&lt;li>Math.floor(m)은 m의 소수점 이하를 제거한 정수 리턴&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#75715e">// 0~99까지 랜덤한 정수를 10개 만드는 코드
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">m&lt;/span> &lt;span style="color:#f92672">=&lt;/span> Math.&lt;span style="color:#a6e22e">random&lt;/span>()&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>; &lt;span style="color:#75715e">// m은 0~99.999... 보다 작은 실수 난수
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span> &lt;span style="color:#f92672">=&lt;/span> Math.&lt;span style="color:#a6e22e">floor&lt;/span>(&lt;span style="color:#a6e22e">m&lt;/span>); &lt;span style="color:#75715e">// m에서 소수점 이하를 제거한 정수(0~99사이)
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>document.&lt;span style="color:#a6e22e">write&lt;/span>(&lt;span style="color:#a6e22e">n&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#e6db74">&amp;#34; &amp;#34;&lt;/span>);
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>주요 메소드&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">메소드&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">abs(x)&lt;/td>
+&lt;td style="text-align:left">x의 절대값 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">sin(x)&lt;/td>
+&lt;td style="text-align:left">싸인 x 값 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">exp(y)&lt;/td>
+&lt;td style="text-align:left">e^y 값 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">pow(x,y)&lt;/td>
+&lt;td style="text-align:left">x^y 값 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">random()&lt;/td>
+&lt;td style="text-align:left">0~1보다 작은 임의의 실수 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">floor(x)&lt;/td>
+&lt;td style="text-align:left">x보다 작거나 같은 수 중 가장 큰 정수 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">round(x)&lt;/td>
+&lt;td style="text-align:left">x를 반올림한 정수 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">sqrt(x)&lt;/td>
+&lt;td style="text-align:left">x의 제곱근 리턴&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;blockquote>
+&lt;p>x와 y는 정수/실수 가능&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="사용자-객체-생성">사용자 객체 생성&lt;/h2>
+&lt;ul>
+&lt;li>직접 객체 만들기
+&lt;ul>
+&lt;li>new Object() 이용: 자바스크립트 코어 객체 중 Object타입 이용&lt;/li>
+&lt;li>리터럴 표기법 이용&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>객체의 틀(프로토타입)을 만들고 객체 생성하기&lt;/li>
+&lt;/ul>
+&lt;h3 id="new-object">new Object()&lt;/h3>
+&lt;ul>
+&lt;li>new Object()로 빈 객체 생성&lt;/li>
+&lt;li>빈 객체에 프로퍼티 추가
+&lt;ul>
+&lt;li>새로운 프로퍼티 추가(프로퍼티 이름과 초기값 지정)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>빈 객체에 메소드 추가
+&lt;ul>
+&lt;li>메소드로 사용할 함수 미리 작성&lt;/li>
+&lt;li>새 메소드 추가(메소드 이름에 함수 지정)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#75715e">//메소드로 사용할 3 개의 함수 작성
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">inquiry&lt;/span>() { &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">balance&lt;/span>; } &lt;span style="color:#75715e">// 잔금 조회
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">deposit&lt;/span>(&lt;span style="color:#a6e22e">money&lt;/span>) { &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">balance&lt;/span> &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#a6e22e">money&lt;/span>; } &lt;span style="color:#75715e">// money 만큼 저금
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">withdraw&lt;/span>(&lt;span style="color:#a6e22e">money&lt;/span>) { &lt;span style="color:#75715e">// 예금 인출, money는 인출하고자 하는 액수
+&lt;/span>&lt;span style="color:#75715e">// money가 balance보다 작다고 가정
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">balance&lt;/span> &lt;span style="color:#f92672">-=&lt;/span> &lt;span style="color:#a6e22e">money&lt;/span>;
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">money&lt;/span>;
+}
+&lt;span style="color:#75715e">// 사용자 객체 만들기
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">account&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Object();
+&lt;span style="color:#a6e22e">account&lt;/span>.&lt;span style="color:#a6e22e">owner&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;반정훈&amp;#34;&lt;/span>; &lt;span style="color:#75715e">// 계좌 주인 프로퍼티 생성 및 초기화
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">account&lt;/span>.&lt;span style="color:#a6e22e">code&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;111&amp;#34;&lt;/span>; &lt;span style="color:#75715e">// 코드 프로퍼티 생성 및 초기화
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">account&lt;/span>.&lt;span style="color:#a6e22e">balance&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">35000&lt;/span>; &lt;span style="color:#75715e">// 잔액 프로퍼티 생성 및 초기화
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">account&lt;/span>.&lt;span style="color:#a6e22e">inquiry&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">inquiry&lt;/span>; &lt;span style="color:#75715e">// 메소드 작성
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">account&lt;/span>.&lt;span style="color:#a6e22e">deposit&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">deposit&lt;/span>; &lt;span style="color:#75715e">// 메소드 작성
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">account&lt;/span>.&lt;span style="color:#a6e22e">withdraw&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">withdraw&lt;/span>; &lt;span style="color:#75715e">// 메소드 작성
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="리터럴-표기법">리터럴 표기법&lt;/h3>
+&lt;p>중괄호를 이용하여 객체의 프로퍼티와 메소드를 한 번에 작성 가능&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">account&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {
+&lt;span style="color:#75715e">// 프로퍼티 생성 및 초기화
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">owner&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;반정훈&amp;#34;&lt;/span>, &lt;span style="color:#75715e">// 계좌 주인 프로퍼티 추가
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">code&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;111&amp;#34;&lt;/span>, &lt;span style="color:#75715e">// 계좌 코드 프로퍼티 추가
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">balance&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#ae81ff">35000&lt;/span>, &lt;span style="color:#75715e">// 잔액 프로퍼티 추가
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#75715e">// 메소드 작성
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">inquiry&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> () { &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">balance&lt;/span>; }, &lt;span style="color:#75715e">// 잔금 조회
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">deposit&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span>(&lt;span style="color:#a6e22e">money&lt;/span>) { &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">balance&lt;/span> &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#a6e22e">money&lt;/span>; }, &lt;span style="color:#75715e">// 저금. money 만큼 저금
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">withdraw&lt;/span> &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> (&lt;span style="color:#a6e22e">money&lt;/span>) { &lt;span style="color:#75715e">// 예금 인출, money는 인출하고자 하는 액수
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// money가 balance보다 작다고 가정
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">balance&lt;/span> &lt;span style="color:#f92672">-=&lt;/span> &lt;span style="color:#a6e22e">money&lt;/span>;
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">money&lt;/span>;
+}
+};
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Til: Array</title><link>http://Jeonghun-Ban.github.io/til/javascript/array/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/javascript/array/</guid><description>
+&lt;h2 id="생성방법">생성방법&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>[]&lt;/code>로 배열 만들기&lt;/li>
+&lt;li>Array 객체로 만들기&lt;/li>
+&lt;/ul>
+&lt;h3 id="로-배열-만들기">[]로 배열 만들기&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>[]&lt;/code> 안에는 원소들의 초기값 나열&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">week&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#e6db74">&amp;#34;월&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;화&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;수&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;목&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;금&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;토&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;일&amp;#34;&lt;/span>]
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">plots&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">20&lt;/span>, &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">15&lt;/span>, &lt;span style="color:#ae81ff">20&lt;/span>];
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>배열 크기는 고정적이지 않으며, 원소 추가시 확장&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">plots&lt;/span>[&lt;span style="color:#ae81ff">5&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">33&lt;/span>; &lt;span style="color:#75715e">// plots 배열에 6번째 원소 추가. 배열 크기 = 6
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">plots&lt;/span>[&lt;span style="color:#ae81ff">6&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">22&lt;/span>; &lt;span style="color:#75715e">// plots 배열에 7번째 원소 추가. 배열 크기 = 7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="array-객체로-만들기">Array 객체로 만들기&lt;/h3>
+&lt;ul>
+&lt;li>초기 값을 가진 배열 생성
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">week&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Array(&lt;span style="color:#e6db74">&amp;#34;월&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;화&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;수&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;목&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;금&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;토&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;일&amp;#34;&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>초기화되지 않은 배열 생성
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">week&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Array(&lt;span style="color:#ae81ff">7&lt;/span>); &lt;span style="color:#75715e">// 7개의 원소를 가진 배열 생성
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">week&lt;/span>[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>&lt;span style="color:#a6e22e">월&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">”&lt;/span>;
+&lt;span style="color:#a6e22e">week&lt;/span>[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>&lt;span style="color:#a6e22e">화&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">”&lt;/span>;
+...
+&lt;span style="color:#a6e22e">week&lt;/span>[&lt;span style="color:#ae81ff">6&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>&lt;span style="color:#a6e22e">일&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">”&lt;/span>;
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>빈 배열 생성
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">week&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Array(); &lt;span style="color:#75715e">// 빈 배열 생성
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">week&lt;/span>[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;월&amp;#34;&lt;/span>; &lt;span style="color:#75715e">// 배열 크기 = 1
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">week&lt;/span>[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;화&amp;#34;&lt;/span>; &lt;span style="color:#75715e">// 배열 크기 = 2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>배열에 원소 추가시 크기가 확장된다.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="length-프로퍼티">length 프로퍼티&lt;/h2>
+&lt;h3 id="원소-개수">원소 개수&lt;/h3>
+&lt;p>배열 크기는 Array 객체의 length 프로퍼티를 사용&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">plots&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">20&lt;/span>, &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">15&lt;/span>, &lt;span style="color:#ae81ff">20&lt;/span>];
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">week&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> Array(&lt;span style="color:#e6db74">&amp;#34;월&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;화&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;수&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;목&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;금&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;토&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;일&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">m&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">plots&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>; &lt;span style="color:#75715e">// m = 5
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">week&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>; &lt;span style="color:#75715e">// n = 7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="배열-크기-변경">배열 크기 변경&lt;/h3>
+&lt;ul>
+&lt;li>length 프로퍼티는 Array 객체에 의해 자동 관리&lt;/li>
+&lt;li>사용자가 임의로 값 변경 가능&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">plots&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>; &lt;span style="color:#75715e">// plots의 크기는 5에서 10으로 늘어남
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">plots&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>; &lt;span style="color:#75715e">// plots의 크기는 2로 줄어 들어, 처음 2개의 원소 외에는 모두 삭제 됨
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="특징">특징&lt;/h2>
+&lt;ul>
+&lt;li>여러 타입의 데이터 저장 가능&lt;/li>
+&lt;li>배열은 Array 객체&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>[]로 생성해도 Array 객체로 다루어짐&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="주요-메소드">주요 메소드&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">메소드&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">concat(arr)&lt;/td>
+&lt;td style="text-align:left">현재 배열에 arr의 원소들을 덧붙여 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">join([separator])&lt;/td>
+&lt;td style="text-align:left">배열의 모든 원소를 연결하여 하나의 문자열로 만들어 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">reverse()&lt;/td>
+&lt;td style="text-align:left">원소를 역순으로 재배열하고, 이를 복사한 새로운 배열 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">slice(a,[b])&lt;/td>
+&lt;td style="text-align:left">두 인덱스 a, b 사이 원소들로 구성된 새 배열 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">sort()&lt;/td>
+&lt;td style="text-align:left">문자열을 사전 순으로 정렬, 새로운 배열 리턴&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">toString()&lt;/td>
+&lt;td style="text-align:left">원소들을 모두 연결하여 문자열 리턴. 원소 사이에 &amp;ldquo;,&amp;rdquo; 삽입&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Til: Document Obeject Model</title><link>http://Jeonghun-Ban.github.io/til/javascript/dom/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/javascript/dom/</guid><description>
+&lt;p>자바스트립트 코드는 브라우저로부터 3가지 유형의 객체를 제공받아 활용한다.&lt;/p>
+&lt;ul>
+&lt;li>BOM 객체&lt;/li>
+&lt;li>코어 객체&lt;/li>
+&lt;li>DOM(Document Object Model) 객체&lt;/li>
+&lt;/ul>
+&lt;h2 id="html-dom">HTML DOM&lt;/h2>
+&lt;ul>
+&lt;li>웹 페이지에 작성된 HTML 태그 당 객체 생성&lt;/li>
+&lt;li>목적: HTML 태그가 출력된 모양이나 콘텐츠를 제어하기 위해서
+&lt;ul>
+&lt;li>DOM 객체를 통해 각 태그의 CSS3 스타일 시트 접근 및 변경&lt;/li>
+&lt;li>HTML 태그에 의해 출력된 텍스트나 이미지 변경&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>DOM 트리
+&lt;ul>
+&lt;li>HTML 태그의 포함관계에 따라 DOM 객체의 트리 생성&lt;/li>
+&lt;li>DOM 트리는 부모 자식 관계&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>DOM 객체
+&lt;ul>
+&lt;li>DOM 트리의 한 노드&lt;/li>
+&lt;li>HTML 태그 당 하나의 DOM 객체 생성
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;p&amp;gt;&lt;/code>는 p객체로, &lt;code>&amp;lt;div&amp;gt;&lt;/code>는 div p객체로&lt;/li>
+&lt;li>DOM 노드, DOM element로 불림&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="dom-트리">DOM 트리&lt;/h3>
+&lt;ul>
+&lt;li>브라우저는 HTML 페이지를 로드하면서, HTML 태그의 포함관계에 따라 DOM 객체들을 트리 구조로 만듦
+&lt;ul>
+&lt;li>window 객체는 BOM과 DOM을 포함하여 전체 객체의 최상위&lt;/li>
+&lt;li>document 객체는 window 객체의 자식이면서 DOM 객체의 최상위&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>자바스크립트 코드는 DOM 트리를 따라 DOM 객체들을 마음대로 접근할 수 있다.&lt;/li>
+&lt;/ul>
+&lt;h4 id="dom-트리의-특징">DOM 트리의 특징&lt;/h4>
+&lt;ul>
+&lt;li>DOM 트리의 루트는 document 객체&lt;/li>
+&lt;li>DOM 객체의 종류는 HTML 태그 종류만큼&lt;/li>
+&lt;li>HTML 태그 당 DOM 객체가 하나씩 생성 , 이름은 태그와 같음&lt;/li>
+&lt;li>HTML 태그의 포함관계에 따라 DOM 트리에 부모 자식 관계&lt;/li>
+&lt;/ul>
+&lt;h4 id="브라우저가-html-태그를-화면에-그리는-과정">브라우저가 HTML 태그를 화면에 그리는 과정&lt;/h4>
+&lt;ol>
+&lt;li>브라우저가 DOM 트리의 틀(document 객체) 생성&lt;/li>
+&lt;li>브라우저가 HTML 태그를 읽고 DOM 트리에 DOM 객체 생성&lt;/li>
+&lt;li>브라우저는 DOM 객체를 화면에 출력&lt;/li>
+&lt;li>HTML 문서 로딩이 완료되면 DOM 트리 완성&lt;/li>
+&lt;li>DOM 객체 변경 시, 브라우저는 해당 HTML 태그의 출력 모양을 바로 갱신&lt;/li>
+&lt;/ol>
+&lt;h3 id="dom-객체-구성-요소">DOM 객체 구성 요소&lt;/h3>
+&lt;ul>
+&lt;li>프로퍼티(property)
+&lt;ul>
+&lt;li>HTML 태그의 속성(attribute) 반영&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>메소드(method)
+&lt;ul>
+&lt;li>DOM 객체의 멤버 함수로서, HTML 태그 제어 가능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>컬렉션(collection)
+&lt;ul>
+&lt;li>자식 DOM 객체들의 주소를 가지는 등 배열과 비슷한 집합적 정보&lt;/li>
+&lt;li>예: children 컬렉션 – DOM 객체의 모든 자식 DOM 객체에 대한 주소 가짐&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>이벤트 리스너(event listener)
+&lt;ul>
+&lt;li>HTML 태그에 작성된 이벤트 리스너 반영&lt;/li>
+&lt;li>약 70여 개의 이벤트 리스너를 가질 수 있음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>CSS3 스타일
+&lt;ul>
+&lt;li>HTML 태그에 설정된 CSS3 스타일 시트 정보를 반영&lt;/li>
+&lt;li>DOM 객체의 style 프로퍼티를 통해 HTML 태그의 모양 제어 가능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="dom-객체-프로퍼티">DOM 객체 프로퍼티&lt;/h3>
+&lt;p>DOM 객체들은 DOM 트리에서 부모, 자식, 형제의 관계로 연결&lt;/p>
+&lt;ul>
+&lt;li>parentElement 프로퍼티 – 부모객체&lt;/li>
+&lt;li>children 프로퍼티 – 직계 자식들의 컬렉션&lt;/li>
+&lt;li>firstElementChild 프로퍼티 – 첫 번째 직계 자식&lt;/li>
+&lt;li>lastElementChild 프로퍼티 – 마지막 직계 자식&lt;/li>
+&lt;/ul>
+&lt;p>Sibling이란 DOM 트리에서 동일한 레벨에 있는 모든 사촌 및 형제
+DOM 객체를 지칭&lt;/p>
+&lt;blockquote>
+&lt;p>다른 부모의 자식이어도 같은 레벨이면 sibling&lt;/p>
+&lt;/blockquote>
+&lt;p>Sibling 관계에 있는 DOM 객체들은 다음 2개의 프로퍼티로 접근&lt;/p>
+&lt;ul>
+&lt;li>previousElementSibling 프로퍼티 – 이전 sibling 객체&lt;/li>
+&lt;li>nextElementSibling 프로퍼티 – 이후 sibling 객체&lt;/li>
+&lt;/ul>
+&lt;h3 id="dom-객체-다루기">DOM 객체 다루기&lt;/h3>
+&lt;h4 id="getelementbyid">getElementById&lt;/h4>
+&lt;p>&lt;code>document.getElementById()&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>DOM 객체 구분
+&lt;pre>&lt;code class="language-HTML5" data-lang="HTML5">&amp;lt;p id=&amp;quot;hi&amp;quot;&amp;gt;안녕하세요&amp;lt;/p&amp;gt;
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>DOM 객체 찾기
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;hi&amp;#34;&lt;/span>) &lt;span style="color:#75715e">// id 값이 hi인 DOM 객체 리턴
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>DOM 객체 스타일 변경
+&lt;ul>
+&lt;li>style 객체 사용&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">span&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;mySpan&amp;#34;&lt;/span>); &lt;span style="color:#75715e">// id가 mySpan인 객체 찾기
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">span&lt;/span>.&lt;span style="color:#a6e22e">style&lt;/span>.&lt;span style="color:#a6e22e">color&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;green&amp;#34;&lt;/span>; &lt;span style="color:#75715e">// ‘문장입니다’의 글자 색을 green으로 변경
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">span&lt;/span>.&lt;span style="color:#a6e22e">style&lt;/span>.&lt;span style="color:#a6e22e">fontSize&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;30px&amp;#34;&lt;/span>; &lt;span style="color:#75715e">// ‘문장입니다’의 폰트를 30px 크기로 변경
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">span&lt;/span>.&lt;span style="color:#a6e22e">style&lt;/span>.&lt;span style="color:#a6e22e">border&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;3px dotted magenta&amp;#34;&lt;/span>; &lt;span style="color:#75715e">// 3픽셀의 magenta 점선 테두리
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="getelementbytagname">getElementByTagName&lt;/h4>
+&lt;p>&lt;code>document.getElementsByTagName()&lt;/code>
+태그 이름이 같은 모든 DOM 객체들을 찾아 컬렉션 리턴&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">change&lt;/span>() {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">spanArray&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">getElementsByTagName&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;span&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">spanArray&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">span&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">spanArray&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>];
+&lt;span style="color:#a6e22e">span&lt;/span>.&lt;span style="color:#a6e22e">style&lt;/span>.&lt;span style="color:#a6e22e">color&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;orchid&amp;#34;&lt;/span>;
+&lt;span style="color:#a6e22e">span&lt;/span>.&lt;span style="color:#a6e22e">style&lt;/span>.&lt;span style="color:#a6e22e">fontSize&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;20px&amp;#34;&lt;/span>;
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="getelementbyclassname">getElementByClassName&lt;/h4>
+&lt;p>&lt;code>document.getElementsByClassName()&lt;/code>
+class 속성이 같은 모든 DOM 객체들을 찾아 컬렉션 리턴&lt;/p>
+&lt;h4 id="innerhtml-프로퍼티">innerHTML 프로퍼티&lt;/h4>
+&lt;p>시작 태그와 종료 태그 사이에 들어 있는 HTML 콘텐츠를 다룸&lt;/p>
+&lt;blockquote>
+&lt;p>innerHTML 프로퍼티 수정 -&amp;gt; HTML 태그의 콘텐츠 변경&lt;/p>
+&lt;/blockquote>
+&lt;pre>&lt;code class="language-HTML5" data-lang="HTML5">&amp;lt;script&amp;gt;
+function change() {
+var p = document.getElementById(&amp;quot;firstP&amp;quot;);
+p.innerHTML= &amp;quot;나의 &amp;lt;img src='puppy.png'&amp;gt; 강아지&amp;quot;;
+}
+&amp;lt;/script&amp;gt;
+&amp;lt;p id=&amp;quot;firstP&amp;quot; style=&amp;quot;color:blue&amp;quot;
+onclick=&amp;quot;change()&amp;quot;&amp;gt;
+여기에&amp;lt;span style=&amp;quot;color:red&amp;quot;&amp;gt;클릭하세요&amp;lt;/span&amp;gt;
+&amp;lt;/p&amp;gt;
+&lt;/code>&lt;/pre>&lt;h4 id="this">this&lt;/h4>
+&lt;p>객체 자신을 가리키는 자바스크립트 키워드&lt;/p>
+&lt;blockquote>
+&lt;p>DOM 객체에서 객체 자신을 가리키는 용도로 사용&lt;/p>
+&lt;/blockquote>
+&lt;pre>&lt;code class="language-html5" data-lang="html5">&amp;lt;div onclick=&amp;quot;this.style.backgroundColor='orange'&amp;quot;&amp;gt;
+&lt;/code>&lt;/pre>&lt;h2 id="document-객체">Document 객체&lt;/h2>
+&lt;p>HTML 문서 전체를 대변하는 객체이자 DOM 객체를 접근하는 경로의 시작점&lt;/p>
+&lt;blockquote>
+&lt;p>HTML 문서 로드 전, Document 객체를 생성하고 DOM 트리 생성&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>프로퍼티: HTML 문서의 전반적인 속성 내포&lt;/li>
+&lt;li>메소드: DOM 객체 검색, DOM 객체 생성, HTML 문서 전반적 제어&lt;/li>
+&lt;li>컬렉션: HTML 태그들을 배열처럼 접근할 수 있는 컬렉션을 둠&lt;/li>
+&lt;/ul>
+&lt;h3 id="document-객체-접근">Document 객체 접근&lt;/h3>
+&lt;ul>
+&lt;li>window.document 또는 document 이름으로 접근&lt;/li>
+&lt;li>document 객체는 DOM 객체가 아님&lt;/li>
+&lt;/ul>
+&lt;h3 id="write-and-writeln">write() and writeln()&lt;/h3>
+&lt;ul>
+&lt;li>write()
+&lt;ul>
+&lt;li>현재 document 객체에 담긴 HTML 콘텐츠 마지막에 HTML 텍스트를 추가&lt;/li>
+&lt;li>추가되는 HTML 텍스트는 DOM 객체로 바뀌고 DOM 트리에 추가&lt;/li>
+&lt;li>삽입된 HTML 텍스트가 브라우저 화면에 출력&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>writeln()
+&lt;ul>
+&lt;li>HTML 텍스트에 &lt;code>\n&lt;/code>을 덧붙여 출력. 한 칸 띄는 효과&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="open-and-close">open() and close()&lt;/h3>
+&lt;ul>
+&lt;li>open()
+&lt;ul>
+&lt;li>현재 브라우저에 출력된 HTML 콘텐츠를 지우고 새로운 HTML 페이지 시작.&lt;/li>
+&lt;li>즉 document 객체에 담긴 DOM 트리를 지우고 새로 시작&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>close()
+&lt;ul>
+&lt;li>현재 브라우저에 출력된 HTML 페이지 완성&lt;/li>
+&lt;li>더 이상 document.write() 할 수 없음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#75715e">// 현재 HTML 페이지의 내용을 지우고 다시 시작
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>document.&lt;span style="color:#a6e22e">open&lt;/span>();
+document.&lt;span style="color:#a6e22e">write&lt;/span>(&lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">html&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">head&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>...&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">body&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">안녕하세요&lt;/span>.&lt;span style="color:#960050;background-color:#1e0010">”&lt;/span>);
+document.&lt;span style="color:#a6e22e">write&lt;/span>(&lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>.......&lt;span style="color:#960050;background-color:#1e0010">”&lt;/span>);
+document.&lt;span style="color:#a6e22e">write&lt;/span>(&lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/body&amp;gt;&amp;lt;/html&amp;gt;”);&lt;/span>
+document.&lt;span style="color:#a6e22e">close&lt;/span>();
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="문서의-동적-구성">문서의 동적 구성&lt;/h3>
+&lt;h4 id="dom-객체-동적-생성">DOM 객체 동적 생성&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">newDIV&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">createElement&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;div&amp;#34;&lt;/span>);
+&lt;span style="color:#a6e22e">newDIV&lt;/span>.&lt;span style="color:#a6e22e">innerHTML&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;새로 생성된 DIV입니다.&amp;#34;&lt;/span>;
+&lt;span style="color:#a6e22e">newDIV&lt;/span>.&lt;span style="color:#a6e22e">setAttribute&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;id&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;myDiv&amp;#34;&lt;/span>);
+&lt;span style="color:#a6e22e">newDIV&lt;/span>.&lt;span style="color:#a6e22e">style&lt;/span>.&lt;span style="color:#a6e22e">backgroundColor&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;yellow&amp;#34;&lt;/span>;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="dom-트리에-삽입">DOM 트리에 삽입&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">p&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;p&amp;#34;&lt;/span>);
+&lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">appendChild&lt;/span>(&lt;span style="color:#a6e22e">newDiv&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="dom-객체의-삭제">DOM 객체의 삭제&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">myDiv&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;myDiv&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">parent&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">myDiv&lt;/span>.&lt;span style="color:#a6e22e">parentElement&lt;/span>;
+&lt;span style="color:#a6e22e">parent&lt;/span>.&lt;span style="color:#a6e22e">removeChild&lt;/span>(&lt;span style="color:#a6e22e">myDiv&lt;/span>); &lt;span style="color:#75715e">// 부모에서 myDiv 객체 삭제
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Til: Document</title><link>http://Jeonghun-Ban.github.io/til/javascript/document/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/javascript/document/</guid><description>
+&lt;p>HTML 문서 전체를 대변하는 객체이자 DOM 객체를 접근하는 경로의 시작점&lt;/p>
+&lt;blockquote>
+&lt;p>HTML 문서 로드 전, Document 객체를 생성하고 DOM 트리 생성&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>프로퍼티: HTML 문서의 전반적인 속성 내포&lt;/li>
+&lt;li>메소드: DOM 객체 검색, DOM 객체 생성, HTML 문서 전반적 제어&lt;/li>
+&lt;li>컬렉션: HTML 태그들을 배열처럼 접근할 수 있는 컬렉션을 둠&lt;/li>
+&lt;/ul>
+&lt;h2 id="document-객체-접근">Document 객체 접근&lt;/h2>
+&lt;ul>
+&lt;li>window.document 또는 document 이름으로 접근&lt;/li>
+&lt;li>document 객체는 DOM 객체가 아님&lt;/li>
+&lt;/ul>
+&lt;h2 id="write-and-writeln">write() and writeln()&lt;/h2>
+&lt;ul>
+&lt;li>write()
+&lt;ul>
+&lt;li>현재 document 객체에 담긴 HTML 콘텐츠 마지막에 HTML 텍스트를 추가&lt;/li>
+&lt;li>추가되는 HTML 텍스트는 DOM 객체로 바뀌고 DOM 트리에 추가&lt;/li>
+&lt;li>삽입된 HTML 텍스트가 브라우저 화면에 출력&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>writeln()
+&lt;ul>
+&lt;li>HTML 텍스트에 &lt;code>\n&lt;/code>을 덧붙여 출력. 한 칸 띄는 효과&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="open-and-close">open() and close()&lt;/h2>
+&lt;ul>
+&lt;li>open()
+&lt;ul>
+&lt;li>현재 브라우저에 출력된 HTML 콘텐츠를 지우고 새로운 HTML 페이지 시작.&lt;/li>
+&lt;li>즉 document 객체에 담긴 DOM 트리를 지우고 새로 시작&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>close()
+&lt;ul>
+&lt;li>현재 브라우저에 출력된 HTML 페이지 완성&lt;/li>
+&lt;li>더 이상 document.write() 할 수 없음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#75715e">// 현재 HTML 페이지의 내용을 지우고 다시 시작
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>document.&lt;span style="color:#a6e22e">open&lt;/span>();
+document.&lt;span style="color:#a6e22e">write&lt;/span>(&lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">html&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">head&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>...&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">body&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">안녕하세요&lt;/span>.&lt;span style="color:#960050;background-color:#1e0010">”&lt;/span>);
+document.&lt;span style="color:#a6e22e">write&lt;/span>(&lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>.......&lt;span style="color:#960050;background-color:#1e0010">”&lt;/span>);
+document.&lt;span style="color:#a6e22e">write&lt;/span>(&lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/body&amp;gt;&amp;lt;/html&amp;gt;”);&lt;/span>
+document.&lt;span style="color:#a6e22e">close&lt;/span>();
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="문서의-동적-구성">문서의 동적 구성&lt;/h2>
+&lt;h3 id="dom-객체-동적-생성">DOM 객체 동적 생성&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">newDIV&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">createElement&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;div&amp;#34;&lt;/span>);
+&lt;span style="color:#a6e22e">newDIV&lt;/span>.&lt;span style="color:#a6e22e">innerHTML&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;새로 생성된 DIV입니다.&amp;#34;&lt;/span>;
+&lt;span style="color:#a6e22e">newDIV&lt;/span>.&lt;span style="color:#a6e22e">setAttribute&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;id&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;myDiv&amp;#34;&lt;/span>);
+&lt;span style="color:#a6e22e">newDIV&lt;/span>.&lt;span style="color:#a6e22e">style&lt;/span>.&lt;span style="color:#a6e22e">backgroundColor&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;yellow&amp;#34;&lt;/span>;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="dom-트리에-삽입">DOM 트리에 삽입&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">p&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;p&amp;#34;&lt;/span>);
+&lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">appendChild&lt;/span>(&lt;span style="color:#a6e22e">newDiv&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="dom-객체의-삭제">DOM 객체의 삭제&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">myDiv&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;myDiv&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">parent&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">myDiv&lt;/span>.&lt;span style="color:#a6e22e">parentElement&lt;/span>;
+&lt;span style="color:#a6e22e">parent&lt;/span>.&lt;span style="color:#a6e22e">removeChild&lt;/span>(&lt;span style="color:#a6e22e">myDiv&lt;/span>); &lt;span style="color:#75715e">// 부모에서 myDiv 객체 삭제
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Til: Event</title><link>http://Jeonghun-Ban.github.io/til/javascript/event/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/javascript/event/</guid><description>
+&lt;h2 id="개요">개요&lt;/h2>
+&lt;h3 id="이벤트-정의">이벤트 정의&lt;/h3>
+&lt;p>마우스 클릭, 키보드 입력, 이미지나 HTML 문서의 로딩, 타이머의 타임아웃 등 사용자의 입력 행위나 문서나 브라우저의 상태 변화를 자바스크립트 코드에게 알리는 통지&lt;/p>
+&lt;h3 id="이벤트-리스너">이벤트 리스너&lt;/h3>
+&lt;p>발생한 이벤트에 대처하기 위해 작성된 자바스크립트 코드&lt;/p>
+&lt;h3 id="이벤트-종류">이벤트 종류&lt;/h3>
+&lt;ul>
+&lt;li>HTML5에서 이벤트는 70여가지&lt;/li>
+&lt;li>이벤트 리스너의 이름은 이벤트 이름 앞에 on을 붙임&lt;/li>
+&lt;/ul>
+&lt;h2 id="이벤트-리스너-생성">이벤트 리스너 생성&lt;/h2>
+&lt;h3 id="html-태그-내에-작성">HTML 태그 내에 작성&lt;/h3>
+&lt;p>HTML 태그의 이벤트 리스너 속성에 리스너 코드 직접 작성&lt;/p>
+&lt;pre>&lt;code class="language-html5" data-lang="html5">&amp;lt;p onmouseover=&amp;quot;this.style.backgroundColor='orchid'&amp;quot; onmouseout=&amp;quot;this.style.backgroundColor='white'&amp;quot;&amp;gt;
+마우스 올리면 orchid 색으로 변경
+&amp;lt;/p&amp;gt;
+&lt;/code>&lt;/pre>&lt;h3 id="dom-객체-프로퍼티에-작성">DOM 객체 프로퍼티에 작성&lt;/h3>
+&lt;p>DOM 객체의 이벤트 리스너 프로퍼티에 이벤트 리스너 코드 작성&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">over&lt;/span>() { &lt;span style="color:#75715e">// onmouseover 리스너로 사용할 함수
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>...
+}
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">p&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;p&amp;#34;&lt;/span>);
+&lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">onmouseover&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">over&lt;/span>;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="dom-객체-addeventlistener-메소드">DOM 객체 addEventListener() 메소드&lt;/h3>
+&lt;ul>
+&lt;li>addEventListener() 사용의 차별점
+&lt;ul>
+&lt;li>removeEventListener() 이용 제거 가능&lt;/li>
+&lt;li>동일한 이벤트 리스너에 여러 함수를 중복 등록 가능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">p&lt;/span>;
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">init&lt;/span>() { &lt;span style="color:#75715e">// 문서가 완전히 로드되었을 때 호출
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">p&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;p&amp;#34;&lt;/span>);
+&lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;mouseover&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">over&lt;/span>); &lt;span style="color:#75715e">// 이벤트 리스너 등록
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;mouseout&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">out&lt;/span>); &lt;span style="color:#75715e">// 이벤트 리스너 등록
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">over&lt;/span>() {
+&lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">style&lt;/span>.&lt;span style="color:#a6e22e">backgroundColor&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;orchid&amp;#34;&lt;/span>;
+}
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">out&lt;/span>() {
+&lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">style&lt;/span>.&lt;span style="color:#a6e22e">backgroundColor&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;white&amp;#34;&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="익명-함수로-이벤트-리스너-작성">익명 함수로 이벤트 리스너 작성&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">onmouseover&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> () { &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">style&lt;/span>.&lt;span style="color:#a6e22e">backgroundColor&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;orchid&amp;#34;&lt;/span>; }; &lt;span style="color:#75715e">// 익명 함수
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">p&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;mouseover&amp;#34;&lt;/span>,
+&lt;span style="color:#66d9ef">function&lt;/span> () { &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">style&lt;/span>.&lt;span style="color:#a6e22e">backgroundColor&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;orchid&amp;#34;&lt;/span>; } &lt;span style="color:#75715e">// 익명 함수
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>익명 함수(anonymous function): 함수 이름 없이 함수 바로 작성
+코드가 짧거나 한 곳에서만 사용하는 경우, 익명 함수 편리&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="이벤트-객체">이벤트 객체&lt;/h2>
+&lt;ul>
+&lt;li>발생한 이벤트에 관련된 다양한 정보를 담은 객체&lt;/li>
+&lt;li>이벤트가 처리되고 나면 이벤트 객체 소멸&lt;/li>
+&lt;/ul>
+&lt;h3 id="이벤트-객체-전달받기">이벤트 객체 전달받기&lt;/h3>
+&lt;p>이벤트 객체는 이벤트 리스너 함수의 첫 번째 매개변수에 전달&lt;/p>
+&lt;h4 id="이름을-가진-이벤트-리스너">이름을 가진 이벤트 리스너&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">f&lt;/span>(&lt;span style="color:#a6e22e">e&lt;/span>) { &lt;span style="color:#75715e">// 매개변수 e에 이벤트 객체 전달받음
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>...
+}
+&lt;span style="color:#a6e22e">obj&lt;/span>.&lt;span style="color:#a6e22e">onclick&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">f&lt;/span>; &lt;span style="color:#75715e">// obj 객체의 onclick 리스너로 함수 f 등록
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="익명-함수의-경우">익명 함수의 경우&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">obj&lt;/span>.&lt;span style="color:#a6e22e">onclick&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span>(&lt;span style="color:#a6e22e">e&lt;/span>) { &lt;span style="color:#75715e">// 매개변수
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">e에&lt;/span> &lt;span style="color:#a6e22e">이벤트&lt;/span> &lt;span style="color:#a6e22e">객체&lt;/span> &lt;span style="color:#a6e22e">전달받음&lt;/span>
+...
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="html-태그에-이벤트-리스너">HTML 태그에 이벤트 리스너&lt;/h4>
+&lt;p>event 라는 이름으로 전달&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">f&lt;/span>(&lt;span style="color:#a6e22e">e&lt;/span>) {
+...
+}
+...
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">button&lt;/span> &lt;span style="color:#a6e22e">onclick&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>&lt;span style="color:#a6e22e">f&lt;/span>(&lt;span style="color:#a6e22e">event&lt;/span>)&lt;span style="color:#960050;background-color:#1e0010">”&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">버튼&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/button&amp;gt;&lt;/span>
+&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#a6e22e">div&lt;/span> &lt;span style="color:#a6e22e">onclick&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">“&lt;/span>&lt;span style="color:#a6e22e">alert&lt;/span>(&lt;span style="color:#a6e22e">event&lt;/span>.&lt;span style="color:#a6e22e">type&lt;/span>)&lt;span style="color:#960050;background-color:#1e0010">”&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#a6e22e">버튼&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">/div&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="이벤트-객체에-들어-있는-정보">이벤트 객체에 들어 있는 정보&lt;/h3>
+&lt;ul>
+&lt;li>현재 발생한 이벤트에 관한 다양한 정보
+&lt;ul>
+&lt;li>이벤트 객체의 프로퍼티와 메소드로 알 수 있음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>이벤트의 종류마다 조금씩 다름
+&lt;ul>
+&lt;li>이벤트 객체의 공통 멤버
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">멤버&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">type&lt;/td>
+&lt;td style="text-align:left">현재 발생한 이벤트의 종류를 나타내는 문자 (clickm load 등)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">target&lt;/td>
+&lt;td style="text-align:left">이벤트를 발생시킨 객체 (DOM 객체 혹은 HTML 태그)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">currentTarget&lt;/td>
+&lt;td style="text-align:left">현재 이벤트 리스너를 실행하고 있는 DOM 객체&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">defaultPrevented&lt;/td>
+&lt;td style="text-align:left">이벤트의 디폴트 행동이 취소되었는지 나타냄(true/false)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">preventDefault()&lt;/td>
+&lt;td style="text-align:left">이벤트의 디폴트 행동을 취소시키는 메소드&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>target 프로퍼티
+&lt;ul>
+&lt;li>이벤트 타겟 객체 가리킴&lt;/li>
+&lt;li>이벤트 타겟 : 이벤트를 유발시킨 DOM 객체&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="preventdefault">preventDefault()&lt;/h3>
+&lt;p>이벤트 디폴트 행동 취소&lt;/p>
+&lt;blockquote>
+&lt;p>이벤트 디폴트 행동: 특정 이벤트에 대한 HTML 태그의 기본 행동&lt;/p>
+&lt;/blockquote>
+&lt;pre>&lt;code class="language-html5" data-lang="html5">&amp;lt;a href=&amp;quot;http://www.naver.com&amp;quot; onclick=&amp;quot;event.preventDefault();&amp;quot;&amp;gt;
+이동 안되는 링크
+&amp;lt;/a&amp;gt;
+&lt;/code>&lt;/pre>&lt;h2 id="이벤트-흐름">이벤트 흐름&lt;/h2>
+&lt;p>이벤트가 발생하면 window 객체에 먼저 도달하고, DOM 트리를 따라 이벤트 타겟에 도착하고, 다시 반대 방향으로 흘러 window 객체에 도달한 다음 사라지는 과정&lt;/p>
+&lt;h3 id="이벤트가-흘러가는-과정">이벤트가 흘러가는 과정&lt;/h3>
+&lt;ul>
+&lt;li>캡쳐 단계(capturing phase)
+&lt;ul>
+&lt;li>이벤트가 window 객체에서 중간의 모든 DOM 객체를 거쳐 타겟 객체에 전달되는 과정&lt;/li>
+&lt;li>이벤트가 거쳐가는 모든 DOM 객체(window포함)의 이벤트 리스너 실행&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>버블 단계(bubbling phase)
+&lt;ul>
+&lt;li>이벤트가 타겟에서 중간의 모든 DOM 객체를 거쳐 window 객체에 전달되는 과정&lt;/li>
+&lt;li>이벤트가 거쳐가는 모든 DOM 객체(window포함)의 이벤트 리스너 실행&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="캡쳐-리스너와-버블-리스너-등록">캡쳐 리스너와 버블 리스너 등록&lt;/h3>
+&lt;p>addEventListener()의 3 번째 매개 변수 이용&lt;/p>
+&lt;blockquote>
+&lt;p>true이면 캡쳐 리스너, false이면 버블 리스너&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">b&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;button&amp;#34;&lt;/span>);
+&lt;span style="color:#a6e22e">b&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;click&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">capFunc&lt;/span>, &lt;span style="color:#66d9ef">true&lt;/span>); &lt;span style="color:#75715e">// 캡쳐 단계에서 capFunc() 실행
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">b&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;click&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">bubbleFunc&lt;/span>, &lt;span style="color:#66d9ef">false&lt;/span>); &lt;span style="color:#75715e">// 버블 단계에서 bubbleFunc() 실행
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="이벤트-흐름-중단">이벤트 흐름 중단&lt;/h3>
+&lt;p>이벤트 객체의 stopPropagation() 호출&lt;/p>
+&lt;h2 id="마우스-핸들링">마우스 핸들링&lt;/h2>
+&lt;h3 id="마우스-이벤트-객체-프로퍼티">마우스 이벤트 객체 프로퍼티&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">프로퍼티&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">x, y&lt;/td>
+&lt;td style="text-align:left">(x, y)는 타겟 객체의 부모 객체 내에서의 마우스 좌표&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">clientX, clientY&lt;/td>
+&lt;td style="text-align:left">(clientX, clientY)는 브라우저 윈도우의 문서출력 영역 내에서의 마우스의 좌표&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">screenX, screenY&lt;/td>
+&lt;td style="text-align:left">(screenX, screenY)는 스크린을 기준으로 한 마우스 좌표&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">offsetX, offsetY&lt;/td>
+&lt;td style="text-align:left">(offsetX, offsetY)는 타겟 객체 내에서의 마우스 좌표&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">button&lt;/td>
+&lt;td style="text-align:left">0: 아무 버튼도 눌러지지 않았음 &lt;!-- raw HTML omitted --> 1: 왼쪽 버튼이 눌러졌음 &lt;!-- raw HTML omitted --> 2: 오른쪽 버튼이 눌러졌음 &lt;!-- raw HTML omitted --> 3: 왼쪽, 오른쪽 버튼이 모두 눌러졌음 &lt;!-- raw HTML omitted --> 4: 중간 버튼이 눌러졌음&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">wheelDelta&lt;/td>
+&lt;td style="text-align:left">양수: 위쪽으로 굴린 경우 &lt;!-- raw HTML omitted --> 음수: 아래쪽으로 굴린 경우&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="마우스-이벤트">마우스 이벤트&lt;/h3>
+&lt;ul>
+&lt;li>onclick
+&lt;ul>
+&lt;li>HTML 태그 클릭될 때&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>ondblclick
+&lt;ul>
+&lt;li>HTML 태그가 더블클릭될 때&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>onmousedown/up
+&lt;ul>
+&lt;li>마우스 버튼을 누르는(놓는) 순간&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>onmouseover/out
+&lt;ul>
+&lt;li>마우스가 태그 위로 올라가는(떠나는) 순간&lt;/li>
+&lt;li>자식 영역 포함&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>onmouseenter/leave
+&lt;ul>
+&lt;li>마우스가 태그 위로 올라가는(떠나는) 순간&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>onwheel
+&lt;ul>
+&lt;li>HTML 태그에 마우스 휠이 구르는 동안 계속 호출&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">obj&lt;/span>.&lt;span style="color:#a6e22e">onwheel&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> (&lt;span style="color:#a6e22e">e&lt;/span>) {
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#a6e22e">e&lt;/span>.&lt;span style="color:#a6e22e">wheelDelta&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) { &lt;span style="color:#75715e">// 아래쪽으로 휠을 굴린 경우
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> ...
+}
+&lt;span style="color:#66d9ef">else&lt;/span> { &lt;span style="color:#75715e">// 위쪽으로 휠을 굴린 경우
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> ...
+}
+};
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="oncontextmenu">oncontextmenu&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">document.&lt;span style="color:#a6e22e">oncontextmenu&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> () {
+...
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>; &lt;span style="color:#75715e">// 컨텍스트 메뉴 출력 금지
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>HTML 태그 위에 마우스 오른쪽 버튼 클릭&lt;/li>
+&lt;li>디폴트로 컨텍스트 메뉴 출력&lt;/li>
+&lt;li>oncontextmenu 리스너에 false 리턴하면 디폴트 행동 취소&lt;/li>
+&lt;/ul>
+&lt;h2 id="load">load&lt;/h2>
+&lt;h3 id="문서의-로딩">문서의 로딩&lt;/h3>
+&lt;ul>
+&lt;li>window 객체에서 onload 발생
+&lt;ul>
+&lt;li>웹 페이지 로딩 완료시 호출되는 이벤트 리스너&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>onload 리스너 작성 방법&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">window.&lt;span style="color:#a6e22e">onload&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;alert(&amp;#39;onload&amp;#39;);&amp;#34;&lt;/span>;
+&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code class="language-html5" data-lang="html5">&amp;lt;body onload=&amp;quot;alert('onload');&amp;quot;&amp;gt;
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>같은 표현, &lt;code>&amp;lt;body&amp;gt;&lt;/code>에 onload를 단 window 객체에 load 이벤트가 전달됨
+document.onload는 최근에 와서 많은 브라우저에서 작동하지 않음&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="이미지-로딩">이미지 로딩&lt;/h3>
+&lt;h4 id="image-객체">Image 객체&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;img&amp;gt;&lt;/code> 태그에 의해 생성되는 DOM 객체&lt;/li>
+&lt;li>&lt;code>new Image();&lt;/code> 자바스크립트 코드에 의해 생성되는 객체&lt;/li>
+&lt;/ul>
+&lt;h4 id="onload">onload&lt;/h4>
+&lt;ul>
+&lt;li>이미지의 로딩이 완료되면 Image객체에 발생하는 이벤트&lt;/li>
+&lt;/ul>
+&lt;h4 id="새로운-이미지-로딩">새로운 이미지 로딩&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">myImg&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;myImg&amp;#34;&lt;/span>);
+&lt;span style="color:#a6e22e">myImg&lt;/span>.&lt;span style="color:#a6e22e">onload&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> () { &lt;span style="color:#75715e">// 이미지 로딩 완료 시 실행
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">width&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">myImg&lt;/span>.&lt;span style="color:#a6e22e">width&lt;/span>; &lt;span style="color:#75715e">// 정확한 이미지 폭 읽기
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;span style="color:#a6e22e">myImg&lt;/span>.&lt;span style="color:#a6e22e">src&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;banana.png&amp;#34;&lt;/span>; &lt;span style="color:#75715e">// 이미지 로딩 지시
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="이미지-객체-생성">이미지 객체 생성&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">bananaImg&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Image&lt;/span>(); &lt;span style="color:#75715e">// 이미지 객체 생성
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">bananaImg&lt;/span>.&lt;span style="color:#a6e22e">src&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;banana.png&amp;#34;&lt;/span>; &lt;span style="color:#75715e">// 이미지 로딩
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="폼과-이벤트-활용">폼과 이벤트 활용&lt;/h3>
+&lt;ul>
+&lt;li>포커스
+&lt;ul>
+&lt;li>포커스는 현재 키 입력에 대한 독점권&lt;/li>
+&lt;li>브라우저는 포커스를 가지고 있는 HTML 태그 요소에 키 공급&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>onblur
+&lt;ul>
+&lt;li>포커스를 잃을 때 발생하는 이벤트 리스너&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>onfocus
+&lt;ul>
+&lt;li>포커스를 잃을 때 발생하는 이벤트 리스너&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="라디오버튼과-체크박스">라디오버튼과 체크박스&lt;/h4>
+&lt;p>라디오버튼
+&lt;code>&amp;lt;input type=&amp;quot;radio&amp;quot;&amp;gt;&lt;/code>로 만들어진 라디오 버튼 DOM 객체&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-html" data-lang="html">&amp;lt;&lt;span style="color:#f92672">form&lt;/span>&amp;gt;
+&amp;lt;&lt;span style="color:#f92672">input&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;radio&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;city&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">value&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;seoul&amp;#34;&lt;/span>&amp;gt;서울
+&amp;lt;&lt;span style="color:#f92672">input&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;radio&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;city&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">value&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;busan&amp;#34;&lt;/span>&amp;gt;부산
+&amp;lt;&lt;span style="color:#f92672">input&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;radio&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;city&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">value&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;chunchen&amp;#34;&lt;/span>&amp;gt;춘천
+&amp;lt;/&lt;span style="color:#f92672">form&lt;/span>&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>라디오 버튼 객체들 알아내기 –&amp;gt; 그 그룹의 Name으로&lt;/p>
+&lt;/blockquote>
+&lt;p>체크박스
+&lt;code>&amp;lt;input type=&amp;quot;checkbox&amp;quot;&amp;gt;&lt;/code>로 만들어진 체크박스 DOM 객체&lt;/p>
+&lt;h4 id="select-객체와-onchange">select 객체와 onchange&lt;/h4>
+&lt;ul>
+&lt;li>select 객체는 select 태그로 만들어진 콤보박스&lt;/li>
+&lt;li>option 객체는 option 태그로 표현되는 옵션 아이템&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-html" data-lang="html">&amp;lt;&lt;span style="color:#f92672">select&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;fruits&amp;#34;&lt;/span>&amp;gt;
+&amp;lt;&lt;span style="color:#f92672">option&lt;/span> &lt;span style="color:#a6e22e">value&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;1&amp;#34;&lt;/span>&amp;gt;딸기&amp;lt;/&lt;span style="color:#f92672">option&lt;/span>&amp;gt;
+&amp;lt;&lt;span style="color:#f92672">option&lt;/span> &lt;span style="color:#a6e22e">value&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;2&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">selected&lt;/span>&amp;gt;바나나&amp;lt;/&lt;span style="color:#f92672">option&lt;/span>&amp;gt;
+&amp;lt;&lt;span style="color:#f92672">option&lt;/span> &lt;span style="color:#a6e22e">value&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;3&amp;#34;&lt;/span>&amp;gt;사과&amp;lt;/&lt;span style="color:#f92672">option&lt;/span>&amp;gt;
+&amp;lt;/&lt;span style="color:#f92672">select&lt;/span>&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>선택된 옵션 알아내기&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">sel&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;fruits&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">index&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">sel&lt;/span>.&lt;span style="color:#a6e22e">selectedIndex&lt;/span>; &lt;span style="color:#75715e">// index는 선택 상태의 옵션 인덱스
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>옵션 선택&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#a6e22e">sel&lt;/span>.&lt;span style="color:#a6e22e">selectedIndex&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>; &lt;span style="color:#75715e">// 3번째 옵션 “사과” 선택
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">sel&lt;/span>.&lt;span style="color:#a6e22e">options&lt;/span>[&lt;span style="color:#ae81ff">2&lt;/span>].&lt;span style="color:#a6e22e">selected&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span>; &lt;span style="color:#75715e">// 3번째 옵션 “사과” 선택
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>select와 onchange 리스너
+선택된 옵션이 변경되면 select 객체의 onchange 리스너 호출&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-html" data-lang="html">&amp;lt;&lt;span style="color:#f92672">select&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;fruits&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">onchange&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;drawImage()&amp;#34;&lt;/span>&amp;gt;...&amp;lt;/&lt;span style="color:#f92672">select&lt;/span>&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="키-이벤트">키 이벤트&lt;/h2>
+&lt;h3 id="onkeydown-onkeypress-onkeyup">onkeydown, onkeypress, onkeyup&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>onkeydown&lt;/p>
+&lt;ul>
+&lt;li>키가 눌러지는 순간 호출. 모든 키에 대해 작동&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>onkeypress&lt;/p>
+&lt;ul>
+&lt;li>문자 키와 Enter, Space, Esc 키에 대해서만 눌러지는 순간에 추가 호출&lt;/li>
+&lt;li>문자 키가 아닌 경우(F1, Shift, PgDn, Del, Ins 등) 호출되지 않음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>onkeyup&lt;/p>
+&lt;ul>
+&lt;li>눌러진 키가 떼어지는 순간 호출&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="onreset과-onsubmit">onreset과 onsubmit&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>onreset&lt;/p>
+&lt;ul>
+&lt;li>reset 버튼(&lt;code>&amp;lt;input type=&amp;quot;reset&amp;quot;&amp;gt;&lt;/code>) 클릭 시 false를 리턴하면 폼이 초기화되지 않음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>onsubmit&lt;/p>
+&lt;ul>
+&lt;li>submit(&lt;code>&amp;lt;input type=&amp;quot;submit&amp;quot;&amp;gt;&lt;/code>) 버튼 클릭 시 false를 리턴하면 폼 전송하지 않음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>리스너 작성&lt;/p>
+&lt;ul>
+&lt;li>onreset과 onsubmit 리스너는 form 태그에 달아야 한다&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-html" data-lang="html">&amp;lt;&lt;span style="color:#f92672">form&lt;/span> &lt;span style="color:#a6e22e">onreset&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;...&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">onsubmit&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;...&amp;#34;&lt;/span>&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">프로퍼티&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;th style="text-align:left">r/w&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">keyCode&lt;/td>
+&lt;td style="text-align:left">입력된 키의 유니코드 값&lt;/td>
+&lt;td style="text-align:left">r&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">altKey&lt;/td>
+&lt;td style="text-align:left">Alt 키가 눌러진 상태이면 true&lt;/td>
+&lt;td style="text-align:left">r&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">altLeft&lt;/td>
+&lt;td style="text-align:left">왼쪽 Alt 키가 눌러진 상태이면 true&lt;/td>
+&lt;td style="text-align:left">r&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">ctrlKey&lt;/td>
+&lt;td style="text-align:left">ctrl 키가 눌러진 상태이면 true&lt;/td>
+&lt;td style="text-align:left">r&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">ctrlLeft&lt;/td>
+&lt;td style="text-align:left">왼쪽 ctrl 키가 눌러진 상태이면 true&lt;/td>
+&lt;td style="text-align:left">r&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">shiftKey&lt;/td>
+&lt;td style="text-align:left">shift 키가 눌러진 상태이면 true&lt;/td>
+&lt;td style="text-align:left">r&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">shiftLeft&lt;/td>
+&lt;td style="text-align:left">왼쪽 shift 키가 눌러진 상태이면 true&lt;/td>
+&lt;td style="text-align:left">r&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Til: Browser Object Model</title><link>http://Jeonghun-Ban.github.io/til/javascript/bom/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/javascript/bom/</guid><description>
+&lt;ul>
+&lt;li>window: 브라우저 윈도우 모양 제어, 새 윈도우 열기/닫기&lt;/li>
+&lt;li>location: 브라우저 윈도우에 로드한 HTML 페이지의 URL 관리&lt;/li>
+&lt;li>navigator: 브라우저에 대한 다양한 정보 제공&lt;/li>
+&lt;li>screen: 브라우저가 실행되고 있는 스크린 장치에 대한 정보 제공&lt;/li>
+&lt;li>history: 브라우저 윈도우에 로드한 URL 리스트와 히스토리&lt;/li>
+&lt;/ul>
+&lt;p>자바스크립트로 브라우저를 제어하기 위해 지원하는 객체들은 위와 같다.&lt;/p>
+&lt;blockquote>
+&lt;p>국제 표준이 없기 때문에, 브라우저별로 BOM 객체가 상이&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="window">window&lt;/h2>
+&lt;ul>
+&lt;li>열려 있는 브라우저 윈도우나 탭 윈도우의 속성을 나타내는 객체&lt;/li>
+&lt;li>브라우저 윈도우나 탭 윈도우마다 별도의 window 객체 생성
+window 객체의 생성&lt;/li>
+&lt;li>브라우저가 새로운 웹 페이지를 로드&lt;/li>
+&lt;li>&lt;code>&amp;lt;iframe&amp;gt;&lt;/code> 태그 당 하나의 window 객체 생성&lt;/li>
+&lt;li>자바스크립트 코드로 윈도우 열기 시
+자바스크립트 코드로 window 객체 접근&lt;/li>
+&lt;li>window 혹은 window.self 혹은 self&lt;/li>
+&lt;li>다양한 윈도우 객체의 프로퍼티, 메소드, 이벤트 리스너&lt;/li>
+&lt;/ul>
+&lt;h3 id="윈도우-열기">윈도우 열기&lt;/h3>
+&lt;p>window.open()&lt;/p>
+&lt;ul>
+&lt;li>윈도우를 새로 열고 웹 페이지 출력&lt;/li>
+&lt;li>3개의 매개변수를 가진 함수
+&lt;ul>
+&lt;li>window.open(sURL, sWindowName, sFeature)
+&lt;ul>
+&lt;li>sURL: 윈도우에 출력할 웹 페이지 주소 문자열&lt;/li>
+&lt;li>sWindowName: 새로 여는 윈도우의 이름 문자열로, 생략 가능&lt;/li>
+&lt;li>sFeature: 윈도우 모양, 크기 등의 속성들을 표현하는 문자열&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>윈도우 이름: 개발자가 임의로 정하지만, 지정된 윈도우가 존재&lt;/li>
+&lt;/ul>
+&lt;h4 id="swindowname">sWindowName&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">이름&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">_blank&lt;/td>
+&lt;td style="text-align:left">이름 없는 새 윈도우를 열고, 웹 페이지 로드&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">_parent&lt;/td>
+&lt;td style="text-align:left">현재 윈도우의 부모 윈도우에 웹 페이지 로드, 부모 없으면 현재 윈도우 이용&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">_self&lt;/td>
+&lt;td style="text-align:left">현재 윈도우에 웹 페이지 로드&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">_top&lt;/td>
+&lt;td style="text-align:left">브라우저 윈도우에 웹 페이지 로드&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="sfeature">sFeature&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">속성&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;th style="text-align:left">속성 값의 종류&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">width&lt;/td>
+&lt;td style="text-align:left">윈도우의 폭, 픽셀 값&lt;/td>
+&lt;td style="text-align:left">정수&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">height&lt;/td>
+&lt;td style="text-align:left">윈도우의 높이, 픽셀 값&lt;/td>
+&lt;td style="text-align:left">정수&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">left&lt;/td>
+&lt;td style="text-align:left">스크린 상의 윈도우 x 좌표, 픽셀 값&lt;/td>
+&lt;td style="text-align:left">정수&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">right&lt;/td>
+&lt;td style="text-align:left">스크린 상의 윈도우 y 좌표, 픽셀 값&lt;/td>
+&lt;td style="text-align:left">정수&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">resizable&lt;/td>
+&lt;td style="text-align:left">마우스로 윈도우 크기 조절 가능 여부&lt;/td>
+&lt;td style="text-align:left">yes/no/1/0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">location&lt;/td>
+&lt;td style="text-align:left">URL 입력 창을 출력하도록 지정&lt;/td>
+&lt;td style="text-align:left">yes/no/1/0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">menubar&lt;/td>
+&lt;td style="text-align:left">메뉴바를 출력하도록 지정&lt;/td>
+&lt;td style="text-align:left">yes/no/1/0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">scrollbars&lt;/td>
+&lt;td style="text-align:left">수직/수평 스크롤바를 출력하도록 지정&lt;/td>
+&lt;td style="text-align:left">yes/no/1/0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">status&lt;/td>
+&lt;td style="text-align:left">윈도우 하단에 상태바를 출력하도록 지정&lt;/td>
+&lt;td style="text-align:left">yes/no/1/0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">toolbar&lt;/td>
+&lt;td style="text-align:left">툴바를 출력하도록 지정&lt;/td>
+&lt;td style="text-align:left">yes/no/1/0&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;blockquote>
+&lt;p>yes는 속성을 반영하도록 지시
+no가 디폴트이며 0과 같은 값&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="윈도우-닫기">윈도우 닫기&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">newWin&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">null&lt;/span>; &lt;span style="color:#75715e">// 새로 연 윈도우 기억
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">load&lt;/span>(&lt;span style="color:#a6e22e">URL&lt;/span>) {
+&lt;span style="color:#a6e22e">newWin&lt;/span> &lt;span style="color:#f92672">=&lt;/span> window.&lt;span style="color:#a6e22e">open&lt;/span>(&lt;span style="color:#a6e22e">URL&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;myWin&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;left=300,top=300,width=400,height=300&amp;#34;&lt;/span>);
+}
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">closeNewWindow&lt;/span>() {
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#a6e22e">newWin&lt;/span>&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#66d9ef">null&lt;/span> &lt;span style="color:#f92672">||&lt;/span> &lt;span style="color:#a6e22e">newWin&lt;/span>.&lt;span style="color:#a6e22e">closed&lt;/span>) &lt;span style="color:#75715e">// 윈도우가 열리지 않았거나 닫힌 경우
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">return&lt;/span>; &lt;span style="color:#75715e">// 윈도우가 없는 경우 그냥 리턴
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">else&lt;/span>
+&lt;span style="color:#a6e22e">newWin&lt;/span>.&lt;span style="color:#a6e22e">close&lt;/span>(); &lt;span style="color:#75715e">// 열어 놓은 윈도우 닫기
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="타이머-활용">타이머 활용&lt;/h3>
+&lt;p>window 객체의 타이머 기능 2가지&lt;/p>
+&lt;ul>
+&lt;li>타임아웃 코드 1회 호출
+&lt;ul>
+&lt;li>setTimeout()/clearTimeout()&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>타임아웃 코드 반복 호출
+&lt;ul>
+&lt;li>setInterval()/clearInterval()&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="settimeoutcleartimeout">setTimeout()/clearTimeout()&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">timerID&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">setTimeout&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;timeOutCode&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">msec&lt;/span>);
+&lt;span style="color:#a6e22e">clearTimeout&lt;/span>(&lt;span style="color:#a6e22e">timerID&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="setintervalclearinterval">setInterval()/clearInterval()&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">timerID&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">setInterval&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;timeOutCode&amp;#34;&lt;/span>, &lt;span style="color:#a6e22e">msec&lt;/span>);
+&lt;span style="color:#a6e22e">clearInterval&lt;/span>(&lt;span style="color:#a6e22e">timerID&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="윈도우-위치-및-크기-조절">윈도우 위치 및 크기 조절&lt;/h3>
+&lt;p>윈도우를 오른쪽으로 5픽셀, 아래로 10픽셀 이동&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">window.&lt;span style="color:#a6e22e">moveBy&lt;/span>(&lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">10&lt;/span>);
+&lt;span style="color:#a6e22e">moveBy&lt;/span>(&lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">10&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>윈도우를 스크린의 (25, 10) 위치로 이동&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">window.&lt;span style="color:#a6e22e">moveTo&lt;/span>(&lt;span style="color:#ae81ff">25&lt;/span>, &lt;span style="color:#ae81ff">10&lt;/span>);
+&lt;span style="color:#a6e22e">self&lt;/span>.&lt;span style="color:#a6e22e">moveTo&lt;/span>(&lt;span style="color:#ae81ff">25&lt;/span>, &lt;span style="color:#ae81ff">10&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>윈도우 크기를 5 픽셀 좁게, 10픽셀 길게 조절&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">window.&lt;span style="color:#a6e22e">resizeBy&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">10&lt;/span>);
+&lt;span style="color:#a6e22e">resizeTo&lt;/span>(&lt;span style="color:#a6e22e">self&lt;/span>.&lt;span style="color:#a6e22e">outerWidth&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#a6e22e">self&lt;/span>.&lt;span style="color:#a6e22e">outerHeight&lt;/span>&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>윈도우 크기를 200x300으로 조절&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">window.&lt;span style="color:#a6e22e">resizeTo&lt;/span>(&lt;span style="color:#ae81ff">200&lt;/span>, &lt;span style="color:#ae81ff">300&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="웹-페이지-스크롤">웹 페이지 스크롤&lt;/h3>
+&lt;p>웹 페이지를 위로 10픽셀 스크롤(마우스 스크롤 다운)&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">window.&lt;span style="color:#a6e22e">scrollBy&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">10&lt;/span>); &lt;span style="color:#75715e">// 옆으로 0, 위로 10픽셀
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>웹 페이지를 왼쪽으로 10픽셀, 아래로 15픽셀 스크롤(마우스 스크롤 업)&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">window.&lt;span style="color:#a6e22e">scrollBy&lt;/span>(&lt;span style="color:#ae81ff">10&lt;/span>, &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">15&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>웹 페이지의 (0, 200) 좌표 부분이 현재 윈도우의 왼쪽 상단 모서리에 출력되도록 스크롤&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">window.&lt;span style="color:#a6e22e">scrollTo&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">200&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="location">location&lt;/h2>
+&lt;ul>
+&lt;li>윈도우에 로드된 웹 페이지의 URL 정보를 나타내는 객체&lt;/li>
+&lt;li>location 객체로 현재 윈도우에 웹 페이지 열기&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">window.&lt;span style="color:#a6e22e">location&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;http://www.naver.com&amp;#34;&lt;/span>;
+window.&lt;span style="color:#a6e22e">location&lt;/span>.&lt;span style="color:#a6e22e">href&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;http://www.naver.com&amp;#34;&lt;/span>;
+window.&lt;span style="color:#a6e22e">location&lt;/span>.&lt;span style="color:#a6e22e">assign&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;http://www.naver.com&amp;#34;&lt;/span>);
+window.&lt;span style="color:#a6e22e">location&lt;/span>.&lt;span style="color:#a6e22e">replace&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;http://www.naver.com&amp;#34;&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>새 윈도우에 웹 페이지 열기&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">win&lt;/span>&lt;span style="color:#f92672">=&lt;/span>window.&lt;span style="color:#a6e22e">open&lt;/span>(); &lt;span style="color:#75715e">// 빈 윈도우 열기
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">win&lt;/span>.&lt;span style="color:#a6e22e">location&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;http://www.naver.com&amp;#34;&lt;/span>; &lt;span style="color:#75715e">// 네이버 페이지 로드
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="프로퍼티와-메소드">프로퍼티와 메소드&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">프로퍼티&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">hash&lt;/td>
+&lt;td style="text-align:left">&lt;code>#&lt;/code>을 포함하는 앵커 이름 문자열&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">host&lt;/td>
+&lt;td style="text-align:left">도메인과 포트 번호를 포함하는 웹 서버 주소 문자열&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">hostname&lt;/td>
+&lt;td style="text-align:left">웹 서버 이름&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">href&lt;/td>
+&lt;td style="text-align:left">URL 전체 문자열&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">pathname&lt;/td>
+&lt;td style="text-align:left">디렉터리 부분 문자열&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">port&lt;/td>
+&lt;td style="text-align:left">포트 번호 문자열&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">protocol 프로토콜 문자열&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">search&lt;/td>
+&lt;td style="text-align:left">URL에서 &lt;code>?&lt;/code>와 그 뒷부분 문자열로서, 주로 웹 서버로 검색을 요청할 때 동반되는 파라미터 문자열&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">메소드&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">assign()&lt;/td>
+&lt;td style="text-align:left">새로운 웹 페이지를 로드한다.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">reload()&lt;/td>
+&lt;td style="text-align:left">현재 웹 페이지를 다시 로드한다. 페이지가 수정되었으면 반영한다.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">replace()&lt;/td>
+&lt;td style="text-align:left">현재 웹 페이지의 URL을 히스토리에서 제거하고, 새로운 페이지를 로드한다.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="navigator">navigator&lt;/h2>
+&lt;ul>
+&lt;li>현재 작동중인 브라우저에 대한 다양한 정보를 나타내는 객체&lt;/li>
+&lt;li>window.navigator 또는 navigator&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">프로퍼티&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">appCodeName&lt;/td>
+&lt;td style="text-align:left">브라우저의 코드 이름을 가진 문자열&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">appName&lt;/td>
+&lt;td style="text-align:left">브라우저 이름 문자열&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">appVersion&lt;/td>
+&lt;td style="text-align:left">브라우저의 플랫폼과 버전에 관한 문자열&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">platform&lt;/td>
+&lt;td style="text-align:left">운영체제 플랫폼의 이름&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">product&lt;/td>
+&lt;td style="text-align:left">브라우저 엔진의 이름&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">userAgent&lt;/td>
+&lt;td style="text-align:left">브라우저가 웹 서버로 데이터를 전송할 때, HTTP 헤더 속의 user-agent 필드에 저장하는 문자열로서 웹 서버가 클라이언트를 인식하기 위한 목적&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">vendor&lt;/td>
+&lt;td style="text-align:left">브라우저 제작 회사의 이름 문자열&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">language&lt;/td>
+&lt;td style="text-align:left">브라우저의 언어를 나타내는 문자열&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">onLine&lt;/td>
+&lt;td style="text-align:left">브라우저가 현재 온라인 작동중이면 true, 아니면 false&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">plugins&lt;/td>
+&lt;td style="text-align:left">브라우저에 설치된 플러그인에 대한 컬렉션&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">cookieEnabled&lt;/td>
+&lt;td style="text-align:left">브라우저에 쿠키를 사용할 수 있는 상태면 true, 아니면 false&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">geolocation&lt;/td>
+&lt;td style="text-align:left">위치 정보를 제공하는 geolocation 객체에 대한 레퍼런스&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="screen">screen&lt;/h2>
+&lt;ul>
+&lt;li>브라우저가 실행되는 스크린 장치에 관한 정보를 담고 있는 객체&lt;/li>
+&lt;li>window.screen 혹은 screen&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">프로퍼티&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">availHeight&lt;/td>
+&lt;td style="text-align:left">작업 표시줄 등을 제외하고 브라우저가 출력 가능한 영역의 높이&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">availWidth&lt;/td>
+&lt;td style="text-align:left">작업 표시줄 등을 제외하고 브라우저가 출력 가능한 영역의 폭&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">pixelDepth&lt;/td>
+&lt;td style="text-align:left">한 픽셀의 색을 나타내기 위해 사용되는 비트 수&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">colorDepth&lt;/td>
+&lt;td style="text-align:left">한 픽셀의 색을 나타내기 위해 사용되는 비트 수로, pixelDepth와 동일. 대부분 브라우저에서 지원되므로 pixelDepth보다 이것을 사용하는 것이 권장됨&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">height&lt;/td>
+&lt;td style="text-align:left">스크린의 수직 픽셀 수&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">width&lt;/td>
+&lt;td style="text-align:left">스크린의 수평 픽셀 수&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="history">history&lt;/h2>
+&lt;ul>
+&lt;li>윈도우에서 방문한 웹 페이지 리스트(히스토리)를 나타내는 객체&lt;/li>
+&lt;li>Window.history 혹은 history&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">프로퍼티&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">length&lt;/td>
+&lt;td style="text-align:left">히스토리 리스트에 있는 엔트리 수&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">메소드&lt;/th>
+&lt;th style="text-align:left">설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">back()&lt;/td>
+&lt;td style="text-align:left">히스토리에 있는 이전 웹 페이지로 이동. 브라우저의 &lt;!-- raw HTML omitted --> 버튼과 동일&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">forward()&lt;/td>
+&lt;td style="text-align:left">히스토리에 있는 다음 웹 페이지로 이동. 브라우저의 &lt;!-- raw HTML omitted --> 버튼과 동일&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">go(n)&lt;/td>
+&lt;td style="text-align:left">히스토리에서 현재 웹 페이지에서 n만큼 상태적인 웹 페이지로 이동&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>

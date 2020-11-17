@@ -1,0 +1,750 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeonghun-Ban – Cryptology</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/</link><description>Recent content in Cryptology on Jeonghun-Ban</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://Jeonghun-Ban.github.io/til/security/cryptology/index.xml" rel="self" type="application/rss+xml"/><item><title>Til: Introduction</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/introduction/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/cryptology/introduction/</guid><description>
+&lt;p>평문(Plain Text)를 암호문(Cipher Text)로 만드는 &lt;code>암호기술(Crytography)&lt;/code>과 이를 해독하는 &lt;code>암호해독(Cryptanalysis)&lt;/code>에 대하여 연구하는 학문&lt;/p>
+&lt;h2 id="암호-기법">암호 기법&lt;/h2>
+&lt;ul>
+&lt;li>치환(Substitution)
+&lt;ul>
+&lt;li>평문의 문자를 다른 문자로 &lt;code>교환(대체)&lt;/code>하는 암호기법&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>전치(Transposition)
+&lt;ul>
+&lt;li>문자 집합 내부에서 &lt;code>자리를 바꾸는(재배열)&lt;/code> 암호기법&lt;/li>
+&lt;li>원문과 암호문에 사용된 문자 사이에 일대일 대응 규칙을 갖는다&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>블록(Block)
+&lt;ul>
+&lt;li>평문을 특정 비트의 &lt;code>블록&lt;/code>으로 잘라낸 후 암호화 알고리즘을 적용하여 암호화&lt;/li>
+&lt;li>&lt;code>Round&lt;/code>를 사용하여 반복적인 암호화 과정을 수행&lt;/li>
+&lt;li>DES, AES 등&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>스트림(Stream)
+&lt;ul>
+&lt;li>데이터 흐름(Stream)을 &lt;code>순차적&lt;/code>으로 처리해가는 암호 알고리즘&lt;/li>
+&lt;li>&lt;code>평문과 키를 XOR&lt;/code>하여 생성&lt;/li>
+&lt;li>블록 암호기법보다 &lt;code>빠른 속도&lt;/code>&lt;/li>
+&lt;li>그래서 무선 통신 환경에서 오디오, 비디오 스트리밍에 사용됨&lt;/li>
+&lt;li>LFSR, RC4 등&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="암호화와-복호화">암호화와 복호화&lt;/h3>
+&lt;ul>
+&lt;li>암호화(Encrypt)
+&lt;ul>
+&lt;li>평문을 비밀키를 사용하여 암호문으로 암호화한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>복호화(Decrypt)
+&lt;ul>
+&lt;li>암호문을 비밀키를 사용하여 평문으로 복호화한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="위치에-따른-암호화-구분">위치에 따른 암호화 구분&lt;/h3>
+&lt;ul>
+&lt;li>링크 암호화(Link Encryption)
+&lt;ul>
+&lt;li>통신 링크 양쪽 끝단에 암호화 장치를 놓는 것&lt;/li>
+&lt;li>대형 네트워크에서 사용하면 필요한 암호화 장치 수가 증가&lt;/li>
+&lt;li>중간 노드에서 데이터가 평문으로 노출되는 단점&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>종단간 암호화(End-to-End Encryption)
+&lt;ul>
+&lt;li>두 종단 시스템에서 수행&lt;/li>
+&lt;li>트래픽 분석에 취약하나 링크 암호화보다 높은 수준의 보안&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="암호-기술">암호 기술&lt;/h2>
+&lt;ul>
+&lt;li>대칭키 암호(Symmetric Cryptography)
+&lt;ul>
+&lt;li>&lt;code>암호화키 = 복호화키&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>비대칭키 암호(Asymmetric Cryptography)
+&lt;ul>
+&lt;li>&lt;code>암호화키 ≠ 복호화키&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>하이브리드 시스템
+&lt;ul>
+&lt;li>&lt;code>대칭키 + 비대칭키&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>일방향 해시함수(one-way hash function)
+&lt;ul>
+&lt;li>프로그램의 해시값을 제공하여 &lt;code>정보가 변경되지 않음&lt;/code>을 증명&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>메시지 인증 코드(MAC, Message Authentication Code)
+&lt;ul>
+&lt;li>메시지가 전송 도중 &lt;code>변경되지 않았다는 것&lt;/code>과 메시지를 &lt;code>송신한 상대&lt;/code>가 맞는지 확인하기 위해 사용&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>전자서명
+&lt;ul>
+&lt;li>&lt;code>무결성&lt;/code>을 확인하고, &lt;code>인증과 부인방지&lt;/code>를 제공&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>의사난수 생성기(PRNG, Pseudo Random Number Generator)
+&lt;ul>
+&lt;li>난수열을 생성하는 알고리즘&lt;/li>
+&lt;li>&lt;code>키 생성&lt;/code>에 사용&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="암호-해독">암호 해독&lt;/h2>
+&lt;p>암호 시스템을 무력화시키는 기술로, 합법적인 송수신자가 아닌 제3자가 암호문으로부터 평문을 찾으려는 시도를 말한다. 이때 제3자는 암호 해독자 또는 침해자라고 칭한다.&lt;/p>
+&lt;ul>
+&lt;li>암호문 단독 공격(COA, Cipher-text Only Attack)
+&lt;ul>
+&lt;li>&lt;code>암호문&lt;/code>만 가지고 이에 대응되는 &lt;code>평문과 키&lt;/code>를 찾아내는 방법&lt;/li>
+&lt;li>침해자는 암호 알고리즘을 알고 있으며 암호문을 가로챌 수 있다고 가정&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>기지 평문 공격(KPA, Known Plain-text Attack)
+&lt;ul>
+&lt;li>&lt;code>암호문과 평문의 관계&lt;/code>로부터 &lt;code>키나 평문&lt;/code>을 추정하여 해독하는 방법&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>선택 평문 공격(CPA, Chosen Plaintext Attack)
+&lt;ul>
+&lt;li>&lt;code>평문을 선택&lt;/code>하면 그에 &lt;code>해당하는 암호문&lt;/code>을 얻어내 해독하는 방법&lt;/li>
+&lt;li>송신자(암호기)에 접근이 가능하고, 평문/암호문 쌍을 침해자가 선택 가능하다고 가정&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>선택 암호문 공격(CCA, Chosen CIphertext Attack)
+&lt;ul>
+&lt;li>&lt;code>암호문을 선택&lt;/code>하면 그에 &lt;code>해당하는 평문&lt;/code>을 얻어내 암호를 해독하는 방법&lt;/li>
+&lt;li>수신자(복호기)에 접근이 가능하다고 가정&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="암호-알고리즘의-안정성-평가">암호 알고리즘의 안정성 평가&lt;/h2>
+&lt;h3 id="안전성">안전성&lt;/h3>
+&lt;ul>
+&lt;li>계산적으로 안전
+&lt;ul>
+&lt;li>암호시스템을 공격하기 위해 필요한 계산량이 너무 커 현실적으로 공격할 수 없는 경우&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>무조건적으로 안전
+&lt;ul>
+&lt;li>무한한 계산 능력이 있어도 공격할 수 없는 경우&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>즉, 암호 알고리즘은 암호 해독비용이 암호화된 정보의 가치를 초과하거나 암호 해독 시간이 정보의 유효 기간을 초과하도록 개발되어야 한다.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="평가체계">평가체계&lt;/h3>
+&lt;ul>
+&lt;li>CC(Common Critetia)
+&lt;ul>
+&lt;li>정보보호시스템에 대한 공통 평가 기준&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>CMVP(Cryptographic Module Validation Program)
+&lt;ul>
+&lt;li>미국 NIST와 캐나다 CSE가 개발한 암호 모듈의 안전성 검증을 위한 프로그램&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="암호기술-평가">암호기술 평가&lt;/h3>
+&lt;ul>
+&lt;li>암호 알고리즘 평가
+&lt;ul>
+&lt;li>정보보호제품에 탑재된 암호 알고리즘에 대한 안전성 평가&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>암호모듈 평가
+&lt;ul>
+&lt;li>암호 알고리즘을 이용하여 제공되는 암호 서비스에 대한 안전성 평가&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>정보보호제품 평가
+&lt;ul>
+&lt;li>암호모듈을 탑재한 정보보호 제품에 대한 안전성 평가&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>응용시스템 평가
+&lt;ul>
+&lt;li>각 제품을 연동하여 구성되는 시스템에 대한 안전성 평가&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Til: Asymmetric-Cryptography</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/asymmetric-cryptography/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/cryptology/asymmetric-cryptography/</guid><description/></item><item><title>Til: Symmetric-Cryptography</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/symmetric-cryptography/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/cryptology/symmetric-cryptography/</guid><description/></item><item><title>Til: Hash Function</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/hash-function/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/cryptology/hash-function/</guid><description>
+&lt;p>임의의 길이를 가지는 메시지를 고정된 길이의 값으로 바꾸어주는 함수&lt;/p>
+&lt;h2 id="일방향-해시함수">일방향 해시함수&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>출력 값 = 해시 값 = 메시지 다이제스트&lt;/code>&lt;/li>
+&lt;li>일방향성
+&lt;ul>
+&lt;li>해시값으로부터 메시지 역산 불가&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>충돌
+&lt;ul>
+&lt;li>해시 값 하나에 여러 메시지 존재&lt;/li>
+&lt;li>충돌을 발견하기란 어려움
+&lt;ul>
+&lt;li>이러한 성질을 &lt;code>충돌 내성&lt;/code>이라 함&lt;/li>
+&lt;li>따라서 데이터 변조가 어렵고, 무결성이 확보됨&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="공격-기법">공격 기법&lt;/h3>
+&lt;ul>
+&lt;li>무차별 공격
+&lt;ul>
+&lt;li>약한 충돌 내성을 깨기 위한 공격&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>일치블록 연쇄공격
+&lt;ul>
+&lt;li>사전에 해시 값을 다양하게 생성 후 공격하고자 하는 메시지의 해시 값과 동일한 것을 찾는 공격&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>중간자 연쇄공격
+&lt;ul>
+&lt;li>전체 해시 값이 아닌 해시 중간 결과에 대한 충돌 쌍을 찾음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>고정점 연쇄공격
+&lt;ul>
+&lt;li>메시지 블록과 연쇄변수 쌍을 얻어 연쇄변수가 발생하는 특정한 점에 임의의 동등한 블록들을 메시지 중간에 삽입해도 전체 해시 값이 변하지 않음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>차분 연쇄공격
+&lt;ul>
+&lt;li>압축함수의 입출력 차이를 조사하여 0의 충돌쌍을 찾는 공격&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="보안-요구사항">보안 요구사항&lt;/h2>
+&lt;h3 id="무결성-점검">무결성 점검&lt;/h3>
+&lt;p>암호학적 해시함수를 사용하여 이전 해시값과 새로운 해시값이 동일하다면 메시지가 변경되지 않았음을 확인할 수 있다.&lt;/p>
+&lt;h3 id="암호학적-해시함수-기준">암호학적 해시함수 기준&lt;/h3>
+&lt;p>암호학에서 사용될 수 있는 안전하다고 여겨지는 해시 함수를 &lt;code>암호학적 해시함수&lt;/code>라 한다. 아래는 암호학적 해시함수가 되기 위한 필요조건이다.&lt;/p>
+&lt;ul>
+&lt;li>프리이미지 저항성(역상 저항성)
+&lt;ul>
+&lt;li>주어진 &lt;code>해시함수 h&lt;/code>와 &lt;code>y=h(M)&lt;/code>에 대하여 제 3자가 &lt;code>y=h(M')&lt;/code>를 만족하는 &lt;code>M'&lt;/code>를 발견하는 것이 매우 힘들어야 한다는 성질&lt;/li>
+&lt;li>프리이미지(preimage)
+&lt;ul>
+&lt;li>해시값 &lt;code>h=H(x)&lt;/code>에 대해 x는 h의 프리이미지(선 이미지)라 한다.&lt;/li>
+&lt;li>H가 다대일 대응이므로 특정 해시 값 h에 여러 개의 선 이미지 존재&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>제2프리이미지 저항성(약한 충돌 내성)
+&lt;ul>
+&lt;li>메시지를 쉽게 위조할 수 없게 하는 특성&lt;/li>
+&lt;li>제 3자가 &lt;code>메시지 M&lt;/code>과 그것의 &lt;code>다이제스트 h(M)&lt;/code>을 가로챘을 경우, &lt;code>h(M) = h(M')&lt;/code>을 만족하는 또 다른 메시지 &lt;code>M'&lt;/code>을 생성하기 매우 어려워야 한다는 성질&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>충돌 저항성(강한 출동 내성)
+&lt;ul>
+&lt;li>제3자가 동일한 메시지 다이제스트를 갖는 2개의 메시지 쌍을 구하지 못하게 하는 성질&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="전자서명에-이용되는-해시함수-특성">전자서명에 이용되는 해시함수 특성&lt;/h3>
+&lt;ul>
+&lt;li>해시 값을 고속으로 계산 가능&lt;/li>
+&lt;li>&lt;code>암호학적 해시함수 기준&lt;/code> 3가지 모두 충족&lt;/li>
+&lt;/ul>
+&lt;h2 id="암호학적-해시함수">암호학적 해시함수&lt;/h2>
+&lt;h3 id="메시지-다이제스트">메시지 다이제스트&lt;/h3>
+&lt;ul>
+&lt;li>MD2 -&amp;gt; MD4 -&amp;gt; MD5&lt;/li>
+&lt;li>MD5는 메시지를 512bit로 된 블록으로 나누어 128bit 다이제스트를 출력&lt;/li>
+&lt;li>128bit 메시지 다이제스트는 길이가 짧아 충돌 공격에 내성을 갖기 어려움&lt;/li>
+&lt;/ul>
+&lt;h3 id="shasecure-hash-algorithm">SHA(Secure Hash Algorithm)&lt;/h3>
+&lt;p>MD4 기반, 안전 해시 알고리즘&lt;/p>
+&lt;ul>
+&lt;li>SHA-1
+&lt;ul>
+&lt;li>해시값: 160bit&lt;/li>
+&lt;li>강한 충돌 내성이 깨졌음&lt;/li>
+&lt;li>안정성 문제로 &lt;code>SHA-2&lt;/code>로 마이그레이션 진행&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>SHA-2
+&lt;ul>
+&lt;li>동일한 &lt;code>암호화 결함&lt;/code>을 가짐&lt;/li>
+&lt;li>&lt;code>긴 해시길이&lt;/code>로 SHA-1보다 안전&lt;/li>
+&lt;li>종류
+&lt;ul>
+&lt;li>SHA-224&lt;/li>
+&lt;li>SHA-256&lt;/li>
+&lt;li>SHA-384&lt;/li>
+&lt;li>SHA-512&lt;/li>
+&lt;li>SHA-512/224&lt;/li>
+&lt;li>SHA-512/256&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Til: MAC(Message Authentication Code)</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/mac/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/cryptology/mac/</guid><description>
+&lt;p>해시함수는 데이터의 &lt;code>무결성&lt;/code>을 보장하지만 발신자의 신원 확인이 불가능하다. 이러한 문제를 해결하기 위해 &lt;code>인증 절차&lt;/code>를 추가한 것이 &lt;code>메시지 인증 코드(MAC)&lt;/code>이다.&lt;/p>
+&lt;h2 id="개념">개념&lt;/h2>
+&lt;h3 id="변경-감지-코드mdc">변경 감지 코드(MDC)&lt;/h3>
+&lt;p>변경 감지 코드(MDC, Modification Detection Code)는 메시지의 &lt;code>무결성을 보장&lt;/code>하는 다이제스트이다.&lt;/p>
+&lt;p>&lt;img src="images/2020-06-08-01-53-11.png" alt="변경 감지 코드(MDC)">&lt;/p>
+&lt;h4 id="인증-과정">인증 과정&lt;/h4>
+&lt;ul>
+&lt;li>Alice는 안전하지 않은 채널로 &lt;code>메시지 M&lt;/code>을 Bob에게 전송&lt;/li>
+&lt;li>&lt;code>Hash(M)&lt;/code>으로 도출한 해시값 &lt;code>MDC&lt;/code>를 안전한 채널로 전송&lt;/li>
+&lt;li>Bob은 수신한 메시지를 해시 알고리즘을 통해 해시값 &lt;code>MDC'&lt;/code> 도출&lt;/li>
+&lt;li>Bob은 안전한 채널로 수신한 해시값 &lt;code>MDC&lt;/code>과 계산한 해시값 &lt;code>MDC'&lt;/code>를 비교&lt;/li>
+&lt;li>동일하다면 전달받은 메시지의 무결성이 입증됨&lt;/li>
+&lt;/ul>
+&lt;h4 id="문제점">문제점&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>안전한 채널&lt;/code>이 보장됨이 전제임&lt;/li>
+&lt;li>만약 해당 채널이 탈취된다면 메시지와 MDC 모두 위조될 수 있음&lt;/li>
+&lt;/ul>
+&lt;h3 id="메시지-인증-코드mac">메시지 인증 코드(MAC)&lt;/h3>
+&lt;p>송ㆍ수신자 간 &lt;code>비밀키&lt;/code>를 공유하는 것으로 안전한 채널이 확보되지 않아도 &lt;code>무결성&lt;/code>과 전송자의 &lt;code>신원 인증&lt;/code>을 가능하게 하는 방법&lt;/p>
+&lt;p>&lt;img src="images/2020-06-08-01-53-17.png" alt="메시지 인증 코드(MAC)">&lt;/p>
+&lt;h4 id="인증-과정-1">인증 과정&lt;/h4>
+&lt;ul>
+&lt;li>원본 &lt;code>메시지 M&lt;/code>을 &lt;code>비밀키 K&lt;/code>와 병합하여 해시 수행&lt;/li>
+&lt;li>여기서 만들어진 &lt;code>MAC&lt;/code>과 &lt;code>메시지 M&lt;/code>을 안전하지 않은 채널로 전송&lt;/li>
+&lt;li>Bob은 수신한 메시지 M과 비밀키 K로&lt;code> MAC'&lt;/code>을 생성&lt;/li>
+&lt;li>수신한 &lt;code>MAC&lt;/code>과 자신이 생성한 &lt;code>MAC'&lt;/code>을 비교&lt;/li>
+&lt;li>동일하다면 전달받은 메시지의 &lt;code>무결성이 입증&lt;/code>됨과 동시에 &lt;code>출원지가 Alice&lt;/code>라 판단&lt;/li>
+&lt;/ul>
+&lt;h4 id="문제점-1">문제점&lt;/h4>
+&lt;ul>
+&lt;li>송ㆍ수신자 간 비밀키를 공유해야 함&lt;/li>
+&lt;li>따라서 &lt;code>키 배송 문제&lt;/code>가 발생&lt;/li>
+&lt;/ul>
+&lt;h2 id="종류">종류&lt;/h2>
+&lt;h3 id="nested-mac">Nested MAC&lt;/h3>
+&lt;p>MAC의 안전성을 높이기 위해 고안된 방법&lt;/p>
+&lt;p>&lt;img src="images/2020-06-08-01-24-20.png" alt="Nested MAC">&lt;/p>
+&lt;ul>
+&lt;li>동일한 해시함수로 두 단계 해시 과정을 거침&lt;/li>
+&lt;li>따라서 &lt;code>두 개의 키&lt;/code>가 존재&lt;/li>
+&lt;/ul>
+&lt;h3 id="hmac">HMAC&lt;/h3>
+&lt;p>NIST는 Nested MAC에 관한 표준인 FIPS 198을 제정&lt;/p>
+&lt;p>&lt;img src="images/2020-06-08-01-31-29.png" alt="HMAC">&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Nested MAC&lt;/code>에 패딩 요소 추가&lt;/li>
+&lt;li>SHA1과 같은 &lt;code>일방향 해시함수&lt;/code> 사용&lt;/li>
+&lt;/ul>
+&lt;h4 id="생성-과정">생성 과정&lt;/h4>
+&lt;ul>
+&lt;li>메시지를 길이가 &lt;code>b비트&lt;/code>인 &lt;code>N개&lt;/code>의 블록으로 분리&lt;/li>
+&lt;li>비밀키 왼쪽에 &lt;code>0&lt;/code>으로 된 열을 추가하여 &lt;code>b비트&lt;/code>로 길이를 맞춤
+&lt;ul>
+&lt;li>이때 패딩 이전의 비밀키 길이는 N비트 이상을 권장&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>이렇게 생성된 비밀키를 &lt;code>ipad(Input pad)&lt;/code> 상수와 &lt;code>XOR&lt;/code> 연산&lt;/li>
+&lt;li>결과값을 N블록들 앞에 위치시켜 &lt;code>N+1개의 블록&lt;/code>으로 만듦&lt;/li>
+&lt;li>블록을 해시함수에 대입하여 얻은 결과를 &lt;code>HMAC&lt;/code>이라 한다&lt;/li>
+&lt;li>&lt;code>n비트의 HMAC&lt;/code> 왼쪽에 0을 패딩하여 &lt;code>b비트&lt;/code>로 만듦&lt;/li>
+&lt;li>ipad와는 다른 &lt;code>상수 opad&lt;/code>와 &lt;code>b비트&lt;/code>로 패딩한 비밀키를 &lt;code>XOR&lt;/code> 연산&lt;/li>
+&lt;li>&lt;code>연산 결과값&lt;/code>과 &lt;code>b비트의 HMAC&lt;/code>을 병합하여 해시 연산&lt;/li>
+&lt;li>최종적으로 &lt;code>n비트의 HMAC&lt;/code>을 생성&lt;/li>
+&lt;/ul>
+&lt;h3 id="cmac">CMAC&lt;/h3>
+&lt;p>NIST표준 FIPS 113에 정의된 MAC으로써 대칭키 암호시스템의 &lt;code>CBC모드&lt;/code>를 활용하는 방법&lt;/p>
+&lt;p>&lt;img src="images/2020-06-08-01-44-43.png" alt="CMAC">&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>암호 블록체인&lt;/code>과 동일한 알고리즘&lt;/li>
+&lt;li>이전 블록의 암호문과 입력값를 XOR 연산하는 방식&lt;/li>
+&lt;/ul>
+&lt;h4 id="생성-과정-1">생성 과정&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>메시지 M&lt;/code>을 &lt;code>m비트&lt;/code>의 블록 &lt;code>N개&lt;/code>로 나눔
+&lt;ul>
+&lt;li>마지막 블록이 m비트가 아닐 시 &lt;code>첫 비트 = 1&lt;/code>, &lt;code>이후 비트 = 0&lt;/code>으로 패딩&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>비밀키 K&lt;/code>를 사용하여 &lt;code>첫 블록 M1&lt;/code>을 암호화하여 &lt;code>M2&lt;/code>와 &lt;code>XOR&lt;/code>연산&lt;/li>
+&lt;li>해당 과정을 반복하여 수행&lt;/li>
+&lt;li>&lt;code>마지막 블록&lt;/code>, &lt;code>직전 암호문&lt;/code>, &lt;code>새로운 키 k&lt;/code>를 XOR 연산&lt;/li>
+&lt;li>해당 결과값의 &lt;code>왼쪽부터 n비트&lt;/code>를 CMAC 값으로 활용&lt;/li>
+&lt;/ul>
+&lt;h4 id="k-생성-알고리즘">k 생성 알고리즘&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>0&lt;/code>으로 이루어진 &lt;code>m비트&lt;/code>의 블록을 &lt;code>비밀키 K&lt;/code>로 암호화
+&lt;ul>
+&lt;li>패딩이 적용되지 않았을 경우 &lt;code>x&lt;/code>를 곱함&lt;/li>
+&lt;li>패딩이 적용된 경우 &lt;code>x^2&lt;/code>를 곱함&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="활용-사례">활용 사례&lt;/h2>
+&lt;h3 id="ipsec">IPsec&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>IP(Internet Protocol)&lt;/code>에 보안 기능을 추가한 것&lt;/li>
+&lt;li>통신 내용의 인증과 무결성 확인을 위해 사용&lt;/li>
+&lt;/ul>
+&lt;h3 id="ssltls">SSL/TLS&lt;/h3>
+&lt;ul>
+&lt;li>웹 통신 프로토콜&lt;/li>
+&lt;li>통신 내용의 인증과 무결성 확인을 위해 사용&lt;/li>
+&lt;/ul>
+&lt;h2 id="공격">공격&lt;/h2>
+&lt;h3 id="재전송-공격">재전송 공격&lt;/h3>
+&lt;p>도청한 &lt;code>메시지와 MAC 값&lt;/code>을 반복 송신하여 비정상적인 서비스 요청&lt;/p>
+&lt;h4 id="보안-대책">보안 대책&lt;/h4>
+&lt;ul>
+&lt;li>순서 번호
+&lt;ul>
+&lt;li>&lt;code>순서번호&lt;/code>가 포함된 MAC을 계산하지 못하도록 하여 방지&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>타임스탬프
+&lt;ul>
+&lt;li>MAC값이 바르더라도 &lt;code>시간&lt;/code>이 맞지않다면 오류라고 판단하여 방지&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>비표(nonce)
+&lt;ul>
+&lt;li>일회용 &lt;code>랜덤값&lt;/code>을 포함하여 MAC값을 계산하게 하여 재전송 공격을 방지&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="키-추측에-의한-공격">키 추측에 의한 공격&lt;/h3>
+&lt;p>공격자에 의해 송수신에 사용하는 키를 추측당해서는 안된다.&lt;/p>
+&lt;h4 id="보안-대책-1">보안 대책&lt;/h4>
+&lt;p>메시지 인증 코드에 사용되는 키를 생성할 때는 암호학적으로 &lt;code>안전한 의사 난수 생성기&lt;/code>를 사용해야 한다.&lt;/p>
+&lt;h2 id="해결할-수-없는-문제">해결할 수 없는 문제&lt;/h2>
+&lt;h3 id="제-3자에-대한-증명">제 3자에 대한 증명&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>공유키&lt;/code>를 이용하므로 &lt;code>MAC값&lt;/code>을 계산할 수 있는 것은 &lt;code>송ㆍ수신자&lt;/code>뿐임&lt;/li>
+&lt;li>하지만 누가 MAC값을 계산했는지는 특정 불가&lt;/li>
+&lt;li>제 3자에게 MAC 값을 계산한 것이 누구인지 증명 불가&lt;/li>
+&lt;li>&lt;code>전자서명&lt;/code>을 사용하면 제 3자에 대한 증명 가능&lt;/li>
+&lt;/ul>
+&lt;h3 id="부인-방지">부인 방지&lt;/h3>
+&lt;ul>
+&lt;li>송신자 Elice는 Bob에게 &lt;code>메시지를 보내지 않았다&lt;/code>고 주장&lt;/li>
+&lt;li>해당 주장이 맞는 지 &lt;code>확인이 불가&lt;/code>하므로 부인방지 불가&lt;/li>
+&lt;li>&lt;code>전자서명&lt;/code>을 이용하면 부인방지 가능&lt;/li>
+&lt;/ul></description></item><item><title>Til: Electronic Signature</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/electronic-signature/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/cryptology/electronic-signature/</guid><description>
+&lt;p>메시지에 전자적인 서명을 하는 것으로, 메시지와 메시지를 생성한 사람과의 인증을 의미한다.&lt;/p>
+&lt;h2 id="전자서명-개념">전자서명 개념&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>송신자(서명자)&lt;/code>는 &lt;code>서명 알고리즘&lt;/code>을 이용하여 메시지에 서명&lt;/li>
+&lt;li>&lt;code>수신자(검증자)&lt;/code>의 &lt;code>검증 알고리즘&lt;/code>으로 서명자의 서명을 검증&lt;/li>
+&lt;/ul>
+&lt;h3 id="형식">형식&lt;/h3>
+&lt;ul>
+&lt;li>공개키 서명 방식
+&lt;ul>
+&lt;li>서명자의 검증 정보를 공개하여 누구나 검증 가능&lt;/li>
+&lt;li>서명 생성 및 검증 간편&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>중재 서명방식
+&lt;ul>
+&lt;li>서명 생성과 검증을 제 3자가 중재&lt;/li>
+&lt;li>제 3자의 참여 필요&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="제공-서비스">제공 서비스&lt;/h3>
+&lt;ul>
+&lt;li>메시지 인증: 수신자는 메시지가 &lt;code>원하는 송신자&lt;/code>로부터 왔다는 것을 확신할 수 있음&lt;/li>
+&lt;li>메시지 무결성: 메시지가 &lt;code>해시함수&lt;/code>와 서명을 통해 전송되므로 변조되지 않음을 알 수 있음&lt;/li>
+&lt;li>부인방지: &lt;code>신뢰받는 제 3자&lt;/code>로부터 검증받을 수 있음&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>기밀성은 제공되지 않으므로 &lt;code>비밀키/공개키 암호화&lt;/code>를 해야함&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="주요-기능">주요 기능&lt;/h3>
+&lt;ul>
+&lt;li>위조 불가: 합법적인 서명자만이 전자서명을 생성할 수 있음&lt;/li>
+&lt;li>서명자 인증: 전자서명의 서명자를 누구든지 검증할 수 있음&lt;/li>
+&lt;li>부인방지: 서명자는 서명행위 이후에 서명한 사실을 부인할 수 없음&lt;/li>
+&lt;li>변경 불가: 서명한 문서의 내용을 변경할 수 없음&lt;/li>
+&lt;li>재사용 불가: 전자문서의 서명을 다른 전자문서의 서명으로 사용할 수 없음&lt;/li>
+&lt;/ul>
+&lt;h2 id="종류">종류&lt;/h2>
+&lt;h3 id="rsa">RSA&lt;/h3>
+&lt;ul>
+&lt;li>전자 서명 구조에서는 &lt;code>개인키&lt;/code>와 &lt;code>공개키&lt;/code>의 역할이 &lt;code>비대칭 암호화 과정과 반대&lt;/code>&lt;/li>
+&lt;li>&lt;code>송신자의 개인키&lt;/code>로 &lt;code>암호화&lt;/code>하고 수신자가 &lt;code>송신자의 공개키&lt;/code>를 이용하여 &lt;code>복호화&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>비대칭키 암호화: 수신자의 공개키로 암호화하고 수신자의 개인키로 복호화&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="elgamal">ElGamal&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>이산대수 문제&lt;/code>를 이용한 최조 서명방식&lt;/li>
+&lt;li>ElGmal 암호시스템과 동일한 키를 사용하나 알고리즘은 다름&lt;/li>
+&lt;li>RSA보다 서명 길이가 2배, 계산량은 거의 4배&lt;/li>
+&lt;/ul>
+&lt;h3 id="schnorr">Schnorr&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>ElGamal 기반&lt;/code>이지만 서명의 크기를 줄인 새로운 구조&lt;/li>
+&lt;/ul>
+&lt;h3 id="dssdigital-signature-standard">DSS(Digital Signature Standard)&lt;/h3>
+&lt;ul>
+&lt;li>ElGamal 전자서명을 개량(이산대수 문제)&lt;/li>
+&lt;li>오직 &lt;code>전자서명 기능만을 제공&lt;/code>하도록 설계&lt;/li>
+&lt;li>서명과 검증에 소요되는 &lt;code>계산량을 줄임&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="타원곡선-전자서명-구조ecdsa">타원곡선 전자서명 구조(ECDSA)&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>타원곡선&lt;/code>에 기반을 둔 DSA&lt;/li>
+&lt;li>짧은 비트 길이로 인해 &lt;code>짧은 처리 시간&lt;/code>에 &lt;code>짧은 서명&lt;/code> 생성 가능&lt;/li>
+&lt;/ul>
+&lt;h2 id="전자서명-방식">전자서명 방식&lt;/h2>
+&lt;h3 id="복원형-전자서명">복원형 전자서명&lt;/h3>
+&lt;ul>
+&lt;li>기존 공개키 암호방식을 이용하여 별도의 전자서명 프로토콜 필요 X&lt;/li>
+&lt;li>메시지를 일정 블록 크기로 나누어, 각 블록에 서명하므로 시간이 소요&lt;/li>
+&lt;li>실제로는 사용되지 않음&lt;/li>
+&lt;/ul>
+&lt;h3 id="부가형-전자서명">부가형 전자서명&lt;/h3>
+&lt;ul>
+&lt;li>메시지를 해시해서 나온 다이제스트에 한 번의 서명 생성하므로 효율적&lt;/li>
+&lt;li>전송량이 조금 늘어나나 실제로 많이 사용됨&lt;/li>
+&lt;/ul>
+&lt;h2 id="특수-전자서명">특수 전자서명&lt;/h2>
+&lt;p>공개키 방식을 이용한 전자 서명은 검증하는 키가 공개되므로 &lt;code>검증을 누구나 할 수 있다&lt;/code>는 문제점이 있다.&lt;/p>
+&lt;ul>
+&lt;li>부인방지 전자서명: 자체 인증 방식을 배제시키고 서명 검증할 때, &lt;code>서명자의 도움&lt;/code>이 있어야 검증&lt;/li>
+&lt;li>의뢰 부인방지 서명: &lt;code>신뢰하는 제 3자&lt;/code>가 서명을 검증&lt;/li>
+&lt;li>수신자 지정 서명: &lt;code>지정한 검증자만&lt;/code>이 서명을 검증할 수 있음
+&lt;ul>
+&lt;li>필요시 제 3자에게 그 서명이 서명자에 의해 자신에게 발행된 서명임을 증명 가능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>위임 서명: 부재 중 &lt;code>자신을 대리&lt;/code>해서 서명&lt;/li>
+&lt;li>은닉 서명: 서명문의 내용을 숨기는 방식(익명성)&lt;/li>
+&lt;li>다중 서명: 동일 전자문서에 &lt;code>여러 명&lt;/code>이 서명&lt;/li>
+&lt;/ul>
+&lt;h2 id="전자서명의-응용">전자서명의 응용&lt;/h2>
+&lt;h3 id="전자투표-시스템">전자투표 시스템&lt;/h3>
+&lt;p>선거인 명부를 구축한 중앙 시스템과 직접 연결된 단말에 자신이 정당한 투표자임을 증명하면 어디서나 무기명 투표를 할 수 있는 방식&lt;/p>
+&lt;h4 id="요구사항">요구사항&lt;/h4>
+&lt;ul>
+&lt;li>완전성: 모든 투표가 정확히 집계&lt;/li>
+&lt;li>익명성: 투표 결과로부터 투표자 구별 불가&lt;/li>
+&lt;li>건전성: 부정 투표자에 의한 선거 방해 없어야 함&lt;/li>
+&lt;li>이중투표방지: 정당한 투표자는 단 1회만 투표 허용&lt;/li>
+&lt;li>정당성: 투표에 영향을 미치는 것이 없어야 함&lt;/li>
+&lt;li>적임성: 투표 권한을 가진 자만이 투표 가능&lt;/li>
+&lt;li>검증 가능: 투표 결과를 누구나 확인하여 검증 가능&lt;/li>
+&lt;/ul>
+&lt;h4 id="방식">방식&lt;/h4>
+&lt;ul>
+&lt;li>PSEV 방식: 기존 선거 방식 + 전자&lt;/li>
+&lt;li>키오스트(kiosk) 방식: 공공장소에 설치(관리자 없음)&lt;/li>
+&lt;li>REV 방식: 어디서든 투표 가능
+&lt;ul>
+&lt;li>비밀투표 침해가능성 높음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="전자-입찰-시스템">전자 입찰 시스템&lt;/h3>
+&lt;p>입찰공고에서 다수의 공급자가 응찰하면 이중에서 가장 싼 가격을 제시한 응찰자와 계약을 받는 입찰방식을 인터넷으로 구현&lt;/p>
+&lt;h4 id="요구사항-1">요구사항&lt;/h4>
+&lt;ul>
+&lt;li>독립성: 전자입찰 시스템 각 구성요소는 독자적 자율성 보장받아야 함&lt;/li>
+&lt;li>비밀성: 네트워크상 개별 정보는 각 구성요소 간에 누구에게도 노출 안되야 함&lt;/li>
+&lt;li>무결성: 입찰 시 입찰자 자신의 정보 확인 가능케 하여 누락 및 변조 여부 확인 가능해야 함&lt;/li>
+&lt;li>공평성: 입찰이 수행될 때 모든 정보 공개되어야 함&lt;/li>
+&lt;li>안전성: 각 입찰 참여자 간의 공모 방지되고, 입찰 공고자와 서버의 독단 발생되지 않아야 함&lt;/li>
+&lt;/ul>
+&lt;h4 id="문제점">문제점&lt;/h4>
+&lt;ul>
+&lt;li>네트워크상의 메시지 유출&lt;/li>
+&lt;li>입찰자와 서버 사이의 공모&lt;/li>
+&lt;li>입찰자간의 공모&lt;/li>
+&lt;li>입찰자와 입찰 공무자간의 공모&lt;/li>
+&lt;/ul>
+&lt;h2 id="전자-서명으로-해결할-수-없는-문제">전자 서명으로 해결할 수 없는 문제&lt;/h2>
+&lt;ul>
+&lt;li>서명을 검증할 때 이용하는 공개키가 진짜 송신자의 공개키여야 함&lt;/li>
+&lt;li>올바른 공개키 입수를 위해 인증서가 고안됨&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>인증서: 공개키를 메시지로 간주하고 신뢰 가능한 제 3자에게 전자서명을 해서 받은 공개키&lt;/p>
+&lt;/blockquote></description></item><item><title>Til: PKI(Public Key Infrastructure)</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/pki/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/cryptology/pki/</guid><description>
+&lt;p>공개키 암호 및 전자서명의 기술을 사회적인 기반구조로 만들어 가는 것&lt;/p>
+&lt;ul>
+&lt;li>공개키 알고리즘을 위한 키 관리 구조&lt;/li>
+&lt;li>제공 서비스
+&lt;ul>
+&lt;li>기밀성, 무결성, 인증, 부인방지, 접근제어&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="구성요소">구성요소&lt;/h2>
+&lt;p>크게 인증기관, 검증기관, 등록기관, 저장소, 사용자로 구성&lt;/p>
+&lt;h3 id="인증기관ca-certification-authority">인증기관(CA, Certification Authority)&lt;/h3>
+&lt;h4 id="정책승인기관paa-policy-approving-authority">정책승인기관(PAA, Policy Approving Authority)&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>루트 인증기관&lt;/code>으로, &lt;code>PKI 전반의 정책&lt;/code>을 생성 및 수립&lt;/li>
+&lt;li>하위 기관들의 &lt;code>정책 준수 상태&lt;/code> 및 &lt;code>적정성 감사&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h4 id="정책인증기관pca-policy-certification-authority">정책인증기관(PCA, Policy Certification Authority)&lt;/h4>
+&lt;ul>
+&lt;li>PAA 하위 계층&lt;/li>
+&lt;li>도메인 내의 &lt;code>사용자와 CA의 정책&lt;/code> 수립&lt;/li>
+&lt;li>&lt;code>인증서&lt;/code>, &lt;code>인증서 폐지 목록&lt;/code> 등 관리&lt;/li>
+&lt;/ul>
+&lt;h4 id="인증기관ca">인증기관(CA)&lt;/h4>
+&lt;ul>
+&lt;li>PCA 아래 계층으로 인증 정책 수립&lt;/li>
+&lt;li>&lt;code>사용자/등록기관&lt;/code>의 요청에 &lt;code>공개키 인증서&lt;/code> 발행 및 폐지&lt;/li>
+&lt;li>사용자에게 자신의 공개키와 상위 기관을 공개키 전달&lt;/li>
+&lt;li>PA요청에 의해 인증서 발급&lt;/li>
+&lt;/ul>
+&lt;h3 id="검증기관va-validation-authority">검증기관(VA, Validation Authority)&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>인증서의 유효성&lt;/code> 여부, &lt;code>관련 거래의 유효성&lt;/code> 여부 등 확인&lt;/li>
+&lt;li>VA가 없다면 안정성이 떨어짐&lt;/li>
+&lt;li>CA에서 직접 운영 가능&lt;/li>
+&lt;/ul>
+&lt;h3 id="등록기관ra-registration-authority">등록기관(RA, Registration Authority)&lt;/h3>
+&lt;ul>
+&lt;li>사용자와 CA가 원거리에 있는 경우&lt;/li>
+&lt;li>CA 대신 사용자의 신분/소속 등 확인&lt;/li>
+&lt;li>선택적 요소&lt;/li>
+&lt;/ul>
+&lt;h2 id="형태">형태&lt;/h2>
+&lt;h3 id="계층-구조">계층 구조&lt;/h3>
+&lt;ul>
+&lt;li>최상위에 루트 CA가 존재하고 그 밑으로 하위 CA가 계층적으로 존재&lt;/li>
+&lt;li>상위 CA가 하위 CA에 인증서를 발행하고, 하위 CA는 상위 CA의 인증정책에 영향&lt;/li>
+&lt;li>루트 CA 간에 상호인증은 허용, 하위 CA 간에 상호인증은 불가능&lt;/li>
+&lt;li>인증경로 탐색이 용이하고, 모든 사용자가 최상위 CA의 공개키를 알고 있어서 검증이 용이&lt;/li>
+&lt;li>최상위 CA에 집중되는 오버헤드가 발생&lt;/li>
+&lt;li>최상위 CA의 비밀키 노출이 되면 피해 막대&lt;/li>
+&lt;/ul>
+&lt;h3 id="네트워크-구조">네트워크 구조&lt;/h3>
+&lt;ul>
+&lt;li>각각의 CA들이 자신의 인증정책에 따라 독립적으로 존재&lt;/li>
+&lt;li>모든 상호인증이 허용되면 상호인증 수 대폭 증가&lt;/li>
+&lt;li>유연하고 인증경로가 단순하여 실직적인 업무관계에 적합&lt;/li>
+&lt;li>CA의 비밀키가 노출되어도 피해가 적음&lt;/li>
+&lt;li>인증경로 탐색이 복잡&lt;/li>
+&lt;li>정책 수립과 적용이 어려움&lt;/li>
+&lt;/ul>
+&lt;h2 id="공개키-인증서">공개키 인증서&lt;/h2>
+&lt;p>해당 키가 &lt;code>특정인의 것임을 보증&lt;/code>해주는 것&lt;/p>
+&lt;ul>
+&lt;li>표준화된 양식으로 믿을 수 있는 제 3자가 발행하며 PKI의 근간&lt;/li>
+&lt;li>개인정보와 그 사람의 공개키가 기재되며 CA의 개인키로 서명됨&lt;/li>
+&lt;/ul>
+&lt;h3 id="인증서-표준-규격x509">인증서 표준 규격(X.509)&lt;/h3>
+&lt;ul>
+&lt;li>인증서 표준 규격&lt;/li>
+&lt;li>IP Security, SSL, 안전한 전자거래(SET)와 S/MIME 같은 &lt;code>네트워크 보안 응용&lt;/code>에 사용&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>요소&lt;/th>
+&lt;th>구분&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>버전 (Version)&lt;/td>
+&lt;td>필수&lt;/td>
+&lt;td>X.509의 버전&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>일렬번호 (Serial Number)&lt;/td>
+&lt;td>필수&lt;/td>
+&lt;td>CA에 의해 인증서에 부여되는 유일한 번호. (발행자이름과 일렬번호로 인증서를 유일하게 구분할 수 있어야 한다.)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>서명 알고리즘 식별자 (Signature Algorithm ID)&lt;/td>
+&lt;td>필수&lt;/td>
+&lt;td>CA가 인증서를 서명하기 위한 알고리즘과 알고리즘 식별자를 포함. 이 정보는 끝부분 서명 필드에도 포함되어 있다.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>발행자 이름 (Issuer name)&lt;/td>
+&lt;td>필수&lt;/td>
+&lt;td>인증서 발행자(보통 CA)의 이름&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>유효기간 (Validity period)&lt;/td>
+&lt;td>필수&lt;/td>
+&lt;td>인증서 유효기간의 시작날짜와 종료날짜&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>주체 이름 (Subject name)&lt;/td>
+&lt;td>필수&lt;/td>
+&lt;td>사용자(피발급자)의 이름 &lt;!-- raw HTML omitted --> 상위 CA가 하위 CA에게 인증서를 발행하는 경우 이 필드에는 CA의 이름이 된다.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>주체의 공개키 정보 (Subject Public Key)&lt;/td>
+&lt;td>필수&lt;/td>
+&lt;td>사용자의 공개키, 관련 알고리즘&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>발행자 유일 식별자 (Issuer Unique ID)&lt;/td>
+&lt;td>선택(v2)&lt;/td>
+&lt;td>발행자나 사용자의 이름이 중복되는 경우 이를 구별하기 위한 수단&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>주체 유일 식별자 (Subject Unique ID)&lt;/td>
+&lt;td>선택(v2)&lt;/td>
+&lt;td>주체를 유일하게 구별하는 데 사용&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>확장 (Extensions)&lt;/td>
+&lt;td>선택(v3)&lt;/td>
+&lt;td>발행자가 인증서에 추가적으로 사적인 정보를 넣을 수 있는 필드&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>서명 (Signature)&lt;/td>
+&lt;td>필수&lt;/td>
+&lt;td>인증서에 대한 서명 값이 들어있는 필드 나머지 전체 필드를 보호하는 역할을 한다. 다른 필드 전체를 해시해서 나온 해시 값을 CA의 개인키로 암호화한 값이 들어간다.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;blockquote>
+&lt;p>확장 영역에는 키와 정책 정보, 사용자와 발행자 속성, 인증 경로 제약조건이 들어간다.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="x509-인증서-폐지-목록-프로파일">X.509 인증서 폐지 목록 프로파일&lt;/h3>
+&lt;h4 id="페지-사유">페지 사유&lt;/h4>
+&lt;ul>
+&lt;li>사용자의 개인키가 노출되거나 훼손된 것으로 판단될 때&lt;/li>
+&lt;li>CA가 사용자를 더 이상 인증해줄 수 없을 때&lt;/li>
+&lt;li>CA의 개인키가 노출되었거나 훼손된 것으로 판단될 때&lt;/li>
+&lt;/ul>
+&lt;h4 id="폐지-목록crl-certificate-revocation-list">폐지 목록(CRL, Certificate Revocation List)&lt;/h4>
+&lt;ul>
+&lt;li>신뢰 당사자가 언제든지 이 목록을 검색할 수 있어야 함&lt;/li>
+&lt;li>폐기된 인증서들은 &lt;code>일련번호&lt;/code>에 의해서 확인 가능&lt;/li>
+&lt;/ul>
+&lt;h3 id="운영-프로토콜">운영 프로토콜&lt;/h3>
+&lt;h4 id="온라인-인증서-상태-검증-프로토콜ocsp-online-certificate-status-protocol">온라인 인증서 상태 검증 프로토콜(OCSP, Online Certificate Status Protocol)&lt;/h4>
+&lt;ul>
+&lt;li>실시간으로 인증서 상태 확인 가능&lt;/li>
+&lt;li>백그라운드에서 자동 수행&lt;/li>
+&lt;li>CA에 의해 관리되는 CRL을 검사&lt;/li>
+&lt;/ul>
+&lt;h4 id="인증서-관리-프로토콜cmp-certificate-management-protocol">인증서 관리 프로토콜(CMP, Certificate Management Protocol)&lt;/h4>
+&lt;ul>
+&lt;li>PKI 환경에서 인증서 관리 서비스를 제공하기 위한 PKI 실체들 간 통신 프로토콜
+&lt;ul>
+&lt;li>PKI 실체: 이용자, 인증기관, 등록기관, 인증서 저장소 등&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

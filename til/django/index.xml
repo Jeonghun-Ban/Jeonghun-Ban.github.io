@@ -1,0 +1,55 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeonghun-Ban – Django</title><link>http://Jeonghun-Ban.github.io/til/django/</link><description>Recent content in Django on Jeonghun-Ban</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://Jeonghun-Ban.github.io/til/django/index.xml" rel="self" type="application/rss+xml"/><item><title>Til: Circle Image Cropping</title><link>http://Jeonghun-Ban.github.io/til/django/circle-image-cropping/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/django/circle-image-cropping/</guid><description>
+&lt;p>아래 코드를 이용하면 폼을 이용해 업로드한 이미지를 원형으로 자를 수 있다.&lt;/p>
+&lt;blockquote>
+&lt;p>이미지 변형을 위해 &lt;code>Pillow&lt;/code> 라이브러리를 우선 설치해두어야 한다.&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-Python" data-lang="Python">&lt;span style="color:#f92672">from&lt;/span> PIL &lt;span style="color:#f92672">import&lt;/span> Image, ImageOps, ImageDraw
+&lt;span style="color:#f92672">from&lt;/span> io &lt;span style="color:#f92672">import&lt;/span> BytesIO
+&lt;span style="color:#f92672">from&lt;/span> django.core.files.uploadedfile &lt;span style="color:#f92672">import&lt;/span> InMemoryUploadedFile
+&lt;span style="color:#75715e"># make circle image&lt;/span>
+im &lt;span style="color:#f92672">=&lt;/span> Image&lt;span style="color:#f92672">.&lt;/span>open(request&lt;span style="color:#f92672">.&lt;/span>FILES[&lt;span style="color:#e6db74">&amp;#39;image&amp;#39;&lt;/span>])
+im &lt;span style="color:#f92672">=&lt;/span> im&lt;span style="color:#f92672">.&lt;/span>resize((&lt;span style="color:#ae81ff">1920&lt;/span>, &lt;span style="color:#ae81ff">1920&lt;/span>));
+bigsize &lt;span style="color:#f92672">=&lt;/span> (im&lt;span style="color:#f92672">.&lt;/span>size[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>, im&lt;span style="color:#f92672">.&lt;/span>size[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>)
+mask &lt;span style="color:#f92672">=&lt;/span> Image&lt;span style="color:#f92672">.&lt;/span>new(&lt;span style="color:#e6db74">&amp;#39;L&amp;#39;&lt;/span>, bigsize, &lt;span style="color:#ae81ff">0&lt;/span>)
+draw &lt;span style="color:#f92672">=&lt;/span> ImageDraw&lt;span style="color:#f92672">.&lt;/span>Draw(mask)
+draw&lt;span style="color:#f92672">.&lt;/span>ellipse((&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> bigsize, fill&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">255&lt;/span>)
+mask &lt;span style="color:#f92672">=&lt;/span> mask&lt;span style="color:#f92672">.&lt;/span>resize(im&lt;span style="color:#f92672">.&lt;/span>size, Image&lt;span style="color:#f92672">.&lt;/span>ANTIALIAS)
+im&lt;span style="color:#f92672">.&lt;/span>putalpha(mask)
+output &lt;span style="color:#f92672">=&lt;/span> ImageOps&lt;span style="color:#f92672">.&lt;/span>fit(im, mask&lt;span style="color:#f92672">.&lt;/span>size, centering&lt;span style="color:#f92672">=&lt;/span>(&lt;span style="color:#ae81ff">0.5&lt;/span>, &lt;span style="color:#ae81ff">0.5&lt;/span>))
+output&lt;span style="color:#f92672">.&lt;/span>putalpha(mask)
+buffer &lt;span style="color:#f92672">=&lt;/span> BytesIO()
+output&lt;span style="color:#f92672">.&lt;/span>save(buffer, format&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;png&amp;#39;&lt;/span>)
+file &lt;span style="color:#f92672">=&lt;/span> InMemoryUploadedFile(
+buffer,
+&lt;span style="color:#e6db74">&amp;#39;{}&amp;#39;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>format(request&lt;span style="color:#f92672">.&lt;/span>FILES[&lt;span style="color:#e6db74">&amp;#39;image&amp;#39;&lt;/span>]),
+&lt;span style="color:#e6db74">&amp;#39;{}&amp;#39;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>format(request&lt;span style="color:#f92672">.&lt;/span>FILES[&lt;span style="color:#e6db74">&amp;#39;image&amp;#39;&lt;/span>]),
+&lt;span style="color:#e6db74">&amp;#39;image/png&amp;#39;&lt;/span>,
+buffer&lt;span style="color:#f92672">.&lt;/span>tell(),
+None,
+)
+profile&lt;span style="color:#f92672">.&lt;/span>image &lt;span style="color:#f92672">=&lt;/span> file
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>해당 코드는 &lt;a href="https://github.com/likelionmju/likelionmyongji_lionstagram">Lionstagram&lt;/a> 프로젝트에서 원형 프로필 사진 업로드 적용을 위해 사용되었다. 해당 소스 코드가 이 프로젝트에서 어떻게 활용되었는지는 &lt;a href="https://github.com/likelionmju/likelionmyongji_lionstagram/blob/master/account/views.py">링크&lt;/a>를 통해 살펴볼 수 있다.&lt;/p></description></item><item><title>Til: OSError: mysql_config not found</title><link>http://Jeonghun-Ban.github.io/til/django/oserror-mysqlconfig-not-found/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/django/oserror-mysqlconfig-not-found/</guid><description>
+&lt;h2 id="에러-발생">에러 발생&lt;/h2>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ pip3 install mysqlclient
+Collecting mysqlclient&lt;span style="color:#f92672">==&lt;/span>1.4.4
+Using cached https://files.pythonhosted.org/packages/4d/38/c5f8bac9c50f3042c8f05615f84206f77f03db79781db841898fde1bb284/mysqlclient-1.4.4.tar.gz
+Complete output from command python setup.py egg_info:
+/bin/sh: 1: mysql_config: not found
+/bin/sh: 1: mariadb_config: not found
+/bin/sh: 1: mysql_config: not found
+Traceback &lt;span style="color:#f92672">(&lt;/span>most recent call last&lt;span style="color:#f92672">)&lt;/span>:
+File &lt;span style="color:#e6db74">&amp;#34;&amp;lt;string&amp;gt;&amp;#34;&lt;/span>, line 1, in &amp;lt;module&amp;gt;
+File &lt;span style="color:#e6db74">&amp;#34;/tmp/pip-build-s70o3t7s/mysqlclient/setup.py&amp;#34;&lt;/span>, line 16, in &amp;lt;module&amp;gt;
+metadata, options &lt;span style="color:#f92672">=&lt;/span> get_config&lt;span style="color:#f92672">()&lt;/span>
+File &lt;span style="color:#e6db74">&amp;#34;/tmp/pip-build-s70o3t7s/mysqlclient/setup_posix.py&amp;#34;&lt;/span>, line 61, in get_config
+libs &lt;span style="color:#f92672">=&lt;/span> mysql_config&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#34;libs&amp;#34;&lt;/span>&lt;span style="color:#f92672">)&lt;/span>
+File &lt;span style="color:#e6db74">&amp;#34;/tmp/pip-build-s70o3t7s/mysqlclient/setup_posix.py&amp;#34;&lt;/span>, line 29, in mysql_config
+raise EnvironmentError&lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#e6db74">&amp;#34;%s not found&amp;#34;&lt;/span> % &lt;span style="color:#f92672">(&lt;/span>_mysql_config_path,&lt;span style="color:#f92672">))&lt;/span>
+OSError: mysql_config not found
+----------------------------------------
+Command &lt;span style="color:#e6db74">&amp;#34;python setup.py egg_info&amp;#34;&lt;/span> failed with error code &lt;span style="color:#ae81ff">1&lt;/span> in /tmp/pip-build-s70o3t7s/mysqlclient/
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="에러-해결">에러 해결&lt;/h2>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo apt-get install libmysqlclient-dev -y
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>추가 패키지 설치를 진행하면 해당 에러가 사라진다.&lt;/p>
+&lt;/blockquote></description></item><item><title>Til: Study</title><link>http://Jeonghun-Ban.github.io/til/django/study/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/django/study/</guid><description/></item></channel></rss>

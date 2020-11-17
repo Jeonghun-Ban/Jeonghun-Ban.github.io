@@ -1,0 +1,165 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeonghun-Ban – Asymmetric-Cryptography</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/asymmetric-cryptography/</link><description>Recent content in Asymmetric-Cryptography on Jeonghun-Ban</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://Jeonghun-Ban.github.io/til/security/cryptology/asymmetric-cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Til: Introduction</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/asymmetric-cryptography/introduction/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/cryptology/asymmetric-cryptography/introduction/</guid><description>
+&lt;p>암호화할 때 사용되는 키와 복호화할 때 사용하는 키가 서로 다른 암호 알고리즘&lt;/p>
+&lt;h2 id="키-배송-문제">키 배송 문제&lt;/h2>
+&lt;p>대칭키 암호를 사용하기 위해서는 키 배송 문제가 발생함.&lt;/p>
+&lt;h3 id="해결방법">해결방법&lt;/h3>
+&lt;ul>
+&lt;li>키 사전 공유
+&lt;ul>
+&lt;li>&lt;code>키 관리기관(TA, Trusted Authority)&lt;/code>이 사전에 송수신자들에게 비밀 경로를 통하여 키를 전달&lt;/li>
+&lt;li>문제점
+&lt;ul>
+&lt;li>TA가 &lt;code>모든 사용자들의 키(𝑛(𝑛−1)/2개)&lt;/code>를 관리해야 함&lt;/li>
+&lt;li>TA와 사용자 간의 &lt;code>안전한 통로 확보&lt;/code> 문제&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>온라인 키 분배
+&lt;ul>
+&lt;li>&lt;code>키배포 센터(KDC, key distribution center)&lt;/code>에서 키를 전달&lt;/li>
+&lt;li>배포 과정
+&lt;ul>
+&lt;li>키배포 센터에 통신을 위한 키 요청&lt;/li>
+&lt;li>키배포 센터는 &lt;code>의사난수 생성기&lt;/code>를 통해 &lt;code>세션키&lt;/code>를 생성&lt;/li>
+&lt;li>&lt;code>사용자의 키&lt;/code>로 세션키를 암호화하여 전달&lt;/li>
+&lt;li>사용자는 자신의 키로 복호화하여 세션키를 얻음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Diffie-Hellman의 키 교환&lt;/li>
+&lt;li>공개키 암호&lt;/li>
+&lt;/ul>
+&lt;h2 id="diffie-hellman의-키-교환">Diffie-Hellman의 키 교환&lt;/h2>
+&lt;ul>
+&lt;li>최초의 비밀키 교환 프로토콜&lt;/li>
+&lt;li>이산 로그 문제를 활용
+&lt;ul>
+&lt;li>&lt;code>y = g^x mod p&lt;/code>
+&lt;ul>
+&lt;li>y, p, g를 아는 상태에서 x는 구하기 어렵다는 문제&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>Key = g^xy mod p&lt;/code>
+&lt;ul>
+&lt;li>p와 g가 알려져도 x, y는 알 수 없음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>실제로는 키를 교환하는 것이 아니라 공유하는 키를 생성&lt;/li>
+&lt;/ul>
+&lt;h3 id="키-교환-절차">키 교환 절차&lt;/h3>
+&lt;p>&lt;img src="images/2020-05-25-15-48-57.png" alt="Key exchange procedure">&lt;/p>
+&lt;ul>
+&lt;li>통신의 주체는 두개의 수 p와 g를 선택
+&lt;ul>
+&lt;li>p(1024bit, 300자리가 넘는 십진수)&lt;/li>
+&lt;li>g(1 &amp;lt; g &amp;lt; p-1)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Alice는 개인키 x를 정하고, &lt;code>R1 = g^x mod p&lt;/code> 를 계산&lt;/li>
+&lt;li>Bob은 개인키 y를 정하고, &lt;code>R2 = g^y mod p&lt;/code> 를 계산&lt;/li>
+&lt;li>서로에게 R1, R2(공개키)를 전달&lt;/li>
+&lt;li>Alice는 &lt;code>(R2)^x mod p&lt;/code>, Bob은 &lt;code>(R1)^y mod p&lt;/code>를 계산하여 비밀키 도출&lt;/li>
+&lt;li>이후 비밀키를 사용하여 통신&lt;/li>
+&lt;/ul>
+&lt;h3 id="공격">공격&lt;/h3>
+&lt;ul>
+&lt;li>이산대수 공격
+&lt;ul>
+&lt;li>R1, R2 를 도청자가 가로채 x, y를 구하게 되면 K를 알아 낼 수 있다.&lt;/li>
+&lt;li>비밀키의 역할을 할 수 없음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>중간자 공격(MITM, Man-In-The-Middle Attack)
+&lt;ul>
+&lt;li>공격자는 키 교환 중간에 끼어들 수 있음&lt;/li>
+&lt;li>통신 주체간 인증단계가 없기 때문&lt;/li>
+&lt;li>해결 방법
+&lt;ul>
+&lt;li>전자서명과 공개키 인증서&lt;/li>
+&lt;li>국대국 프로토콜(STS, Station-To-Station Protocol)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="공개키-암호">공개키 암호&lt;/h2>
+&lt;ul>
+&lt;li>수학적으로 해결하기 곤란한 문제를 기반으로 기밀성 유지&lt;/li>
+&lt;li>전자문서의 무결성과 부인방지 기능을 가지는 전자서명 구현, 다양한 암호 프로토콜에 사용 가능&lt;/li>
+&lt;li>공개키(암호화키), 개인키(복호화키)로 분리
+&lt;ul>
+&lt;li>두 키는 수학적 관계로 이루어져 있으므로 별개로 생성 불가&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="통신-과정">통신 과정&lt;/h3>
+&lt;ul>
+&lt;li>수신자는 공개키를 송신자에게 전달&lt;/li>
+&lt;li>송신자는 공개키를 이용하여 세션키를 암호화하고 수신자에게 전달&lt;/li>
+&lt;li>수신자는 개인키로 암호문을 복호화&lt;/li>
+&lt;/ul></description></item><item><title>Til: RSA</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/asymmetric-cryptography/rsa/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/cryptology/asymmetric-cryptography/rsa/</guid><description>
+&lt;p>공개키 암호 알고리즘의 표준으로 인수분해 문제 해결이 어렵다는 사실에 기반하고 있다. 암호화와 전자서명 등에 사용된다.&lt;/p>
+&lt;h2 id="키-생성">키 생성&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>N = pq&lt;/code>
+&lt;ul>
+&lt;li>p와 q는 서로 다른 소수&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>Φ(N) = (p-1)(q-1)&lt;/code>&lt;/li>
+&lt;li>Φ(N) 보다 작고, Φ(N)과 서로소인 &lt;code>정수 e&lt;/code>를 찾음&lt;/li>
+&lt;li>&lt;code>de ≡ 1 (mod Φ(N))&lt;/code>를 만족하는 &lt;code>정수 d&lt;/code>
+&lt;ul>
+&lt;li>확장 유클리드 호제법 사용&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="암호화복호화">암호화/복호화&lt;/h2>
+&lt;p>통신 주체는 상대방의 공개키로 평문을 암호화하여 송신하고 수신자는 자신의 개인키로 암호문을 복호화하여 평문을 획득함&lt;/p>
+&lt;ul>
+&lt;li>암호화
+&lt;ul>
+&lt;li>&lt;code>C = M^e mod n&lt;/code>&lt;/li>
+&lt;li>e: 공개키&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>복호화
+&lt;ul>
+&lt;li>&lt;code>M = C^d mod n&lt;/code>&lt;/li>
+&lt;li>d: 비밀키&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="취약점">취약점&lt;/h2>
+&lt;ul>
+&lt;li>소인수분해 공격
+&lt;ul>
+&lt;li>현실적인 시간 내에 효율적인 소인수분해는 아직 불가능&lt;/li>
+&lt;li>이러한 알고리즘이 개발된다면 안전하지 않음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>중간자 공격
+&lt;ul>
+&lt;li>통신 주체사이에서 RSA를 하는 공격자의 위험성&lt;/li>
+&lt;li>&lt;code>공개키 인증서&lt;/code>를 사용하여 방지&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>선택 암호문 공격(CCA, Chosen Ciphertext Attack)
+&lt;ul>
+&lt;li>임의의 데이터를 송신하면 그것을 암호문으로 간주하고 회신해주는 서비스를 공격자가 이용할 수 있다는 것을 가정한 공격&lt;/li>
+&lt;li>이러한 공격을 막기 위해 &lt;code>최적 비대칭 암호화 패딩(OAEP)&lt;/code>으로 평문을 수정하는 것이 권장된다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="권장사항">권장사항&lt;/h2>
+&lt;p>&lt;code>공개키 N과 e&lt;/code>로부터 &lt;code>비밀키 d&lt;/code>를 구할 수 있다면 RSA는 해독이 가능하므로 아래 권장사항을 지켜야만 한다.&lt;/p>
+&lt;ul>
+&lt;li>소수 p와 q는 최소 512bit, N은 최소 1024bit&lt;/li>
+&lt;li>p와 q는 같지 않고 거의 비슷한 크기의 소수&lt;/li>
+&lt;li>p-1과 q-1은 큰 소인수를 가져야 함&lt;/li>
+&lt;li>p-1과 p-1 최대공약수는 작은 수&lt;/li>
+&lt;/ul></description></item></channel></rss>

@@ -1,0 +1,147 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeonghun-Ban – Security</title><link>http://Jeonghun-Ban.github.io/til/security/</link><description>Recent content in Security on Jeonghun-Ban</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://Jeonghun-Ban.github.io/til/security/index.xml" rel="self" type="application/rss+xml"/><item><title>Til: Introduction</title><link>http://Jeonghun-Ban.github.io/til/security/introduction/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/introduction/</guid><description>
+&lt;h2 id="정보보호information-security">정보보호(Information Security)&lt;/h2>
+&lt;ul>
+&lt;li>정보의 수집, 가공, 저장, 송수신 중에 발생하는 정보의 훼손, 변조, 유출 등을 방지하기 위한 관리적, 기술적 수단 또는 그러한 수단으로 이루어지는 행위&lt;/li>
+&lt;li>기밀성, 무결성, 가용성, 인증성 및 부인방지를 보장하기 위한 기술적, 물리적, 관리적 보호대책을 강구하는 것&lt;/li>
+&lt;/ul>
+&lt;h3 id="목표">목표&lt;/h3>
+&lt;ol>
+&lt;li>기밀성(Confidentiality)
+&lt;ul>
+&lt;li>오직 인가된 사람, 프로세스, 시스템만이 알 필요성에 근거하여 시스템에 접근가능해야 한다.&lt;/li>
+&lt;li>보안 기술
+&lt;ul>
+&lt;li>접근 제어&lt;/li>
+&lt;li>암호화&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>무결성(Integrity)
+&lt;ul>
+&lt;li>정보의 내용이 무단으로 생성 또는 변경되거나 삭제되지 않도록 보호되어야 한다.&lt;/li>
+&lt;li>보안 기술
+&lt;ul>
+&lt;li>접근 제어&lt;/li>
+&lt;li>메시지 인증&lt;/li>
+&lt;li>침입 탐지&lt;/li>
+&lt;li>백업&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>가용성(Availability)
+&lt;ul>
+&lt;li>시스템이 지체 없이 동작하고, 자원이 필요할 때 권한이 있는 사용자가 이용할 수 있어야 한다.&lt;/li>
+&lt;li>보안 기술
+&lt;ul>
+&lt;li>백업 기술&lt;/li>
+&lt;li>중복 운영 기술&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>기밀성, 무결성, 가용성의 앞 글자를 따서 CIA라 부르기도 한다.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="정보보호-관리information-security-management">정보보호 관리(Information Security Management)&lt;/h2>
+&lt;ul>
+&lt;li>조직의 정보를 위험으로부터 보호하기 위한 활동&lt;/li>
+&lt;li>정보보호 관리에는 기술적, 물리적, 관리적 보호대책들이 존재&lt;/li>
+&lt;/ul>
+&lt;h3 id="보호대책">보호대책&lt;/h3>
+&lt;ul>
+&lt;li>기술적 보호대책
+&lt;ul>
+&lt;li>가장 기본적인 대책&lt;/li>
+&lt;li>접근통제, 암호기술, 보안성 높은 SW 사용 등&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>물리적 보호대책
+&lt;ul>
+&lt;li>자연재해나 적으로부터 정보들을 보호&lt;/li>
+&lt;li>정보처리 시설의 출입 통제, 잠금장치 등&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>관리적 보호대책
+&lt;ul>
+&lt;li>제도를 만들고 보안 계획을 세워 운영&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="용어">용어&lt;/h3>
+&lt;ul>
+&lt;li>자산(Asset)
+&lt;ul>
+&lt;li>조직이 보호해야할 대상&lt;/li>
+&lt;li>정보, 하드웨어, 소프트웨어, 시설 등&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>취약점(Vulnerability)
+&lt;ul>
+&lt;li>정보시스템의 결함&lt;/li>
+&lt;li>관리적, 물리적, 기술적 약점들을 의미&lt;/li>
+&lt;li>&lt;code>위협&lt;/code>의 이용 대상&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>위협(Threat)
+&lt;ul>
+&lt;li>정보시스템에 해를 끼칠 수 있는 사건 및 행동&lt;/li>
+&lt;li>&lt;code>위험&lt;/code>의 원인&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>위험(Risk)
+&lt;ul>
+&lt;li>정보시스템에 존재하는 &lt;code>위협&lt;/code>에 의해 자산에 손실이 발생할 가능성&lt;/li>
+&lt;li>&lt;code>자산&lt;/code>×&lt;code>위협&lt;/code>×&lt;code>취약점&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="보안-공격security-attack">보안 공격(Security Attack)&lt;/h2>
+&lt;p>보안의 목표 &lt;code>CIA&lt;/code>를 위협&lt;/p>
+&lt;ul>
+&lt;li>적극적 공격
+&lt;ul>
+&lt;li>무결성과 가용성을 공격&lt;/li>
+&lt;li>데이터를 변경하거나 재전송
+&lt;ul>
+&lt;li>신분 위장&lt;/li>
+&lt;li>메시지의 송수신 부인&lt;/li>
+&lt;li>DDos 공격&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>소극적 공격
+&lt;ul>
+&lt;li>기밀성 공격&lt;/li>
+&lt;li>원치 않는 대상에게 데이터 노출
+&lt;ul>
+&lt;li>스누핑&lt;/li>
+&lt;li>도청&lt;/li>
+&lt;li>트래픽 분석&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="통제control">통제(Control)&lt;/h2>
+&lt;p>취약점을 감소시키기 위한 메커니즘&lt;/p>
+&lt;ul>
+&lt;li>예방통제
+&lt;ul>
+&lt;li>사전에 위협과 취약점에 대처하는 통제&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>탐지통제
+&lt;ul>
+&lt;li>위협을 탐지하는 통제&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>교정통제
+&lt;ul>
+&lt;li>탐지된 위협이나 취약점을 대처하거나 감소시키는 통제&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Til: Cryptology</title><link>http://Jeonghun-Ban.github.io/til/security/cryptology/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/cryptology/</guid><description/></item><item><title>Til: Access Control</title><link>http://Jeonghun-Ban.github.io/til/security/access-control/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/access-control/</guid><description/></item><item><title>Til: System</title><link>http://Jeonghun-Ban.github.io/til/security/system/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/system/</guid><description/></item><item><title>Til: Security</title><link>http://Jeonghun-Ban.github.io/til/security/network/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/network/</guid><description/></item><item><title>Til: Application</title><link>http://Jeonghun-Ban.github.io/til/security/application/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/application/</guid><description/></item></channel></rss>

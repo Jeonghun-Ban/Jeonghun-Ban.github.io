@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeonghun-Ban – Troubleshooting</title><link>http://Jeonghun-Ban.github.io/til/git/troubleshooting/</link><description>Recent content in Troubleshooting on Jeonghun-Ban</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://Jeonghun-Ban.github.io/til/git/troubleshooting/index.xml" rel="self" type="application/rss+xml"/><item><title>Til: Apply Case Change</title><link>http://Jeonghun-Ban.github.io/til/git/troubleshooting/apply-case-change/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/git/troubleshooting/apply-case-change/</guid><description>
+&lt;p>Git은 일반적인 파일명 변경으로는 대소문자를 변경이 적용되지 않는다.&lt;/p>
+&lt;h2 id="해결">해결&lt;/h2>
+&lt;p>이러한 경우 대소문자 적용은 파일 이동 명령어인 &lt;code>mv&lt;/code>의 &lt;code>--force&lt;/code> 옵션을 사용하면 된다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git mv --force pre_file new_file
+git commit -m &lt;span style="color:#e6db74">&amp;#34;message&amp;#34;&lt;/span>
+git push
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Til: fatal: the remote end hung up unexpectedly</title><link>http://Jeonghun-Ban.github.io/til/git/troubleshooting/fatal-the-remote-end-hang-up-unexpectedly/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/git/troubleshooting/fatal-the-remote-end-hang-up-unexpectedly/</guid><description>
+&lt;h2 id="문제-발생">문제 발생&lt;/h2>
+&lt;p>깃헙 레파지토리의 변경사항을 로컬에 적용하기 위해 &lt;code>git pull&lt;/code> 명령어를 사용했을 때 발생&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git pull
+fatal: the remote end hung up unexpectedly
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="문제-원인">문제 원인&lt;/h2>
+&lt;p>git의 HTTP &lt;code>POST Buffer&lt;/code> 사이즈가 작아서 오버플로우 발생&lt;/p>
+&lt;blockquote>
+&lt;p>해당 문제는 &lt;code>git pull&lt;/code>뿐 아니라 &lt;code>git push&lt;/code>에서도 발생할 수 있다.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="문제-해결">문제 해결&lt;/h2>
+&lt;p>깃 설정을 통해서 버퍼 사이즈를 변경하여 해결하였다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ git config --global http.postBuffer &lt;span style="color:#ae81ff">524288000&lt;/span> &lt;span style="color:#75715e">#Set to 500MB&lt;/span>
+$ git pull
+From https://github.com/Jeonghun-Ban/TIL
++ 047102b...836e520 master -&amp;gt; origin/master &lt;span style="color:#f92672">(&lt;/span>forced update&lt;span style="color:#f92672">)&lt;/span>
+Already up to date.
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

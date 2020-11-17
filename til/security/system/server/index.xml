@@ -1,0 +1,1020 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeonghun-Ban – Server</title><link>http://Jeonghun-Ban.github.io/til/security/system/server/</link><description>Recent content in Server on Jeonghun-Ban</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://Jeonghun-Ban.github.io/til/security/system/server/index.xml" rel="self" type="application/rss+xml"/><item><title>Til: Windows</title><link>http://Jeonghun-Ban.github.io/til/security/system/server/windows/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/system/server/windows/</guid><description>
+&lt;h2 id="윈도우-시스템">윈도우 시스템&lt;/h2>
+&lt;p>5개의 링으로 구성됨&lt;/p>
+&lt;p>&lt;img src="images/2020-05-29-16-43-07.png" alt="윈도우 시스템 구조">&lt;/p>
+&lt;ul>
+&lt;li>HAL(Hardware Abstraction Layer): H/W와 S/W가 원활히 통신할 수 있게 도움&lt;/li>
+&lt;li>마이크로 커널: 하드웨어와 통신만 하는 최소한의 커널
+&lt;ul>
+&lt;li>프로세스 스케줄링, 메모리 관리 등은 manager가 맡음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="파일-시스템">파일 시스템&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>항목&lt;/th>
+&lt;th>FAT16&lt;/th>
+&lt;th>FAT32&lt;/th>
+&lt;th>NTFS&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>용량&lt;/td>
+&lt;td>저용량(최대 2GB)&lt;/td>
+&lt;td>고용량(2GB~2TB)&lt;/td>
+&lt;td>대용량&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>암호화ㆍ압축&lt;/td>
+&lt;td>X&lt;/td>
+&lt;td>X&lt;/td>
+&lt;td>O&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>클러스터&lt;/td>
+&lt;td>1632KB&lt;/td>
+&lt;td>4KB&lt;/td>
+&lt;td>가변 클러스터(512B ~ 4KB)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>장점&lt;/td>
+&lt;td>&lt;!-- raw HTML omitted -->호환성 우수&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->저용량 볼륨에 최적화&lt;!-- raw HTML omitted -->&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;!-- raw HTML omitted -->강력한 보안기능, 감사 기능&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->디스크의 효율적 사용&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->대용량 볼륨, 긴 파일이름&lt;!-- raw HTML omitted -->&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>단점&lt;/td>
+&lt;td>&lt;!-- raw HTML omitted -->보안 취약&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->대용량 볼륨에 비효율적&lt;!-- raw HTML omitted -->&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;!-- raw HTML omitted -->NT계열외의 OS에는 호환 X&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->저용량 볼륨에서 FAT보다 속도 저하&lt;!-- raw HTML omitted -->&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="ntfs-구조">NTFS 구조&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>항목&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>MBR(Master Boot Recode)&lt;/td>
+&lt;td>파티션 생성 시 물리적 디스크의 &lt;code>첫 번째 섹터&lt;/code>에 위치한 512bytes 크기의 영역 &lt;!-- raw HTML omitted --> 부팅 시 BIOS에 의해 POST 과정을 마친 후 이 영역의 부트 코드를 호출 &lt;!-- raw HTML omitted --> 부트 코드는 &lt;code>Active 파티션&lt;/code>을 찾아 해당 &lt;code>VBR 부트 코드를 호출&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>VBR(Volume Boot Recode)&lt;/td>
+&lt;td>부팅을 위한 기계어 코드와 볼륨 및 클러스터의 크기, &lt;code>MFT의 시작 주소&lt;/code> 등의 설정 정보를 가짐&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MFT(Master File Table)&lt;/td>
+&lt;td>&lt;code>모든 파일과 디렉터리의 속성 정보&lt;/code>(파일 이름, 크기, 생성 시간 등)를 담은 테이블&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>시스템 파일&lt;/td>
+&lt;td>복구하는데 사용할 파일들이 저장&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>파일 영역&lt;/td>
+&lt;td>각 파일에 대한 &lt;code>실제 데이터&lt;/code>가 저장&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="부팅-순서">부팅 순서&lt;/h2>
+&lt;ul>
+&lt;li>윈도우 XP 이전
+&lt;ul>
+&lt;li>POST(Power On Self Test)&lt;/li>
+&lt;li>기본 부팅 관련 설정사항(CMOS) 로드&lt;/li>
+&lt;li>MBR 로드 (기본 파일시스템 정보 로드)&lt;/li>
+&lt;li>NTLDR(NT Loader) 실행&lt;/li>
+&lt;li>ntoskrnl.exe 실행 -&amp;gt; hal.dll을 읽음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>윈도우 Vista 이후
+&lt;ul>
+&lt;li>&lt;code>3단계&lt;/code>까지 위와 동일&lt;/li>
+&lt;li>윈도우 부트 서브 시스템 실행&lt;/li>
+&lt;li>윈도우 OS 로더(Winload.exe) 실행
+&lt;ul>
+&lt;li>각종 장치 드라이브를 로드하고, ntoskrnl.exe를 실행&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="윈도우-계정">윈도우 계정&lt;/h2>
+&lt;h3 id="기본-계정">기본 계정&lt;/h3>
+&lt;ul>
+&lt;li>Administrator: 관리자 권한의 계정&lt;/li>
+&lt;li>SYSTEM: 시스템에서 &lt;code>최고 권한&lt;/code>을 가진 계정
+&lt;ul>
+&lt;li>사용자는 이 계정으로 시스템에 로그인할 수 없음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Guest: 제한적인 권한을 가진 계정&lt;/li>
+&lt;/ul>
+&lt;h3 id="기본-그룹">기본 그룹&lt;/h3>
+&lt;ul>
+&lt;li>Administrators: 도메인 자원이나 로컬 컴퓨터에 대한 &lt;code>모든 권한&lt;/code>&lt;/li>
+&lt;li>Account Operators: 계정을 관리하는 그룹&lt;/li>
+&lt;li>Backup Operators: 시스템 백업을 위해서 모든 시스템의 파일과 디렉터리에 접근 가능&lt;/li>
+&lt;li>Guests: 도메인 사용 권한이 제한&lt;/li>
+&lt;li>Print Operators: 도메인 프린터에 접근&lt;/li>
+&lt;li>Users: 도메인과 로컬 컴퓨터를 &lt;code>일반적으로 사용&lt;/code>
+&lt;ul>
+&lt;li>개인 사용자 환경을 생성 가능하나 설정 항목에 한계 존재&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Power Users: Users 그룹보다 확장된 권한
+&lt;ul>
+&lt;li>디렉터리나 네트워크 공유, 공용 프로그램 그룹 생성, 시계 설정&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Server Operation: 도메인의 &lt;code>서버를 관리&lt;/code>할 수 있는 권한&lt;/li>
+&lt;/ul>
+&lt;h3 id="sidsecurity-identifier">SID(Security Identifier)&lt;/h3>
+&lt;p>Unix/Linux 시스템의 &lt;code>UID와 비슷&lt;/code>한 윈도우 개념&lt;/p>
+&lt;ul>
+&lt;li>각 사용자나 그룹에게 부여되는 고유 식별번호&lt;/li>
+&lt;li>&lt;code>Whoami /SID&lt;/code> 명령어나 &lt;code>Whoami /USER&lt;/code> 명령어를 통해 SID를 확인&lt;/li>
+&lt;/ul>
+&lt;h2 id="윈도우-인증">윈도우 인증&lt;/h2>
+&lt;ul>
+&lt;li>LSA (Local Security Authority)
+&lt;ul>
+&lt;li>모든 계정의 &lt;code>로그인&lt;/code>에 대한 검증, 자원 및 파일에 접근 권한 검사&lt;/li>
+&lt;li>SRM이 생성한 감사로그 기록&lt;/li>
+&lt;li>NT보안의 중심요소, 보안 서브시스템이라고도 함&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>SAM (Security Account Manager)
+&lt;ul>
+&lt;li>사용자/그룹 &lt;code>계정 정보&lt;/code>에 대한 DB를 관리&lt;/li>
+&lt;li>로그인 입력 정보와 SAM 로그인 정보를 비교해 인증 여부 결정&lt;/li>
+&lt;li>인가되면 SRM에 알림&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>SRM (Security Reference Monitor)
+&lt;ul>
+&lt;li>사용자에게 &lt;code>SID를 부여&lt;/code>&lt;/li>
+&lt;li>SID에 기반하여 파일/디렉터리에 대한 &lt;code>접근 권한&lt;/code> 결정&lt;/li>
+&lt;li>감사 메시지 생성&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="공유-자료-관리">공유 자료 관리&lt;/h2>
+&lt;h3 id="접근-권한">접근 권한&lt;/h3>
+&lt;ul>
+&lt;li>제공되는 권한
+&lt;ul>
+&lt;li>수정, 읽기 및 실행, 폴더 내용 보기, 읽기, 쓰기&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>사용자가 여러 그룹에 속한 경우 접근 권한은 누적&lt;/li>
+&lt;li>파일에 대한 접근 권한이 디렉터리에 대한 접근 권한에 우선&lt;/li>
+&lt;li>허용 권한보다 거부 권한이 우선&lt;/li>
+&lt;/ul>
+&lt;h3 id="공유-폴더">공유 폴더&lt;/h3>
+&lt;ul>
+&lt;li>C$,D$ 등
+&lt;ul>
+&lt;li>드라이브에 대한 관리목적 공유 폴더&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>ADMIN$
+&lt;ul>
+&lt;li>윈도우 설치 폴더에 접근하는 관리목적 공유 폴더&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>IPC$(Inter Process Communication)
+&lt;ul>
+&lt;li>네트워크 등에서 프로세스 간의 통신을 위해서 사용하는 통로&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="관리">관리&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>netshare&lt;/code> 명령어로 숨겨진 공유 폴더(이름 끝에 &lt;code>$&lt;/code>) 확인&lt;/li>
+&lt;li>침입자가 네트워크에 액세스할 수 있는 위험
+&lt;ul>
+&lt;li>&lt;code>netshare 공유이름 /delete&lt;/code>로 공유 비활성화 (OS 재부팅 시 활성화)&lt;/li>
+&lt;li>레지스트리를 통해 완벽하게 제거(HKLM)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>IPC$&lt;/code>는 정상적인 방법으로 제거할 수 없으며 제거할 경우 특정 서비스가 실행되지 않을 수 있음&lt;/li>
+&lt;/ul>
+&lt;h4 id="암호-기능">암호 기능&lt;/h4>
+&lt;ul>
+&lt;li>EFS(Encrypting File System)
+&lt;ul>
+&lt;li>파일/폴더를 암호화할 수 있는 기능&lt;/li>
+&lt;li>&lt;code>인증서&lt;/code> 추가/삭제를 통해 EFS가 적용된 파일을 읽을 수 있는 사용자 추가/변경&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>BitLocker
+&lt;ul>
+&lt;li>볼륨(파티션)에 저장된 &lt;code>모든 파일&lt;/code>이 자동으로 암호화&lt;/li>
+&lt;li>시스템 파티션 제외&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="레지스트리">레지스트리&lt;/h2>
+&lt;p>윈도우 부팅 시 하이브 파일에서 값을 읽어 들여 구성&lt;/p>
+&lt;ul>
+&lt;li>Master Key: 하이브 파일에서 직접 읽어 들여 구성되는 키&lt;/li>
+&lt;li>Derived Key: &lt;code>Master Key&lt;/code>로부터 값을 가져와서 재구성하는 키&lt;/li>
+&lt;/ul>
+&lt;h3 id="master-key">Master Key&lt;/h3>
+&lt;ul>
+&lt;li>HKEY_LOCAL_MACHINE(HKLM)
+&lt;ul>
+&lt;li>&lt;code>하드웨어와 드라이버 설정 사항&lt;/code>에 관련된 정보&lt;/li>
+&lt;li>HKLM\HARDWARE
+&lt;ul>
+&lt;li>부팅 시 하드웨어와 드라이버 정보(휘발성)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HKLM\SAM
+&lt;ul>
+&lt;li>사용자와 도메인 정보&lt;/li>
+&lt;li>시스템 계정만 접근 가능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HKLM\SECURITY
+&lt;ul>
+&lt;li>시스템 범위의 보안 정책과 사용자 권리 할당 정보&lt;/li>
+&lt;li>시스템 계정만 접근 가능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HKLM\SOFTWARE
+&lt;ul>
+&lt;li>시스템 범위의 소프트웨어 목록과 그 환경설정 정보(이름, 경로 등)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HKLM\SYSTEM
+&lt;ul>
+&lt;li>부팅될 때 필요한 시스템 범위의 환경설정 정보(서비스 목록 등)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HKEY_USERS(HKU)
+&lt;ul>
+&lt;li>시스템에 있는 &lt;code>모든 계정과 그룹&lt;/code>에 관한 정보&lt;/li>
+&lt;li>모든 계정의 프로파일이 있다는 것을 제외하고 서브키가 HKCU와 동일&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="derived-key">Derived Key&lt;/h3>
+&lt;ul>
+&lt;li>HKEY_CLASSES_ROOT (HKCR)
+&lt;ul>
+&lt;li>시스템에 등록된 &lt;code>파일 확장자&lt;/code>와 그것을 열 때 사용할 &lt;code>어플리케이션의 매핑 정보&lt;/code>&lt;/li>
+&lt;li>COM(Component Object Model) 오브젝트 등록 정보&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HKEY_CURRENT_USER (HKCU)
+&lt;ul>
+&lt;li>현재 시스템에 &lt;code>로그인 중인 사용자&lt;/code>와 관련된 시스템 정보&lt;/li>
+&lt;li>HKCU 키에서 설정한 내용이 HKU보다 우선권&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HKEY_CURRENT_CONFIG (HKCC)
+&lt;ul>
+&lt;li>시스템이 시작할 때 사용하는 &lt;code>하드웨어 프로파일&lt;/code> 정보&lt;/li>
+&lt;li>HKLM에 서브로 존재하는 config의 내용만을 담고 있음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="공격">공격&lt;/h3>
+&lt;ul>
+&lt;li>부팅 시 악성코드 실행 공격
+&lt;ul>
+&lt;li>재부팅 시 악성 프로그램을 구동시키기 위해 레지스트리(&lt;code>HKLM&lt;/code>과 &lt;code>HKCU&lt;/code>)를 변조&lt;/li>
+&lt;li>대상 파일
+&lt;ul>
+&lt;li>HKCU\Software\Microsoft\Windows\CurrentVersion\Run (개별 사용자 지속)&lt;/li>
+&lt;li>HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce (개별 사용자 일회성)&lt;/li>
+&lt;li>HKLM\Software\Microsoft\Windows\CurrentVersion\Run (전체 사용자 지속)&lt;/li>
+&lt;li>HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce (전체 사용자 일회성)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>특정 확장자 실행 시 악성코드 실행 공격
+&lt;ul>
+&lt;li>특정 확장자 실행 시 원하는 악성 프로그램을 실행&lt;/li>
+&lt;li>&lt;code>HKCR&lt;/code> 내용 변경하여 수행&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Til: UNIX/Linux</title><link>http://Jeonghun-Ban.github.io/til/security/system/server/unix-and-linux/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/system/server/unix-and-linux/</guid><description>
+&lt;h2 id="유닉스-시스템">유닉스 시스템&lt;/h2>
+&lt;p>&lt;img src="images/2020-05-29-21-54-59.png" alt="유닉스 시스템 구조">&lt;/p>
+&lt;ul>
+&lt;li>대화식 운영체제 : Shell(셸)&lt;/li>
+&lt;li>멀티태스킹, 멀티유저, 호환성/이식성 우수&lt;/li>
+&lt;li>계층적 파일시스템&lt;/li>
+&lt;li>뛰어난 통신기능 및 다양한 유틸리티 제공&lt;/li>
+&lt;/ul>
+&lt;h3 id="커널">커널&lt;/h3>
+&lt;ul>
+&lt;li>항상 메모리에 상주하면서 하드웨어 자원을 제어&lt;/li>
+&lt;li>프로세스 스케줄링, 기억장치 관리, 파일관리, 시스템 호출, 입출력 서비스 제공&lt;/li>
+&lt;li>가장 하위 수준에서 하드웨어와 직접 관계&lt;/li>
+&lt;/ul>
+&lt;h3 id="쉘">쉘&lt;/h3>
+&lt;ul>
+&lt;li>커널과 사용자 간의 인터페이스&lt;/li>
+&lt;li>기능
+&lt;ul>
+&lt;li>명령어 해석 기능&lt;/li>
+&lt;li>프로그래밍 기능&lt;/li>
+&lt;li>사용자 환경 설정 기능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="파일-시스템">파일 시스템&lt;/h3>
+&lt;p>계층적 파일시스템으로 구성&lt;/p>
+&lt;ul>
+&lt;li>i-node(index node)
+&lt;ul>
+&lt;li>파일에 대한 정보를 기억하는 약 120Byte의 고정된 크기의 구조체&lt;/li>
+&lt;li>구성요소
+&lt;ul>
+&lt;li>파일에 대한 정보(파일의 허가권, 소유권, 그룹, 최근 수정된 시간)&lt;/li>
+&lt;li>파일에 할당된 데이터 블록의 주소를 저장하는 필드&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Super Block
+&lt;ul>
+&lt;li>파일시스템의 정보를 유지하는 자료구조&lt;/li>
+&lt;li>파일의 요약 정보와 사용하지 않는 i-node 디스크 블록 위치정보를 가짐&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="프로세스">프로세스&lt;/h2>
+&lt;ul>
+&lt;li>PID 0(swapper)
+&lt;ul>
+&lt;li>부팅 시간동안 OS에 의해 생성(커널 프로세스)&lt;/li>
+&lt;li>&lt;code>init&lt;/code>과 &lt;code>pagedaemon&lt;/code> 프로세스를 만들기 위해 fork/exec를 두 번 실행&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>PID 1(init)
+&lt;ul>
+&lt;li>시스템의 모든 프로세스는 init프로세스의 자손&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>PID 2(pagedaemon)
+&lt;ul>
+&lt;li>swapper와 함께 커널 모드에서 영구적으로 실행(커널 프로세스)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>고아 프로세스
+&lt;ul>
+&lt;li>부모 프로세스가 자식 프로세스보다 먼저 종료된 경우 발생&lt;/li>
+&lt;li>init 프로세스가 고아 프로세스의 부모 프로세스 역할&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>좀비 프로세스
+&lt;ul>
+&lt;li>자식 프로세스가 종료되었지만 부모 프로세스가 이를 확인하지 못하는 경우&lt;/li>
+&lt;li>자식 프로세스는 부모 프로세스가 확인할 때까지 프로세스 테이블에 남음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="run-level">Run Level&lt;/h3>
+&lt;p>&lt;code>/etc/inittab&lt;/code> 파일에 정의된 런레벨에 따라 &lt;code>/etc/rc[x].d&lt;/code> 디렉터리에 나열된 스크립트가 실행됨&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Run Level&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>0&lt;/td>
+&lt;td>PROM 모드 (BIOS 수준에서 작업) / 시스템 종료 (LINUX)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>S, s&lt;/td>
+&lt;td>시스템 단일 사용자 모드, 로컬 파일시스템이 마운트되지 않은 상태&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>시스템 단일 사용자 모드, 로컬 파일시스템이 마운트된 상태&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2&lt;/td>
+&lt;td>NFS를 지원하지 않는 다중 사용자 모드 (NFS 클라이언트 모드)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>3&lt;/td>
+&lt;td>네트워킹을 지원하는 다중 사용자 모드 (NFS 서버 모드), UNIX 기본 Run Level&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>4&lt;/td>
+&lt;td>사용자 정의 레벨&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>5&lt;/td>
+&lt;td>시스템 종료 / X윈도우 환경 (LINUX)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>6&lt;/td>
+&lt;td>시스템 재부팅&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="시스템-보안">시스템 보안&lt;/h2>
+&lt;h3 id="passwd-파일">passwd 파일&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>/etc/passwd&lt;/code>&lt;/li>
+&lt;li>사용자와 관련된 정보 저장&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>항목&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>user_account&lt;/td>
+&lt;td>로그인 아이디&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>user_password&lt;/td>
+&lt;td>&lt;code>/etc/shadow&lt;/code> 파일에 암호화되어 저장되어 있음&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>user_id(UID)&lt;/td>
+&lt;td>보통 100번 이하는 시스템이 사용, 0번은 시스템 관리자&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>group_id(GID)&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>comment&lt;/td>
+&lt;td>사용자 설명&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>home_directory&lt;/td>
+&lt;td>로그인 성공 후에 사용자가 위치할 홈 디렉터리의 절대경로&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>login_shell&lt;/td>
+&lt;td>로그인 셸의 절대경로 &lt;!-- raw HTML omitted --> 로그인이 불필요한 계정의 셸은 &lt;code>/sbin/nologin&lt;/code>, &lt;code>/bin/false&lt;/code>으로 지정&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="shadow-파일">shadow 파일&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>/etc/shadow&lt;/code>&lt;/li>
+&lt;li>&lt;code>암호화된 패스워드&lt;/code>만 저장되도록 하고 관리자만 읽을 수 있도록 제한&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>항목&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>user_account&lt;/td>
+&lt;td>사용자 계정&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>encryption_pw&lt;/td>
+&lt;td>일방향 해시 알고리즘 통해 암호화한 패스워드 &lt;!-- raw HTML omitted --> 형식: &lt;code>$id$salt$encrypted_password&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>last_change&lt;/td>
+&lt;td>마지막으로 패스워드를 변경한 날&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>minilife&lt;/td>
+&lt;td>최소 패스워드 변경 일수(패스워드를 변경할 수 없는 기간)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>maxlife&lt;/td>
+&lt;td>최대 패스워드 변경 일수(패스워드 변경 없이 사용할 수 있는 일수)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>warn&lt;/td>
+&lt;td>경고 일수(maxlife 필드에 지정한 일수가 얼마 남지 않았음을 알림)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>inactive&lt;/td>
+&lt;td>최대 비활성 일수&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>expires&lt;/td>
+&lt;td>계정이 만료되는 날&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="접근-권한-마스크umask">접근 권한 마스크(umask)&lt;/h3>
+&lt;ul>
+&lt;li>시스템 관리자는 &lt;code>/etc/profile&lt;/code>에 umask를 설정하여 전체 사용자에게 동일한 umask 값을 적용&lt;/li>
+&lt;li>개별 사용자에 대한 설정은 &lt;code>$HOME/.profile&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="권한-상승디렉터리-접근권한">권한 상승/디렉터리 접근권한&lt;/h3>
+&lt;ul>
+&lt;li>SetUID: 실제 사용자가 아닌 해당 &lt;code>파일의 소유자 권한&lt;/code>으로 실행
+&lt;ul>
+&lt;li>&lt;code>/etc/passwd&lt;/code> 파일에 적용&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>SetGID: 실제 사용자 계정이 아닌 &lt;code>소유 그룹의 권한&lt;/code>으로 실행
+&lt;ul>
+&lt;li>부서원의 권한을 일괄적으로 적용할 때 사용&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>sticky-bit: &lt;code>디렉터리&lt;/code>에 특별한 &lt;code>접근권한 부여&lt;/code>(공유모드)
+&lt;ul>
+&lt;li>설정된 디렉터리는 시스템에 있는 모든 사용자가 파일이나 하위 디렉터리를 생성 가능&lt;/li>
+&lt;li>삭제는 소유주나 &lt;code>root&lt;/code>에게만 허용&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="네트워크-보안">네트워크 보안&lt;/h2>
+&lt;h3 id="슈퍼-서버inetd-데몬">슈퍼 서버(inetd 데몬)&lt;/h3>
+&lt;p>n개의 개별 서버를 하나로 통합하여 클라이언트로부터 서비스 요청이 올 때마다 해당 서비스와 관련된 실행 모
+듈을 실행&lt;/p>
+&lt;ul>
+&lt;li>시스템에서 불필요한 서비스를 제한하기 위해 &lt;code>/etc/inetd.conf&lt;/code> 파일을 수정&lt;/li>
+&lt;li>&lt;code>inetd&lt;/code> 데몬을 다시 가동해야 반영됨&lt;/li>
+&lt;/ul>
+&lt;h4 id="파일-설정">파일 설정&lt;/h4>
+&lt;ul>
+&lt;li>서비스 이름&lt;/li>
+&lt;li>소켓 타입(TCP-stream/UDP-dgram)&lt;/li>
+&lt;li>프로토콜&lt;/li>
+&lt;li>대기설정(TCP-nowait/UDP-wait)&lt;/li>
+&lt;li>로그인 이름&lt;/li>
+&lt;li>서버(실행할 파일의 절대 경로)&lt;/li>
+&lt;li>인자(데몬 실행 시의 명령어)&lt;/li>
+&lt;/ul>
+&lt;h3 id="접근통제-tcp-wrapper">접근통제 (TCP Wrapper)&lt;/h3>
+&lt;p>외부에서 들어오는 클라이언트에 대해 IP주소를 확인하여 접근통제 수행&lt;/p>
+&lt;ol>
+&lt;li>inetd 데몬&lt;/li>
+&lt;li>tcpd 데몬&lt;/li>
+&lt;li>접근 권한 검사&lt;/li>
+&lt;li>해당 데몬에 연결&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>inted 데몬이 관리하지 않는 standalone 데몬은 inetd 데몬이 통제할 수 없다.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="설정-파일">설정 파일&lt;/h4>
+&lt;ul>
+&lt;li>접근 허용 리스트: &lt;code>/etc/hosts.allow&lt;/code>&lt;/li>
+&lt;li>접근 제한 리스트: &lt;code>/etc/hosts.deny&lt;/code>&lt;/li>
+&lt;li>&lt;code>/etc/hosts.allow&lt;/code> → &lt;code>/etc/hosts.deny&lt;/code> 순으로 정책이 적용&lt;/li>
+&lt;li>&lt;code>/usr/sfw/sbin/tcpdchk&lt;/code>을 실행하여 오류 점검&lt;/li>
+&lt;/ul>
+&lt;h3 id="pampluggable-authentication-modules-장착형-인증-모듈">PAM(Pluggable Authentication Modules, 장착형 인증 모듈)&lt;/h3>
+&lt;p>각 응용 프로그램에 대한 인증, 사용자 권한, 접근 자원을 선택할 수 있는 라이브러리&lt;/p>
+&lt;ul>
+&lt;li>리눅스 배포판에서 사용자 인증의 핵심&lt;/li>
+&lt;li>각 프로그램은 인증이 필요한 부분에 PAM 라이브러리를 호출&lt;/li>
+&lt;/ul>
+&lt;h4 id="설정-파일-1">설정 파일&lt;/h4>
+&lt;ul>
+&lt;li>type: 모듈의 종류
+&lt;ul>
+&lt;li>account: 사용자의 시스템 사용권한 확인&lt;/li>
+&lt;li>auth: 인증기능&lt;/li>
+&lt;li>password: 비밀번호 설정 및 확인&lt;/li>
+&lt;li>session: 인증 성공 시 세션&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>control: 모듈 실행 후 PAM 라이브러리 행동 결정
+&lt;ul>
+&lt;li>requisite: 모듈 실패 시 인증 거부&lt;/li>
+&lt;li>required: 동일 유형 모듈 실행 완료 시점에서 거부&lt;/li>
+&lt;li>sufficient: 인증 시 승인, 실패 시 재인증&lt;/li>
+&lt;li>optional: 모듈의 성공, 실패 응답을 상관하지 않음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="서버-취약점-분석-평가">서버 취약점 분석, 평가&lt;/h2>
+&lt;h3 id="root-계정-원격-접속-제한">root 계정 원격 접속 제한&lt;/h3>
+&lt;p>원격 접속 시 root 계정으로 직접 로그인할 수 없도록 설정&lt;/p>
+&lt;h3 id="패스워드-정책-점검">패스워드 정책 점검&lt;/h3>
+&lt;ul>
+&lt;li>암호입력 횟수 제한&lt;/li>
+&lt;li>패스워드 길이 제한&lt;/li>
+&lt;li>사용 기간 점검&lt;/li>
+&lt;li>Brute Force Attack, Password Guessing 공격 방지&lt;/li>
+&lt;/ul>
+&lt;h3 id="path-변수-확인">PATH 변수 확인&lt;/h3>
+&lt;ul>
+&lt;li>root 계정의 PATH 환경변수에 &lt;code>.&lt;/code>가 포함되어 있으면 root 계정의 인가&lt;/li>
+&lt;li>비의도적으로 현재 디렉터리의 명령어가 실행될 수 있음&lt;/li>
+&lt;li>root 계정의 환경변수 설정 파일(/etc/profile)에서 &lt;code>.&lt;/code>을 마지막에 위치시키거나 삭제
+&lt;ul>
+&lt;li>&lt;code>$ echo $PATH #변수 출력&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="파일-및-디렉터리-소유자-설정">파일 및 디렉터리 소유자 설정&lt;/h3>
+&lt;ul>
+&lt;li>유저를 삭제한 경우 소유자가 없는 파일 발생&lt;/li>
+&lt;li>파일이나 디렉토리를 검색해서 해결
+&lt;ul>
+&lt;li>&lt;code>$ find / -nouser -print&lt;/code>&lt;/li>
+&lt;li>&lt;code>$ find / -nogroup -print&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Til: Security Management</title><link>http://Jeonghun-Ban.github.io/til/security/system/server/security-management/</link><pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/security/system/server/security-management/</guid><description>
+&lt;h2 id="서버-관리자의-업무">서버 관리자의 업무&lt;/h2>
+&lt;h3 id="시스템-시작종료">시스템 시작/종료&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ shutdown -r now &lt;span style="color:#75715e"># 지금 즉시 시스템 재부팅&lt;/span>
+$ shutdown -h now &lt;span style="color:#75715e"># 지금 즉시 시스템 종료&lt;/span>
+$ half &lt;span style="color:#75715e"># 강제 종료&lt;/span>
+$ reboot &lt;span style="color:#75715e"># 강제 재부팅&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="사용자-계정-관리">사용자 계정 관리&lt;/h3>
+&lt;ul>
+&lt;li>원격 접근권한 제거
+&lt;ul>
+&lt;li>&lt;code>/etc/passwd&lt;/code> 파일에서 &lt;code>/bin/bash&lt;/code> 와 같은 셸 삭제&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>계정 사용기간 설정
+&lt;ul>
+&lt;li>&lt;code>/etc/shadow&lt;/code> 파일에서 사용기간 또는 만료일 설정&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="자원-관리">자원 관리&lt;/h3>
+&lt;ul>
+&lt;li>프로세스 관리
+&lt;ul>
+&lt;li>&lt;a href="../Linux/Process-Management.md#%EA%B4%80%EB%A0%A8-%EB%AA%85%EB%A0%B9%EC%96%B4">관련 명령어&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>메모리 관리
+&lt;ul>
+&lt;li>&lt;code>free&lt;/code> (메모리 및 swap 메모리 사용 현황)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>디스크 관리
+&lt;ul>
+&lt;li>&lt;a href="../Linux/Commands-about-File-System.md#%ED%8C%8C%EC%9D%BC-%EA%B4%80%EB%A0%A8-%EB%AA%85%EB%A0%B9%EC%96%B4">관련 명령어&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="네트워크-관리">네트워크 관리&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>명령어&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>ifconfig&lt;/td>
+&lt;td>통신 디바이스(NIC) 상태&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>netstat -an&lt;/td>
+&lt;td>현 시스템에서 사용되는 통신 서비스의 상태&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>top&lt;/td>
+&lt;td>시스템 자원(CPU, memory 등)의 사용현황&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ps -elf(-aux)&lt;/td>
+&lt;td>현 시스템에서 수행 중인 프로그램과 데몬 상태&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>snoop&lt;/td>
+&lt;td>패킷을 캡처하여 분석&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>nslookup&lt;/td>
+&lt;td>도메인에 대한 IP 정보 및 도메인 네임과 관련된 여러 검색&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>inetd&lt;/td>
+&lt;td>네트워크 슈퍼데몬인 inetd를 실행&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="윈도우-로그">윈도우 로그&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>이벤트(Event)&lt;/code>라는 중앙 집권화된 로그를 수집하여 저장&lt;/li>
+&lt;li>관리는 편하나 보안수준이 낮음&lt;/li>
+&lt;/ul>
+&lt;h3 id="이벤트-로그-종류">이벤트 로그 종류&lt;/h3>
+&lt;ul>
+&lt;li>응용 프로그램 로그(AppEvent.Evt)
+&lt;ul>
+&lt;li>응용 프로그램이 기록한 다양한 이벤트&lt;/li>
+&lt;li>소프트웨어 개발자에 의해 결정&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>보안 로그(SecEvent.Evt)
+&lt;ul>
+&lt;li>로그인 시도, 리소스 사용에 관련된 이벤트 기록&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>시스템 로그(SysEvent.Evt)
+&lt;ul>
+&lt;li>Windows 시스템 구성요소가 기록하는 이벤트&lt;/li>
+&lt;li>구성요소의 오류를 이벤트에 기록&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>그 외
+&lt;ul>
+&lt;li>디렉터리 서비스 로그, 파일 복제 서비스 로그,DNS 서버 로그 등&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>이벤트 로그 파일은 &lt;code>%Windows%\system32\config&lt;/code> 폴더에 위치&lt;/p>
+&lt;blockquote>
+&lt;p>바이너리 형식이므로 별도의 프로그램 필요&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="감사-정책">감사 정책&lt;/h3>
+&lt;p>어떤 로그를 남길지를 정의한 규칙&lt;/p>
+&lt;blockquote>
+&lt;p>설정 경로: [제어판]-[관리 도구]-[로컬 보안 정책]-[로컬 정책]-[감사 정책]&lt;/p>
+&lt;/blockquote>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>이벤트 로그&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>개체 액세스 감사&lt;/td>
+&lt;td>객체(특정 파일이나 디렉터리, 프린터 등)에 대한 접근 시도, 속성 변경 등 로그&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>계정 관리 감사&lt;/td>
+&lt;td>사용자 관련 설정 변경 로그를 탐지&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>계정 로그인 이벤트 감사&lt;/td>
+&lt;td>도메인 계정의 로그인에 대한 사항을 로그에 남김&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>권한 사용 감사&lt;/td>
+&lt;td>권한 설정 변경이나 관리자 권한이 필요한 작업을 수행할 때 로그에 남김&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>로그인 이벤트 감사&lt;/td>
+&lt;td>로컬 계정 접근 시 생성되는 이벤트를 감사&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>디렉터리 서비스 액세스 감사&lt;/td>
+&lt;td>액티브 디렉터리 개체에 접근하는 사용자에 대한 감사 로그&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>정책 변경 감사&lt;/td>
+&lt;td>사용자 권한 할당 정책, 감사 정책 또는 신뢰 정책의 변경과 관련된 사항을 로그에 남김&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>프로세스 추적 감사&lt;/td>
+&lt;td>프로세스를 시작하거나 중지할 때 해당 이벤트 발생&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>시스템 이벤트 감사&lt;/td>
+&lt;td>시스템의 시동과 종료, 보안 로그 삭제 등 시스템의 주요한 사항에 대한 이벤트를 남김&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="유닉스리눅스-로그">유닉스/리눅스 로그&lt;/h2>
+&lt;ul>
+&lt;li>로그를 &lt;code>여러 곳&lt;/code>에 저장&lt;/li>
+&lt;li>모두 파악하고 관리하기 어려움&lt;/li>
+&lt;li>다양한 로그들의 분석으로 공격자 추적 가능&lt;/li>
+&lt;/ul>
+&lt;h3 id="로그-종류">로그 종류&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>로그&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>utmp&lt;/td>
+&lt;td>현재 시스템에 로그인한 사용자의 상태를 출력&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>wtmp&lt;/td>
+&lt;td>사용자의 로그인/로그아웃, 시스템 종료/부팅 정보를 저장&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>sulog&lt;/td>
+&lt;td>su 명령어(계정 변경)에 대한 로그. 텍스트 형태로 저장&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>lastlog&lt;/td>
+&lt;td>각 사용자의 최근(마지막) 로그인 시각&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>acct/pacct&lt;/td>
+&lt;td>시스템에 로그인한 모든 사용자가 수행한 프로그램에 대한 정보를 저장&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>history&lt;/td>
+&lt;td>사용자별로 실행한 명령을 기록하는 로그. 텍스트 형태로 저장&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>btmp(Linux)&lt;/td>
+&lt;td>실패한 로그인 시도에 대한 로그&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>loginlog(Unix)&lt;/td>
+&lt;td>5회 이상 실패한 로그인 시도에 대한 로그&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>dmesg&lt;/td>
+&lt;td>부팅될 때 출력되는 모든 메시지를 기록&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>secure&lt;/td>
+&lt;td>원격 로그인 정보를 기록, TCP_WRAPPER(xinetd)의 접속제어에 관한 로그&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>messages&lt;/td>
+&lt;td>시스템 운영에 대한 전반적인 메시지를 저장&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="시스템-로그">시스템 로그&lt;/h3>
+&lt;ul>
+&lt;li>유닉스에서는 syslog에 의해 로그를 생성하고 관리
+&lt;ul>
+&lt;li>&lt;code>/etc/syslog.conf&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>syslogd
+&lt;ul>
+&lt;li>OS에 의해 자동 실행&lt;/li>
+&lt;li>어떤 로그를 어디에 남길지 결정&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>최근 리눅스는 기존 syslog를 개선한 rsyslog를 사용&lt;/li>
+&lt;/ul>
+&lt;h4 id="설정-파일">설정 파일&lt;/h4>
+&lt;pre>&lt;code>facility.priority action(logfile-location)
+&lt;/code>&lt;/pre>&lt;p>&lt;code>facility&lt;/code>에 대하여 &lt;code>priority&lt;/code>의 경우에 해당하는 상황이 발생 시 &lt;code>logfile-location&lt;/code> 파일에 기록&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>항목&lt;/th>
+&lt;th>도메인&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>facility&lt;/td>
+&lt;td>*(모든 서비스), auth, authpriv(xinetd, telnet 등), cron, ftp, kern, lpr, mail, ntp, security, syslog&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>priority&lt;/td>
+&lt;td>Emergency, Alert, Critical, Error, Warning, Notice, Info, Debug&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>action&lt;/td>
+&lt;td>로그를 어디에 남길지 결정&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>logfile-location&lt;/td>
+&lt;td>터미널/콘솔(/dev/console), 원격 로그 서버(@호스트주소), user(지정한 사용자 스크린), *(현재 로그인된 사용자)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="웹-서버-로그">웹 서버 로그&lt;/h2>
+&lt;h3 id="iis-웹-서버-로그">IIS 웹 서버 로그&lt;/h3>
+&lt;ul>
+&lt;li>기본 W3C 형식&lt;/li>
+&lt;li>주요 필드
+&lt;ul>
+&lt;li>date, time : 사용자가 페이지에 접속한 날짜와 시간&lt;/li>
+&lt;li>c-ip: 웹 페이지에 접속한 사용자 IP&lt;/li>
+&lt;li>cs-username : 웹 페이지에 접속한 사용자 계정&lt;/li>
+&lt;li>s-computername : 웹 서버 이름&lt;/li>
+&lt;li>s-ip,s-port: 웹 서버 IP, 웹 서버 포트&lt;/li>
+&lt;li>cs-method: HTTP 메소드&lt;/li>
+&lt;li>cs-url-stem: 요청 페이지&lt;/li>
+&lt;li>cs-url-query: 요청 파라미터&lt;/li>
+&lt;li>sc-status : 응답 코드&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="apache-웹-서버-로그">Apache 웹 서버 로그&lt;/h3>
+&lt;ul>
+&lt;li>access log: 클라이언트의 요청에 의해 웹 서버가 응답한 내용에 대한 로그&lt;/li>
+&lt;li>error log: 클라이언트의 요청에 의해 웹 서버에 오류가 발생한 내용에 대한 로그&lt;/li>
+&lt;/ul>
+&lt;h2 id="크래킹-sw">크래킹 S/W&lt;/h2>
+&lt;p>크래킹이란 악의적인 목적을 가지고 시스템에 침임하는 행위이다.&lt;/p>
+&lt;ul>
+&lt;li>John the Ripper: 패스워드 점검도구로 유명한 프로그램&lt;/li>
+&lt;li>pwdump: 윈도우에서 패스워드를 덤프하기 위한 프로그램&lt;/li>
+&lt;li>L0phtCrack: 패스워드 취약점 점검도구&lt;/li>
+&lt;li>ipccrack: 패스워드를 원격지에서 추측하여 취약점을 점검하는 프로그램&lt;/li>
+&lt;li>chntpw: 물리적으로 접근이 가능한 시스템에서 패스워드를 리셋시키는 프로그램&lt;/li>
+&lt;li>ERD Commander: 윈도우에서 패스워드를 복구하는 프로그램&lt;/li>
+&lt;li>키로거(Keylogger): 키보드로 입력한 정보를 로그로 남겨 실기간으로/정해진 시간에 공격자에게 전송&lt;/li>
+&lt;/ul>
+&lt;h2 id="서버보안용-sw">서버보안용 S/W&lt;/h2>
+&lt;ul>
+&lt;li>SATAN
+&lt;ul>
+&lt;li>시스템 보안상의 약점을 찾아 보완할 수 있는 네트워크 분석용 보안 관리 도구&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>SARA (UNIX)
+&lt;ul>
+&lt;li>SATAN 기반&lt;/li>
+&lt;li>HTML 형식의 보고서 기능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>SAINT (UNIX)
+&lt;ul>
+&lt;li>HTML 형식의 보고서 기능&lt;/li>
+&lt;li>원격에서 취약점을 점검하는 기능 포함&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>COPS (UNIX)
+&lt;ul>
+&lt;li>시스템 내부에 존재하는 취약점 점검&lt;/li>
+&lt;li>취약한 PW를 점검&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Nessus (대부분 OS)
+&lt;ul>
+&lt;li>클라이언트-서버 구조&lt;/li>
+&lt;li>클라이언트의 취약점을 점검하는 기능&lt;/li>
+&lt;li>GUI 인터페이스&lt;/li>
+&lt;li>다양한 포맷으로 결과 저장&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>nmap
+&lt;ul>
+&lt;li>포트 스캐닝 도구&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="무결성-점검-도구">무결성 점검 도구&lt;/h3>
+&lt;p>정상적인 상태의 디렉터리 및 파일 정보를 백업해두어 이전 정보와 현재 정보를 비교&lt;/p>
+&lt;ul>
+&lt;li>tripwire, MD5, Fcheck, AIDE 등&lt;/li>
+&lt;/ul>
+&lt;h3 id="스캔-탐지-도구">스캔 탐지 도구&lt;/h3>
+&lt;ul>
+&lt;li>mscan
+&lt;ul>
+&lt;li>메인 전체를 스캔하여 최근 많이 이용되는 주요 취약점을 한 번에 스캔&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>sscan
+&lt;ul>
+&lt;li>네트워크를 통해 취약점 점검을 수행할 수 있는 도구&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>portsentry
+&lt;ul>
+&lt;li>실시간으로 포트 스캔을 탐지하고 대응하기 위한 프로그램&lt;/li>
+&lt;li>공격 호스트를 경유하여 오는 모든 트래픽을 자동 재구성하는 기능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="침입탐지-및-방화벽">침입탐지 및 방화벽&lt;/h3>
+&lt;ul>
+&lt;li>Snort
+&lt;ul>
+&lt;li>실시간 트래픽 분석, IP 네트워크에서의 패킷 처리를 담당하는 IDS&lt;/li>
+&lt;li>버퍼오버플로우, stelth 포트 스캔, CGI 공격, SMB 프로브, OS 핑거프린팅 등 공격 감지&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>IPchain / IPtable
+&lt;ul>
+&lt;li>패킷 필터링 방화벽&lt;/li>
+&lt;li>인바운드, 아웃바운드 규칙 설정 가능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

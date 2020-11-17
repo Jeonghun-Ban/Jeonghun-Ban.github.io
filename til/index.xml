@@ -1,0 +1,63 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeonghun-Ban – Today I Learned</title><link>http://Jeonghun-Ban.github.io/til/</link><description>Recent content in Today I Learned on Jeonghun-Ban</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Mon, 16 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://Jeonghun-Ban.github.io/til/index.xml" rel="self" type="application/rss+xml"/><item><title>Til:</title><link>http://Jeonghun-Ban.github.io/til/readme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/readme/</guid><description>
+&lt;h1 id="today-i-learned">Today I Learned&lt;/h1>
+&lt;p>I have a lot of things to learn, but unfortunately I can&amp;rsquo;t learn everything at once.
+So I organize what today I learned in this repo.&lt;/p>
+&lt;h2 id="notice">Notice&lt;/h2>
+&lt;p>Now this repo has been changed for migration to hugo blog.
+If you want to see a previous version of the documents, &lt;a href="https://github.com/Jeonghun-Ban/TIL/tree/v1.0">click here&lt;/a>.&lt;/p></description></item><item><title>Til:</title><link>http://Jeonghun-Ban.github.io/til/zsh/oh-my-zsh-customization/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/zsh/oh-my-zsh-customization/</guid><description>
+&lt;h1 id="oh-my-zsh-customization">oh-my-zsh Customization&lt;/h1>
+&lt;h2 id="사용자-이름-표시-생략">사용자 이름 표시 생략&lt;/h2>
+&lt;p>방법은 크게 2가지 정도가 있는데, 모두 &lt;code>~/.zshrc&lt;/code>에 작성해주면 된다.&lt;/p>
+&lt;h3 id="기본-유저-변경">기본 유저 변경&lt;/h3>
+&lt;pre>&lt;code class="language-vi" data-lang="vi">DEFAULT_USER=&amp;quot;$(whoami)&amp;quot;
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>&lt;code>whoami&lt;/code>는 기본 유저를 지정하지 않을 때 사용&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="prompt-context">prompt context&lt;/h3>
+&lt;pre>&lt;code class="language-vi" data-lang="vi">prompt_context(){}
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>중괄호 사이에는 유저를 프롬프트에 표기하는 형식을 지정할 수 있다. 비워두면 유저명이 생략된다.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="멀티-라인-적용">멀티 라인 적용&lt;/h2>
+&lt;p>&lt;code>zsh&lt;/code>와 &lt;code>agnoster&lt;/code>를 이용해서 리눅스 개발환경을 깔끔하게 할 수 있다.
+만약 이때 경로가 너무 길어서 보기 불편하다거나, 경로가 표기되는 줄 이후에 명령줄이 나오면 좋겠다면 다음과 같은 방법으로 멀티 라인 적용이 가능하다.&lt;/p>
+&lt;pre>&lt;code class="language-vi" data-lang="vi"># 멀티라인 적용 함수
+prompt_newline() {
+if [[ -n $CURRENT_BG ]]; then
+echo -n &amp;quot;%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR
+%(?.%F{$CURRENT_BG}.%F{red})❯%f&amp;quot;
+else
+echo -n &amp;quot;%{%k%}&amp;quot;
+fi
+echo -n &amp;quot;%{%f%}&amp;quot;
+CURRENT_BG=''
+}
+&lt;/code>&lt;/pre>&lt;p>우선 위와 같은 코드를 &lt;code>~/.oh-my-zsh/themes/agnoster.zsh-theme&lt;/code> 파일에 작성해준다.&lt;/p>
+&lt;pre>&lt;code class="language-vi" data-lang="vi">## Main prompt
+build_prompt() {
+RETVAL=$?
+prompt_status
+prompt_virtualenv
+prompt_context
+prompt_dir
+prompt_git
+prompt_hg
+prompt_newline # 멀티라인 호출
+prompt_end
+}
+&lt;/code>&lt;/pre>&lt;p>&lt;code>~/.oh-my-zsh/themes/agnoster.zsh-theme&lt;/code> 하단에 위치한 build_prompt()에 &lt;code>prompt_newline&lt;/code>를 불러올 수 있도록 추가해준다.&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>참고자료&lt;/strong>
+&lt;a href="https://wayhome25.github.io/etc/2017/03/12/zsh-alias/">https://wayhome25.github.io/etc/2017/03/12/zsh-alias/&lt;/a>&lt;/p></description></item><item><title>Til:</title><link>http://Jeonghun-Ban.github.io/til/zsh/readme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/til/zsh/readme/</guid><description>
+&lt;h1 id="zsh">zsh&lt;/h1>
+&lt;ul>
+&lt;li>&lt;a href="zsh-syntax-highlighting.md">zsh-syntax-highlighting&lt;/a>&lt;/li>
+&lt;li>&lt;a href="disable-zsh-syntax-highlighting-underline.md">disable zsh-syntax-highlighting underline&lt;/a>&lt;/li>
+&lt;li>&lt;a href="oh-my-zsh-customization.md">oh-my-zsh customization&lt;/a>&lt;/li>
+&lt;li>&lt;a href="Change-Directory-Colors.md">Change Directory Colors&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="문제해결">문제해결&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="how-to-fix-a-corrupt-zsh-history-file.md">how to fix a corrupt zsh history file&lt;/a>&lt;/li>
+&lt;li>&lt;a href="zsh/Register-alias-on-zsh.md">Register alias on zsh&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
