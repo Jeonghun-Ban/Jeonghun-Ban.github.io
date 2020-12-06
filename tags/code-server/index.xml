@@ -1,0 +1,65 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeonghun-Ban – code-server</title><link>http://Jeonghun-Ban.github.io/tags/code-server/</link><description>Recent content in code-server on Jeonghun-Ban</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Thu, 03 Dec 2020 04:34:19 +0000</lastBuildDate><atom:link href="http://Jeonghun-Ban.github.io/tags/code-server/index.xml" rel="self" type="application/rss+xml"/><item><title>Post: code-server를 이용해서 웹 IDE 구축하기</title><link>http://Jeonghun-Ban.github.io/post/build-web-ide-using-code-server/</link><pubDate>Thu, 03 Dec 2020 04:34:19 +0000</pubDate><guid>http://Jeonghun-Ban.github.io/post/build-web-ide-using-code-server/</guid><description>
+&lt;h2 id="서론">서론&lt;/h2>
+&lt;p>최근 웹으로 접속하는 개발환경인 &lt;code>Web IDE&lt;/code>가 활발하게 활용되고 있다. 대표적으로 &lt;code>Cloud9&lt;/code>, &lt;code>Codeanywhere&lt;/code>, &lt;code>구름IDE&lt;/code> 등이 있는데, 깃헙에서도 &lt;a href="https://github.com/features/codespaces">Codespace&lt;/a>라는 이름으로 비슷한 서비스를 준비중에 있다. 나는 VSCode를 웹에서 바로 사용 가능하다는 점이 마음에 들어 미리보기를 신청했으나 아쉽게도 당첨되지 않았다..&lt;/p>
+&lt;p>그래서 방법을 찾던 중 &lt;code>code-server&lt;/code>이라는 오픈소스를 찾게 되었다. 해당 서비스는 VS Code를 웹 서버에서 동작할 수 있게 하는 프로젝트이다. &lt;code>MIT 라이선스&lt;/code>로 제공되는 오픈 소스인 만큼 조건 없이 사용 가능하다는 것도 장점이다. 군대에서 제약없이 코딩하고자 하는 나에게 있어서 최고의 선택지였다.&lt;/p>
+&lt;h2 id="개발-환경-구축">개발 환경 구축&lt;/h2>
+&lt;p>서론이 길었던 것 만큼 설치과정이 길거라고 생각한다면 그것은 큰 착각이다. 설치는 매우 간단하다. 다른 블로그 글을 참고해서 설치해보기도 했지만, 여타 방법보다는 &lt;a href="https://github.com/cdr/code-server">github repo&lt;/a>에 나와있는 설치법이 더 쉽고 빠르게 할 수 있다.&lt;/p>
+&lt;h3 id="설치-및-실행">설치 및 실행&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">curl -fsSL https://code-server.dev/install.sh | sh
+sudo systemctl enable --now code-server@$USER &lt;span style="color:#75715e"># 시스템 부팅 시 자동실행 등록&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>위 코드를 실행하면 &lt;code>code-server&lt;/code>를 설치하고 시스템 부팅 시 자동실행이 가능하도록 등록하는 과정까지 마치게 된다. 동시에 &lt;code>code-server&lt;/code>는 이미 동작 중에 있겠지만 바로 사용할 수는 없는데, 이는 기본적으로 &lt;code>localhost(127.0.0.1)&lt;/code>의 접속만 허용하기 때문이다. 따라서 외부에서 접속 가능하게 하는 설정이 필요하다.&lt;/p>
+&lt;h3 id="외부-접속-허용-및-비밀번호-설정">외부 접속 허용 및 비밀번호 설정&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">vi ~/.config/code-server/config.yaml
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>기본적으로 &lt;code>code-server&lt;/code>의 설정 파일은 위 경로에 위치한 &lt;code>config.yaml&lt;/code> 파일이다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#f92672">bind-addr&lt;/span>: &lt;span style="color:#ae81ff">0.0.0.0&lt;/span>:&lt;span style="color:#ae81ff">8080&lt;/span>
+&lt;span style="color:#f92672">auth&lt;/span>: &lt;span style="color:#ae81ff">password&lt;/span>
+&lt;span style="color:#f92672">password&lt;/span>: &lt;span style="color:#75715e">#설정할 비밀번호 입력&lt;/span>
+&lt;span style="color:#f92672">cert&lt;/span>: &lt;span style="color:#66d9ef">false&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>bind-addr&lt;/code>: 해당 서비스 주소&lt;/li>
+&lt;li>&lt;code>auth&lt;/code>: 패스워드 설정 여부&lt;/li>
+&lt;li>&lt;code>password&lt;/code>: 패스워드 지정&lt;/li>
+&lt;li>&lt;code>cert&lt;/code>: 인증서 설정&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>&lt;code>bind-addr&lt;/code>값을 &lt;code>127.0.0.1&lt;/code>에서 &lt;code>0.0.0.0&lt;/code>으로 변경하는 것은 외부에서 접속하는 것도 허용함을 의미한다.&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo systemctl restart code-server@$USER
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>모든 설정이 완료되었다면 &lt;code>code-server&lt;/code>를 재실행해준다. 이제 브라우저에서 &lt;code>ip-address:8080&lt;/code>으로 접속할 수 있게 되었다. 포트 번호를 넣지 않고 주소만으로 접속하고 싶다면 아래도 이어서 따라와주길 바란다.&lt;/p>
+&lt;h3 id="nginx-구축">Nginx 구축&lt;/h3>
+&lt;p>&lt;code>Nginx&lt;/code>는 &lt;code>Apache&lt;/code>와 같은 웹 서버 소프트웨어이다. 아파치가 이전에 많이 사용되었다면 최근 만들어지는 프로젝트의 다수는 Nginx로 구성하는 추세이다. 가벼우면서도 아차피보다 더 많은 프로세스를 감당할 수 있다는 장점도 있다.&lt;/p>
+&lt;p>이 Nginx는 &lt;code>포워드 프록시&lt;/code>라는 기능을 제공하는데 이를 활용하면 서버 ip주소만으로 서비스 포트가 8080인 &lt;code>code-server&lt;/code>를 접속할 수 있다.&lt;/p>
+&lt;h4 id="bind-addr-초기화">bind-addr 초기화&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">vi ~/.config/code-server/config.yaml &lt;span style="color:#75715e"># bind-addr: 127.0.0.1:8080&lt;/span>
+sudo systemctl restart code-server@$USER
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>해당 과정을 위해서는 &lt;code>code-server&lt;/code>의 &lt;code>bind-addr&lt;/code>를 localhost로 다시 설정해주어야 한다.&lt;/p>
+&lt;h4 id="nginx-설치">Nginx 설치&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo apt install -y nginx
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="etcnginxsites-availablecode-server-파일에-아래-설정-추가sudo-권한">&lt;code>/etc/nginx/sites-available/code-server&lt;/code> 파일에 아래 설정 추가(sudo 권한)&lt;/h4>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-nginx" data-lang="nginx">&lt;span style="color:#66d9ef">server&lt;/span> {
+&lt;span style="color:#f92672">listen&lt;/span> &lt;span style="color:#ae81ff">80&lt;/span>;
+&lt;span style="color:#f92672">listen&lt;/span> &lt;span style="color:#e6db74">[::]:80&lt;/span>;
+&lt;span style="color:#f92672">server_name&lt;/span> &lt;span style="color:#e6db74">mydomain.com&lt;/span>; &lt;span style="color:#75715e"># 도메인이 있다면 변경
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#f92672">location&lt;/span> &lt;span style="color:#e6db74">/&lt;/span> {
+&lt;span style="color:#f92672">proxy_pass&lt;/span> &lt;span style="color:#e6db74">http://localhost:8080/&lt;/span>;
+&lt;span style="color:#f92672">proxy_set_header&lt;/span> &lt;span style="color:#e6db74">Host&lt;/span> $host;
+&lt;span style="color:#f92672">proxy_set_header&lt;/span> &lt;span style="color:#e6db74">Upgrade&lt;/span> $http_upgrade;
+&lt;span style="color:#f92672">proxy_set_header&lt;/span> &lt;span style="color:#e6db74">Connection&lt;/span> &lt;span style="color:#e6db74">upgrade&lt;/span>;
+&lt;span style="color:#f92672">proxy_set_header&lt;/span> &lt;span style="color:#e6db74">Accept-Encoding&lt;/span> &lt;span style="color:#e6db74">gzip&lt;/span>;
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>80번 포트로 listen하고 해당 프록시를 localhost의 8080 포트로 pass하는 설정이다.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="설정-적용">설정 적용&lt;/h4>
+&lt;pre>&lt;code>sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s ../sites-available/code-server /etc/nginx/sites-enabled/code-server
+sudo systemctl reload nginx.service
+&lt;/code>&lt;/pre>&lt;p>설정이 제대로 적용되었다면 이후부터는 ip주소만으로 브라우저에서 &lt;code>code-server&lt;/code>을 이용할 수 있게 된다.&lt;/p>
+&lt;h3 id="버전-업데이트">버전 업데이트&lt;/h3>
+&lt;p>이 포스팅을 쓰는 도중에도 코드 서버는 &lt;code>v3.7.3&lt;/code>에서 &lt;code>v3.7.4&lt;/code>로 버전 업데이트가 이루어졌다. 몇 가지 버그 픽스와 기능 추가가 있는 작은 업데이트이었지만 &lt;code>code-server&lt;/code>는 접속할 때마다 새로운 버전이 나왔음을 알려주었다. 버전을 업데이트하는 방법은 매우 간단하다.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">curl -fsSL https://code-server.dev/install.sh | sh
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>설치할 때 사용한 코드를 동일하게 실행해주면 바로 적용된다. 이렇게 지속적으로 빠르게 업데이트가 되는 것은 이 프로젝트가 오픈 소스이기 때문에 얻을 수 있는 큰 장점이다. 이렇게 좋은 개발환경을 무료로 자유로이 사용할 수 있다는 것에 감사하고 있다.&lt;/p>
+&lt;h2 id="추가적인-설정">추가적인 설정&lt;/h2>
+&lt;p>이렇게 해서 개인 서버에 &lt;code>code-server&lt;/code>를 설치해서 웹 브라우저를 통해 접속할 수 있는 환경을 만들어 보았다. 공식 문서에서는 추가적으로 &lt;code>Nginx&lt;/code> 등을 활용하여 https 통신으로 암호화하는 것을 권장하는데, 자세한 내용은 &lt;a href="https://github.com/cdr/code-server/blob/v3.7.4/doc/guide.md">여기&lt;/a>를 통해 볼 수 있다. 해당 방법은 도메인네임이 있어야만 하므로 해당 비용을 감수하기 싫다면 굳이 진행하지 않아도 무관하다.&lt;/p></description></item></channel></rss>
